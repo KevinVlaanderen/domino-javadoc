@@ -1,0 +1,509 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Using the Domino classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Using the Domino classes</h1></center>
+
+<p>Domino Designer defines LotusScript classes that allow you to access Domino structures on two levels:</p>
+
+<ul>
+<li>The database (back-end) classes allow you to access named databases, views, documents, and other Domino objects. Both workstation and server users can run scripts that access database objects.</li>
+<li>The UI (front-end) classes allow you to access current objects that the user is working on. Only workstation users can run scripts that access UI objects.</li>
+</ul>
+
+<p>The following table outlines the LotusScript classes defined by Domino Designer:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Level</td>
+<td valign="top">Class</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">Database</td>
+<td valign="top"><a href="NotesACL.html">NotesACL</a></td>
+<td valign="top">Represents a collection of all the access control list entries for a database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesAdministrationProcess.html">NotesAdministrationProcess</a></td>
+<td valign="top">Represents the Administration Process.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesACLEntry.html">NotesACLEntry</a></td>
+<td valign="top">Represents a single entry in an access control list.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesAgent.html">NotesAgent</a></td>
+<td valign="top">Represents an agent.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesColorObject.html">NotesColorObject</a></td>
+<td valign="top">Represents a color.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDatabase.html">NotesDatabase</a></td>
+<td valign="top">Represents a Domino database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDateRange.html">NotesDateRange</a></td>
+<td valign="top">Represents a range of dates and times.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDateTime.html">NotesDateTime</a></td>
+<td valign="top">Provides a means to translate between LotusScript and Domino date/time formatting.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDbDirectory.html">NotesDbDirectory</a></td>
+<td valign="top">Represents the database files on a server or on the local machine.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDocument.html">NotesDocument</a></td>
+<td valign="top">Represents a document in a database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDocumentCollection.html">NotesDocumentCollection</a></td>
+<td valign="top">Represents a collection of documents.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMAttributeNode.html">NotesDOMAttributeNode</a> </td>
+<td valign="top">Represents an attribute in a NotesDOMElementNode object.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMCDATASectionNode.html">NotesDOMCDATASectionNode</a> </td>
+<td valign="top">Represents a CDATA section in the XML data source.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDOMCharacterDataNode.html">NotesDOMCharacterDataNode</a></td>
+<td valign="top">Represents character data in a DOM node.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMCommentNode.html">NotesDOMCommentNode</a> </td>
+<td valign="top">Represents a comment in the XML.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMDocumentFragmentNode.html">NotesDOMDocumentFragmentNode</a> </td>
+<td valign="top">Represents a document fragment in the XML.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMDocumentNode.html"> NotesDOMDocumentNode</a> </td>
+<td valign="top">Represents the entire XML document.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDOMDocumentTypeNode.html">NotesDOMDocumentTypeNode</a></td>
+<td valign="top">Represents a document type node.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMElementNode.html">NotesDOMElementNode</a> </td>
+<td valign="top">Represents an element in an XML document.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMEntityNode.html">NotesDOMEntityNode</a> </td>
+<td valign="top">Represents an entity in an XML document.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMEntityReferenceNode.html">NotesDOMEntityReferenceNode</a> </td>
+<td valign="top">Represents an entity reference in an XML document.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMNamedNodeMap.html">NotesDOMNamedNodeMap</a> </td>
+<td valign="top">Represents a list of attributes for an element node.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMNode.html">NotesDOMNode</a> </td>
+<td valign="top">A base class representing a single node in a DOM tree.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMNodeList.html">NotesDOMNodeList</a> </td>
+<td valign="top">Represents a list of the child nodes of an element node.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMNotationNode.html">NotesDOMNotationNode</a> </td>
+<td valign="top">Represents a notation declared in the DTD.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMParser.html">NotesDOMParser</a> </td>
+<td valign="top">Processes XML into a standard DOM tree structure.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMProcessingInstructionNode.html">NotesDOMProcessingInstructionNode</a> </td>
+<td valign="top">Represents a processing instruction.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMTextNode.html">NotesDOMTextNode</a> </td>
+<td valign="top">Represents the textual content of an element or attribute.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDOMXMLDeclNode.html">NotesDOMXMLDeclNode</a> </td>
+<td valign="top">Represents the version of XML being used.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDXLExporter.html">NotesDXLExporter</a></td>
+<td valign="top">Represents the conversion of Domino data to DXL (Domino XML) data.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesDXLImporter.html">NotesDXLImporter</a></td>
+<td valign="top">Represents the conversion of DXL (Domino XML) to Domino data.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesEmbeddedObject.html">NotesEmbeddedObject</a></td>
+<td valign="top">Represents embedded objects, links, and file attachments.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesForm.html">NotesForm</a></td>
+<td valign="top">Represents a form in a database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesInternational.html">NotesInternational</a></td>
+<td valign="top">Represents the international settings in the operating system.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesItem.html">NotesItem</a></td>
+<td valign="top">Represents a piece of data in a document.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesLog.html">NotesLog</a></td>
+<td valign="top">Represents actions and errors that occur during script execution.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesMIMEEntity.html">NotesMIMEEntity</a> </td>
+<td valign="top">Represents a NotesItem of type MIME.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesMIMEHeader.html">NotesMIMEHeader</a></td>
+<td valign="top">Represents a MIME header.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesName.html">NotesName</a></td>
+<td valign="top">Represents a user or server name.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesNewsletter.html">NotesNewsLetter</a></td>
+<td valign="top">Represents a summary document that contains information from, or links to, several other documents.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesNoteCollection.html">NotesNoteCollection</a></td>
+<td valign="top">Represents a collection of design and data elements in a database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesOutline.html">NotesOutline</a> </td>
+<td valign="top">Represents an outline in a database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesOutlineEntry.html">NotesOutlineEntry</a> </td>
+<td valign="top">Represents an entry in an outline.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRegistration.html">NotesRegistration</a></td>
+<td valign="top">Represents the registration of an ID file.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesReplication.html">NotesReplication</a> </td>
+<td valign="top">Represents the replication settings of a database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesReplicationEntry.html">NotesReplicationEntry</a> </td>
+<td valign="top">Represents the replication settings for a pair of servers in a database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRichTextDocLink.html">NotesRichTextDocLink</a></td>
+<td valign="top">Represents a doclink in a rich text item.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRichTextItem.html">NotesRichTextItem</a></td>
+<td valign="top">Represents items that can contain rich text.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRichTextNavigator.html">NotesRichTextNavigator</a></td>
+<td valign="top">Represents a means of navigation in a rich text item.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesRichTextParagraphStyle.html">NotesRichTextParagraphStyle</a> </td>
+<td valign="top">Represents rich text paragraph attributes.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRichTextRange.html">NotesRichTextRange</a></td>
+<td valign="top">Represents elements in a rich text item.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRichTextSection.html">NotesRichTextSection</a></td>
+<td valign="top">Represents a collapsible section in a rich text item.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRichTextStyle.html">NotesRichTextStyle</a></td>
+<td valign="top">Represents a rich text style.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRichTextTab.html">NotesRichTextTab</a></td>
+<td valign="top">Represents rich text tab attributes.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesRichTextTable.html">NotesRichTextTable</a></td>
+<td valign="top">Represents a table in a rich text item.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesSAXAttributeList.html">NotesSAXAttributeList</a> </td>
+<td valign="top">Represents the attributes of an element.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesSAXException.html">NotesSAXException</a> </td>
+<td valign="top">Represents information about errors which occur during SAX parsing.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesSAXParser.html">NotesSAXParser</a> </td>
+<td valign="top">Represents XML as a series of events using a SAX parser.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesSession.html">NotesSession</a></td>
+<td valign="top">Root of Domino database objects--for global attributes, context, and persistent information.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesStream.html">NotesStream</a></td>
+<td valign="top">Represents a stream of binary or character data.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesTimer.html">NotesTimer</a></td>
+<td valign="top">A mechanism for triggering an event every fixed number of seconds.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesView.html">NotesView</a></td>
+<td valign="top">Represents a named view of a database.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesViewColumn.html">NotesViewColumn</a></td>
+<td valign="top">Represents a column of a view.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesViewEntry.html">NotesViewEntry</a> </td>
+<td valign="top">Represents a view entry.  A view entry represents a row in a view.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesViewEntryCollection.html">NotesViewEntryCollection</a> </td>
+<td valign="top">Represents a collection of view entries, selected according to specific criteria.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesViewNavigator.html">NotesViewNavigator</a>  </td>
+<td valign="top">Represents a view navigator. A view navigator provides access to all or a subset of the entries in a view.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesXMLProcessor.html">NotesXMLProcessor</a></td>
+<td valign="top">Contains the properties and methods common to all DXL processes.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesXSLTransformer.html">NotesXSLTransformer</a></td>
+<td valign="top">Represents the transformation of DXL (Domino XML) through XSLT.</td>
+</tr>
+<tr>
+<td valign="top">UI</td>
+<td valign="top"><a href="#">Button</a></td>
+<td valign="top">Represents an action, button, or hotspot on a form or document.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="#">Field</a></td>
+<td valign="top">Represents a field on a form.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="#">Navigator</a></td>
+<td valign="top">Represents an object in a navigator.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesUIDatabase.html">NotesUIDatabase</a></td>
+<td valign="top">Represents the database that is currently open in the Domino workspace.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesUIDocument.html">NotesUIDocument</a></td>
+<td valign="top">Models the behavior of a Domino document window.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesUIScheduler.html">NotesUIScheduler</a></td>
+<td valign="top">Represents an embedded scheduler in a document.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesUIView.html">NotesUIView</a></td>
+<td valign="top">Represents the current database view.</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="NotesUIWorkspace.html">NotesUIWorkspace</a></td>
+<td valign="top">Provides access to the current workspace.</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">LotusScript Classes Coding Guidelines</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

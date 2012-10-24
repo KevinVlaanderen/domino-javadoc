@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing Domino sessions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing Domino sessions</h1></center>
+
+<p>The <a href="Session.html">Session class</a> is the root of the Domino Objects containment hierarchy, providing access to the other Domino objects, and represents the Domino environment of the current program.</p>
+
+<p>For local calls, the Domino environment is the local Domino directory, which can belong to a server or a user. For remote (IIOP) calls, the Domino environment is the server handling the remote requests.</p>
+
+<p>You can:</p>
+
+<ul>
+<li><a href="accessing_session_properties.html">Access session properties</a></li>
+<li><a href="using_environment_variables.html">Use environment variables</a></li>
+<li><a href="accessing_notes_agents.html">Access agents</a></li>
+<li><a href="accessing_international_settings.html">Access international settings</a></li>
+<li><a href="hashing_passwords.html">Hash passwords</a></li>
+<li><a href="locking_documents_and_design_elements.html">Lock documents and design elements</a></li>
+<li><a href="working_with_notes_time.html">Work with time</a></li>
+<li><a href="making_a_notes_log.html">Make a log</a></li>
+<li><a href="making_a_notes_newsletter.html">Make a newsletter</a></li>
+<li><a href="representing_a_name.html">Represent a name</a></li>
+<li><a href="representing_a_color.html">Represent a color</a></li>
+<li><a href="working_with_streams_of_data.html">Work with streams of data</a></li>
+<li><a href="building_a_note_collection.html">Build a note collection</a></li>
+</ul>
+
+<p>The Session class also contains the following methods for creating new Domino objects:</p>
+
+<ul>
+<li><a href="Session.html#createDateRange">createDateRange</a></li>
+<li><a href="Session.html#createDateTime">createDateTime</a></li>
+<li><a href="Session.html#createLog">createLog</a></li>
+<li><a href="Session.html#createName">createName</a></li>
+<li><a href="Session.html#createNewsletter">createNewsletter</a></li>
+<li><a href="Session.html#createRegistration">createRegistration</a></li>
+<li><a href="Session.html#createRichTextParagraphStyle">createRichTextParagraphStyle</a></li>
+<li><a href="Session.html#createRichTextStyle">createRichTextStyle</a></li>
+<li><a href="Session.html#getDatabase">getDatabase</a></li>
+<li><a href="Session.html#getDbDirectory">getDbDirectory</a></li>
+<li><a href="Session.html#getURLDatabase">getURLDatabase</a></li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="9_coding_guidelines.html">Java Classes Coding Guidelines</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

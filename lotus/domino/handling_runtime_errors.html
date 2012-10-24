@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Handling run-time errors</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Handling run-time errors</h1></center>
+
+<p>See "<a href="#">File contents</a>" for a list of error messages.</p>
+
+<p>The Domino Designer methods raise run-time errors to flag most conditions. To process errors, you must include an error-handling routine; if you do not, the script exits when an error occurs.</p>
+
+<p>Some methods return a status value or return Nothing as an object handle to flag a condition; in these cases, the return value can be checked before proceeding. Some properties indicate status, and can be checked after calling a method that affects the status value.</p>
+
+<p>For example, you can detect a failure of the New or Open method of <a href="NotesDatabase.html">NotesDatabase</a> through any of the following indicators:</p>
+
+<ul>
+<li>An attempt to use the object with a method that requires an open database raises the error lsERR_NOTES_DATABASE_NOTOPEN (4063). Be aware that the error occurs when you try to use the object after the open is attempted, not when the open is attempted. In addition, using properties of the object does not raise an error.</li>
+<li>The object property<a href="NotesDatabase.html#IsOpen"> IsOpen</a> is False.</li>
+<li>If you used the <a href="NotesDatabase.html#Open">Open method</a>, the return value is False.</li>
+</ul>
+
+<p>LotusScript raises run-time errors for many conditions, such as file errors and arithmetic exceptions. You must handle these errors if you do not want the script to exit on an error.</p>
+
+<p>To trap all errors, include an <a href="#">On Error statement</a> without an error number before any executable statements. To trap a specific error, include an On Error statement with the error number before the statement that might cause the error. However, the On Error statements with numbers must follow the On Error statement without a number. For example, if you want to trap the errors lsERR_NOTES_DATABASE_NOTOPEN and ErrObjectVariableNotSet plus any other errors, you need to write the following On Error statements in the following order:</p>
+
+<pre>On Error Goto processError
+On Error lsERR_NOTES_DATABASE_NOTOPEN Goto _
+processErrDatabaseDoesNotExist
+On Error ErrObjectVariableNotSet Goto processErrObjectVariableNotSet</pre>
+
+<p>The error constants are defined in the following files in the Domino data directory. You must include the appropriate file or files in the (Declarations) event of the object to access the error constants. You can create a script library with the %include statements, and then use that script library in the options section.</p>
+
+<ul>
+<li>lsxbeerr.lss defines constants for errors raised by Domino Designer back-end methods.</li>
+<li>lsxuierr.lss defines constants for errors raised by Domino Designer front-end (UI) methods.</li>
+<li>lserr.lss defines constants for errors raised by LotusScript.</li>
+<li>lsconst.lss defines constants for use as arguments in LotusScript statements and functions.</li>
+</ul>
+
+<p><a href="#">Details</a></p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">LotusScript Classes Coding Guidelines</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

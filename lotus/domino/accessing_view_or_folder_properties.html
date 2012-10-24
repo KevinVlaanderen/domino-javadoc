@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing view properties</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing view properties</h1></center>
+
+<p>The following methods access the View properties.</p>
+
+<ul>
+<li>
+<a href="View.html#Aliases">getAliases</a> returns a vector of String values containing the aliases of the view or folder, or null if there are no aliases; <a href="View.html#Aliases">setAliases</a> (with a Vector parameter) sets the aliases from a vector of String values. The method <a href="View.html#setAliases">setAliases</a> (with a String parameter) sets the aliases from a single String value.</li>
+<li>
+<a href="View.html#AllEntries">getAllEntries</a> returns a ViewEntryCollection object representing all the document entries in the view or folder.</li>
+<li>
+<a href="View.html#BackgroundColor">getBackgroundColor</a> returns an int value containing a color code for the background color of the view or folder; <a href="View.html#BackgroundColor">setBackgroundColor</a> sets the background color.</li>
+<li>
+<a href="View.html#ColumnCount">getColumnCount</a> returns an int value containing the number of columns in the view or folder.</li>
+<li>
+<a href="View.html#ColumnNames">getColumnNames</a> returns a vector of String values containing the names of the columns in the view or folder.</li>
+<li>
+<a href="View.html#Columns">getColumns</a> returns a vector of ViewColumn objects representing the columns in the view or folder.</li>
+<li>
+<a href="View.html#Created">getCreated</a> returns a DateTime object representing the creation date and time of the view or folder.</li>
+<li>
+<a href="View.html#EntryCount">getEntryCount</a> returns an int value containing the number of documents in a view.</li>
+<li>
+<a href="View.html#HeaderLines">getHeaderLines</a> returns an int value containing the number of lines in the header of the view or folder.</li>
+<li>
+<a href="View.html#HttpURL">getHTTPURL</a> returns a String value containing the HTTP URL of a view.</li>
+<li>
+<a href="View.html#IsAutoUpdate">isAutoUpdate</a> returns true if the front-end view is updated each time a change occurs in the back-end and false if the updates occur when the program ends; <a href="View.html#IsAutoUpdate">setAutoUpdate</a> causes updates to occur automatically or not.</li>
+<li>
+<a href="View.html#IsCalendar">isCalendar</a> returns true if this is a calendar view.</li>
+<li>
+<a href="View.html#IsCategorized">isCategorized</a> returns true if the view or folder is categorized.</li>
+<li>
+<a href="View.html#IsConflict">isConflict</a> returns true if a calendar view is enabled for conflict checking.</li>
+<li>
+<a href="View.html#IsDefaultView">isDefaultView</a> returns true if this is the default view; <a href="View.html#IsDefaultView">setDefaultView</a> set this as the default view.</li>
+<li>
+<a href="View.html#IsFolder">isFolder</a> returns true if this is a folder.</li>
+<li>
+<a href="View.html#IsHierarchical">isHierarchical</a> returns true if a view or folder shows response documents in a hierarchy.</li>
+<li>
+<a href="View.html#IsModified">isModified</a> returns true if the view is modified.</li>
+<li>
+<a href="View.html#IsProhibitDesignRefresh">isProhibitDesignRefresh</a> returns true if a design refresh or replace cannot overwrite the view; <a href="View.html#IsProhibitDesignRefresh">setProhibitDesignRefresh</a> allows the view to be overwritten or not.</li>
+<li>
+<a href="View.html#IsProtectReaders">isProtectReaders</a> returns true if the $Readers field is protected from being overwritten during replication; <a href="View.html#IsProtectReaders">setProtectReaders</a> protects the $Readers field or not.</li>
+<li>
+<a href="View.html#LastModified">getLastModified</a> returns a DateTime object representing the modification date and time of the view or folder.</li>
+<li>
+<a href="View.html#Name">getName</a> returns a String value containing the name of the view or folder; <a href="View.html#Name">setName</a> sets the name.</li>
+<li>
+<a href="View.html#NotesURL">getNotesURL</a> returns a String value containing the Notes URL of a view.</li>
+<li>
+<a href="View.html#Parent">getParent</a> returns a Database object representing the database containing the view or folder.</li>
+<li>
+<a href="View.html#Readers">getReaders</a> returns a vector of String values containing the contents of the $Readers field for the view or folder, or null; <a href="View.html#Readers">setReaders</a> sets the value of the $Readers field.</li>
+<li>
+<a href="View.html#RowLines">getRowLines</a> returns an int value containing the number of lines in each row.</li>
+<li>
+<a href="View.html#SelectionFormula">getSelectionFormula</a> returns a String value containing the view's selection formula <a href="View.html#SelectionFormula">setSelectionFormula</a> sets the selection formula.</li>
+<li>
+<a href="View.html#Spacing">getSpacing</a> returns an int value containing a code for the spacing between rows; <a href="View.html#Spacing">setSpacing</a> sets the spacing.</li>
+<li>
+<a href="View.html#TopLevelEntryCount">getTopLevelEntryCount</a> returns an int value containing the number of top-level entries in a view.</li>
+<li>
+<a href="View.html#UniversalID">getUniversalID</a> returns a String value containing the universal ID of the view or folder.</li>
+<li>
+<a href="View.html#ViewInheritedName">getViewInheritedName</a> returns a String value containing the name of the view whose design this view inherits.</li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="ways_to_access_notes_views_and_folders.html">Accessing views and folders</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

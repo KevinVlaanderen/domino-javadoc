@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Security for agents on servers and the Web</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Security for agents on servers and the Web</h1></center>
+
+<p>For agents created and run in Notes databases stored on servers or run from the Web, you can set up several levels of security controls to prevent unauthorized operations. </p>
+
+<h3>Who can create agents?</h3>
+
+<p>To control who can create agents that run on servers, use database ACLs. </p>
+
+<p>Note:  Web users cannot create agents.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">To create</td>
+<td valign="top">Access needed</td>
+</tr>
+<tr>
+<td valign="top">Private agents</td>
+<td valign="top">Reader access or higher and must have "Create private agents" enabled in the ACL</td>
+</tr>
+<tr>
+<td valign="top">Private agents using LotusScript and Java</td>
+<td valign="top">Reader access or higher and must have "Create private agents" and "Create LotusScript/Java agents" enabled in the ACL</td>
+</tr>
+<tr>
+<td valign="top">Shared agents using simple actions and formulas</td>
+<td valign="top">Designer access or higher</td>
+</tr>
+<tr>
+<td valign="top">Shared agents using LotusScript or Java agents</td>
+<td valign="top">Designer access or higher and must have "Create LotusScript/Java agents" enabled in the ACL</td>
+</tr>
+</table>
+
+<h3>Who can run agents?</h3>
+
+<p>To control who can run agents on servers, use the Server document in the Domino Directory and database ACLs. See the topic "Controlling agents that run on a server" in the Lotus Domino Administrator Help for more information.</p>
+
+<h3>Private agents</h3>
+
+<p>To control who can run private agents, open the Server document in the Address Book and click the Security tab. In the Programmability Restrictions section:</p>
+
+<ul>
+<li>If everyone who can access the server can run private agents, leave "Run private agents" blank. </li>
+<li>If only specific users can run private agents, specify their names in "Run private agents."</li>
+</ul>
+
+<p>Web users cannot run private agents.</p>
+
+<h3>Shared agents</h3>
+
+<p>To control who can run shared agents, use the database ACL. Users with Reader access or higher can run shared agents. </p>
+
+<ul>
+<li>If users are allowed to run shared agents, assign them Reader access or higher. </li>
+<li>If users are not allowed to run shared agents, do not list them in the ACL or assign them Depositor access. </li>
+</ul>
+
+<h3>LotusScript/Java agents</h3>
+
+<p>LotusScript and Java include operations that have full access to the server’s system and can manipulate system time, file I/O, and operating system commands. Users or groups with unrestricted access can run an agent that includes any of these operations in the LotusScript and Java components. Users or groups with restricted access can include most operations. The only <a href="#">restricted commands</a> are those that allow access to the server’s system. </p>
+
+<h3>Caution</h3>
+
+<p>  Unrestricted Java and LotusScript agents can potentially violate security. Only a limited number of trusted users should have unrestricted rights.</p>
+
+<h3>Where can agents run?</h3>
+
+<p>To control whether agents are allowed to run on servers, use the Server document in the Address Book. Click the Security tab. In the Server Access section: </p>
+
+<ul>
+<li>If everyone running an agent that accesses the server is allowed to access the server, leave "Access server" blank. </li>
+<li>If you don’t want users accessing the server either directly or through agents, specify the user names in "Access server." Then, if a user who is not specified attempts to run an agent that accesses the server, the agent is not run. You can also specify user names in "Not access server."</li>
+</ul>
+
+<h3>Note </h3>
+
+<p> These restrictions apply to agents running from other servers or from a client. Agents that are already scheduled to run on the server will not be affected by the Server Access section. </p>
+
+<h3>What operations can agents run?</h3>
+
+<p>To control which documents agents can process, Domino checks the ACL of the database where the documents are stored, as follows:</p>
+
+<ul>
+<li>For agents that use simple actions, LotusScript, and Java, Domino checks the user’s ACL.</li>
+<li>For agents that use formulas, Domino checks the replica ID of the database in which the agents were created. Therefore, to ensure that agents using formulas can access documents in other databases, you must list the database replica ID in each database the agent will access.</li>
+</ul>
+
+<p>To control whether agents are allowed to create databases, use the Server document in the Address Book. Click the Security tab. In the Server Access Section: </p>
+
+<ul>
+<li>If everyone is allowed to create databases, leave "Create new databases" blank. Then, anyone running an agent that creates new databases can do so on the server. </li>
+<li>If you don’t want users creating databases, specify the user names of people allowed to create databases in "Create new databases." Then, if a user who is not specified runs an agent that creates a database, an error is reported and the database is not created.</li>
+</ul>
+
+<h3>When are restrictions checked?</h3>
+
+<p>Domino checks the security restrictions differently depending on whether the agent is running:</p>
+
+<ul>
+<li>Locally or on the server</li>
+<li>In the foreground or background</li>
+<li>If the agent is started from the Web or the Notes client</li>
+</ul>
+
+<h3>Locally on Notes</h3>
+
+<p>An agent runs locally when:</p>
+
+<ul>
+<li>It runs within a Notes client database.</li>
+<li>You choose "Local" from the "Run on" list for a scheduled agent.</li>
+<li>A user starts the agent from the Actions menu in the Notes client, from the Agent - Run menu in Designer, from the "When documents Have Been Pasted" trigger, or from calling the agent by agent.run.</li>
+</ul>
+
+<p>When an agent runs locally, Notes does not check security restrictions, unless you have set the Enforce ACL option. (To set the Enforce ACL option, choose File - Database - Access Control and then click the Advanced icon.) </p>
+
+<h3>On the server</h3>
+
+<p>An agent runs on the server when it is running in a database stored on a server and it is started by one of the following:</p>
+
+<ul>
+<li>Before new mail arrives</li>
+<li>After new mail arrives</li>
+<li>If documents have been created or updated</li>
+<li>On schedule more than once a day</li>
+<li>On schedule daily</li>
+<li>On schedule weekly</li>
+<li>On schedule monthly</li>
+<li>Called by an agent via agent.runonserver (the agent being called must reside on the server)</li>
+</ul>
+
+<p>If the agent is running on a server, Domino checks all security restrictions. </p>
+
+<h3>Foreground or background</h3>
+
+<p>An agent runs in the foreground when a user starts it from the Notes Actions menu, selects it from the Designer Agents list, or clicks an Action button. When agents run in the foreground, security restrictions are not checked. </p>
+
+<p>An agent runs in the background when it is scheduled or it is triggered by an event (for example, when documents are modified) or when it is called by agent.runonserver. When agents run in the background, Domino checks security restrictions.</p>
+
+<h3>From the Notes client or the Web</h3>
+
+<p>Agents run in the Notes client or on the Web based on the effective user. The effective user is the user under whose authority the agent runs. The effective user depends on the environment in which the agent runs.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Agent type</td>
+<td valign="top">Effective user</td>
+</tr>
+<tr>
+<td valign="top">Notes client agent</td>
+<td valign="top">Current user ID</td>
+</tr>
+<tr>
+<td valign="top">Web agent</td>
+<td valign="top">One of the following:<br>
+<ul>
+<li>Current Web user</li>
+<li>Agent signer (agent owner)</li>
+<li>On behalf of (set in the Security tab of the Agent Properties box).</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td valign="top">Scheduled agent</td>
+<td valign="top">Either:<br>
+Agent signer (agent owner) <br>
+On behalf of (set in the Security tab of the Agent Properties box).</td>
+</tr>
+</table>
+
+<p>When a user runs an agent from the Notes client, the agent runs with the rights of the effective user, which is the current User ID. </p>
+
+<p>When a Web user runs an agent, the agent also runs using the rights of the effective user and Domino checks the effective user's rights to access the database. However, you can set up the agent so that Domino checks the invoker’s rights to access the database instead of the effective user’s rights. Checking the invoker’s rights can provide more security.</p>
+
+<p>To specify that Domino verify the invoker's access to the database, follow these steps:</p>
+
+<p>  1.	Double-click an agent name in the agent list.</p>
+
+<p>  2.	Click the Security tab. </p>
+
+<p>  3.	Check "Run as Web user."</p>
+
+<p>When "Run as Web user" is checked, Domino prompts Web users for their name and password when they attempt to run the agent. Domino uses the login information to check for the invoker’s rights in the database ACL. </p>
+
+<h3>Security controls for agents that are called by agents</h3>
+
+<p>When agents call other agents, Domino checks the security restrictions for each agent. However, when the agent signers are different, Domino checks security as follows:</p>
+
+<ul>
+<li>If the first agent uses simple actions or formulas:</li>
+</ul>
+
+<p>Domino checks all agents that are called against the rights of the signer of the first agent.</p>
+
+<ul>
+<li>If the first agent uses LotusScript or Java:</li>
+</ul>
+
+<p>Domino checks each agent that is called against the rights of the signer of each agent. </p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Creating an agent</a><br>
+<a href="#">Setting up agent security using the Security tab</a><br>
+<a href="#">Troubleshooting agents</a><br>
+<a href="#">Actions and agents names</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

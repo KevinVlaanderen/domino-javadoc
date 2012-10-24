@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>InViewEdit event</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>InViewEdit event</h1></center>
+
+<p>Allows the user to edit a document through its view column entries. Occurs as follows:</p>
+
+<p>  1.	Query: when the user enters an editable view column entry.</p>
+
+<p>  2.	Validate: when the user exits an editable view column entry.</p>
+
+<p>  3.	Save: after validation of one or more view column entries in an existing document.</p>
+
+<p>  4.	New entry: after validation of one or more view column entries in a new document.</p>
+
+<p>Note:  This event is new with Release 6.</p>
+
+<h3>InViewEdit(Source As NotesUIView, RequestType As Integer, ColProgName As Variant, ColumnValue As Variant, Continue As Variant)</h3>
+
+<h3>Parameters</h3>
+
+<h3>Source</h3>
+
+<p>NotesUIView. Read-only. The current view.</p>
+
+<h3>RequestType</h3>
+
+<p>Integer. Read-only. The current event request:</p>
+
+<ul>
+<li>1 for a query request</li>
+</ul>
+
+<h3>Note </h3>
+
+<p> For Release 6.0 request 1 is reserved. It should not be used.</p>
+
+<ul>
+<li>2 for a validate request</li>
+<li>3 for a save request</li>
+<li>4 for a new entry request</li>
+</ul>
+
+<h3>ColProgName</h3>
+
+<p>Array of type String. Read-only.</p>
+
+<ul>
+<li>For query and validate requests: the programmatic name of the current column, in element 0.</li>
+<li>For save and new entry requests: the programmatic names of the columns being processed, starting in element 0.</li>
+</ul>
+
+<h3>ColumnValue</h3>
+
+<p>Array of type Variant. The elements of this array correspond to those of ColProgName.</p>
+
+<ul>
+<li>For query and validate requests: the text of the current column entry, in element 0.</li>
+<li>For save and new entry requests: the text of the column entries being processed, starting in element 0.</li>
+</ul>
+
+<h3>Continue</h3>
+
+<p>Boolean. Read-write. Indicates whether or not a query or validate request proceeds. Initially set to True. Set this parameter to False to stop processing and generate an error message. This parameter does not apply to save and new entry requests.</p>
+
+<h3>Usage</h3>
+
+<p>This event occurs only for an editable column. See "<a href="#">Allowing users to edit or create documents from a view</a>" to learn how to design editable columns.</p>
+
+<p>Use <a href="#">CaretNoteID</a> to get the Note ID of the document containing the item represented by the current view column entry. If the user is creating a new document, this property has a value of "0" for the query request.</p>
+
+<p>Making the programmatic name of a column the same as the name of the item associated with the column facilitates processing. You can then use the names in the ColProgName array to get and set item values.</p>
+
+<p>The user clicks on or tabs to an editable column to edit it. A box opens containing the existing value which the user can then modify before clicking or tabbing out.</p>
+
+<p>To process editable column entries in an existing document:</p>
+
+<ul>
+<li>Check ColumnValue(0) during the validation request and set Continue to False if the value is in error.</li>
+<li>Write all the values in ColumnValue to their associated items during the save request.</li>
+</ul>
+
+<p>To process editable column entries in a new document:</p>
+
+<ul>
+<li>Exit if CaretNoteID has "0" for a value.</li>
+<li>Check ColumnValue(0) during the validation request and set Continue to False if the value is in error.</li>
+<li>Write all the values in ColumnValue to their associated items during the new entry request.</li>
+</ul>
+
+<p>The query and validate requests act upon one column entry. For efficiency, the save and new entry requests may act upon accumulated column entries.</p>
+
+<p>A special case is a column that represents the item as an icon. You change the icon by writing to the item represented by the view column entry in a save request. Each time the user clicks on the column entry, your save code executes.</p>
+
+<p>When you create a script that responds to this event, Notes creates the syntax of the event for you (including the parameters). You do not need to type it in.</p>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

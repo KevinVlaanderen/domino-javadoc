@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>AppletBase and JAppletBase classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>AppletBase and JAppletBase classes</h1></center>
+
+<p>Applets must extend AppletBase or JAppletBase and use notesAppletInit(), notesAppletStart(), and notesAppletStop() as the entry points for their functional code. Use openSession() or openSession(String user, String pwd) to create a Session object.</p>
+
+<p>The JAppletBase class is the same as AppletBase except that it imports com.sun.java.swing.* and extends JApplet rather than Applet.</p>
+
+<p>For more information, see "<a href="compiling_and_running.html">Running a Java program</a>" in the chapter "Java Classes Coding Guidelines."</p>
+
+<h3>Skeleton for Java applets that use Domino Objects</h3>
+
+<p>This code demonstrates the essentials for an applet that uses Domino Objects. AppletBase distinguishes between local and remote (IIOP) access, and uses NotesThread for local access in the main applet code. See the next section if the applet creates threads.</p>
+
+<pre>import lotus.domino.*;
+public class foo extends AppletBase
+{
+  // User declarations
+  public void notesAppletInit()
+  {
+    // User initialization code, for example, to set up a TextArea object
+ }
+  public void notesAppletStart()
+  {
+    Session s = null;
+    try
+    {
+      // Can also do openSession(user, pwd)
+      s = this.openSession();
+      if (s == null) { //not able to make the connection, warn user
+        ta.append("Unable to create a session with the server");
+        return;
+      }
+      // User code for main activities
+    }
+    catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+    finally
+    {
+      try {this.closeSession(s);}
+      catch(NotesException e) {e.printStackTrace();}
+    }
+  }
+}</pre>
+
+<h3>Applets that create threads including AWT handlers</h3>
+
+<p>If an applet creates a thread that uses Domino Objects, the thread code must explicitly use NotesThread for local access to Domino Objects. Thread creation includes the handling of AWT events. Use AppletBase.isLocal to determine the applet's status.</p>
+
+<p>The following code should go at the beginning of the thread before calling any Domino Objects:</p>
+
+<pre>if (isNotesLocal())
+{
+  NotesThread.sinitThread();
+}</pre>
+
+<p>The following code should go at the end of the thread (for example, the finally block) after calling any Domino Objects:</p>
+
+<pre>if (isNotesLocal)
+{
+  NotesThread.stermThread();
+}</pre>
+
+<h3>Specification of AppletBase</h3>
+
+<p>The specification (public methods) of the AppletBase class is as follows:</p>
+
+<pre>public class AppletBase extends Applet 
+        implements DominoAppletBase {
+    public Session getSession() throws NotesException;
+    public Session getSession(String user, String pwd)
+        throws NotesException;
+    public Session openSession() throws NotesException;
+    public Session openSession(String user, String pwd)
+        throws NotesException;
+    public void closeSession(Session session) 
+        throws NotesException;
+    public final void init();
+    public void notesAppletInit();
+    public final void start();
+    public void notesAppletStart();
+    public final void stop();
+    public void notesAppletStop();
+    public final void destroy();
+    public void notesAppletDestroy();
+    public boolean isNotesLocal();
+    public NotesAppletContext getContext(Session session)
+        throws NotesException
+}</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="supporting_components.html">Supporting components</a><br>
+<a href="compiling_and_running.html">Running a Java program</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: NumberAttrib property</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: NumberAttrib property</h1></center>
+
+<p>  1.	This agent displays the number attributes for a column.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      View view = db.getView("All Documents");
+      ViewColumn vc = view.getColumn(6);
+      if ((vc.getNumberAttrib() &amp; ViewColumn.ATTR_PARENS) != 0)
+        System.out.println("Parentheses on negative numbers");
+      else
+        System.out.println("No parentheses on negative numbers");
+      if ((vc.getNumberAttrib() &amp; ViewColumn.ATTR_PERCENT) != 0)
+        System.out.println("Percent sign");
+      else
+        System.out.println("No percent sign");
+      if ((vc.getNumberAttrib() &amp; ViewColumn.ATTR_PUNCTUATED) != 0)
+        System.out.println("Punctuated");
+      else
+        System.out.println("No punctuated");
+        
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  2.	This agent sets a column for parentheses on negative numbers, punctuation at thousandths, and not to display as a percentage.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      View view = db.getView("All Documents");
+      ViewColumn vc = view.getColumn(6);
+      vc.setNumberAttrib(ViewColumn.ATTR_PARENS |
+        ViewColumn.ATTR_PUNCTUATED);
+        
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  3.	This agent sets a column to display as a percentage without losing any other attributes that are set.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      View view = db.getView("All Documents");
+      ViewColumn vc = view.getColumn(6);
+      vc.setNumberAttrib(vc.getNumberAttrib() |
+        ViewColumn.ATTR_PERCENT);
+        
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  4.	To set a number attribute without disturbing the others, use a logical construct of the following form:</p>
+
+<pre>vc.getNumberAttrib() | ViewColumn.ATTR_PARENS</pre>
+
+<p>To set two number attributes without disturbing the others, use a logical construct of the following form:</p>
+
+<pre>vc.getNumberAttrib() | ViewColumn.ATTR_PARENS |
+ViewColumn.ATTR_PUNCTUATED</pre>
+
+<p>To unset a number attribute without disturbing the others, use a logical construct of the following form:</p>
+
+<pre>vc.getNumberAttrib() &amp; ~ViewColumn.ATTR_PARENS</pre>
+
+<p>To unset two number attributes without disturbing the others, use a logical construct of the following form:</p>
+
+<pre>vc.getNumberAttrib() &amp; (~(ATTR_PARENS | ATTR_PUNCTUATED))</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="ViewColumn.html#NumberAttrib">NumberAttrib property</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

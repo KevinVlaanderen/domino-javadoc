@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing database properties</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing database properties</h1></center>
+
+<p>The following table lists the NotesDatabase properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ACL</a></td>
+<td valign="top">NotesACL</td>
+<td valign="top">(Read-only) Access control list for a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ACLActivityLog</a></td>
+<td valign="top">String array</td>
+<td valign="top">(Read-only) Log from the access control list</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#Agents">Agents</a></td>
+<td valign="top">NotesAgent array</td>
+<td valign="top">(Read-only) Agents in a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#AllDocuments">AllDocuments</a></td>
+<td valign="top">NotesDocumentCollection</td>
+<td valign="top">(Read-only) All the documents in a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Categories</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) Categories under which a database appears in a database catalog</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Created</a></td>
+<td valign="top">Date/Time</td>
+<td valign="top">(Read-only) Date and time a database was created</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CurrentAccessLevel</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) User's access level to a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">DelayUpdates</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True will delay (batch) server input/output for better performance</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">DesignTemplateName</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Database design template, if any</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FileFormat</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Database ODS (on-disk structure) version</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#FileName">FileName</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Database file name</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#FilePath">FilePath</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Database file path</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FolderReferencesEnabled</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Determines what folders, if any, a document is in</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#Forms">Forms</a></td>
+<td valign="top">NotesForm array</td>
+<td valign="top">(Read-only) Forms in a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FTIndexFrequency</a></td>
+<td valign="top">Integer constant</td>
+<td valign="top">(Read-write) Update frequency of a database's full-text index</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">HttpURL</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The HTTP URL of a database.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsClusterReplication</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if cluster replication is in effect for a database on a server in a cluster.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsConfigurationDirectory</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) Indicates if a database is a Configuration Directory database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsCurrentAccessPublicReader</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) Indicates if the current user has public reader access in a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsCurrentAccessPublicWriter</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) Indicates if the current user has public writer access in a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsDesignLockingEnabled</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Indicates if design elements can be locked.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsDocumentLockingEnabled</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Indicates if documents can be locked.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#IsDirectoryCatalog">IsDirectoryCatalog</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) Indicates if a database is a Directory Catalog database</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#IsFTIndexed">IsFTIndexed</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if a database is full-text indexed</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsInMultiDbIndexing</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if a database is set for "Include in multi-database indexing"</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsInService</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if a database on a server on a cluster is accessible</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsLink</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if a database is the target of a link</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsMultiDbSearch</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the search index is multi-database</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#IsOpen">IsOpen</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if a database is open</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsPendingDelete</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if a database on a server in a cluster is marked for deletion.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#IsPrivateAddressBook">IsPrivateAddressBook</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if a database is a Personal Address Book; only valid through AddressBooks in NotesSession</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#IsPublicAddressBook">IsPublicAddressBook</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if a database is a Domino Directory; only valid through AddressBooks in NotesSession</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">LastFixup</a></td>
+<td valign="top">Date/Time</td>
+<td valign="top">(Read-only) Date and time that a database was last checked by the Fixup task</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#LastFTIndexed">LastFTIndexed</a></td>
+<td valign="top">Date/Time</td>
+<td valign="top">(Read-only) Date and time a full-text index, if any, was last updated</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">LastModified</a></td>
+<td valign="top">Date/Time</td>
+<td valign="top">(Read-only) Date and time a database was last modified</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">LimitRevisions</a></td>
+<td valign="top">Double</td>
+<td valign="top">(Read-write) Maximum number of entries allowed in $Revisions field</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#LimitUpdatedBy">LimitUpdatedBy</a></td>
+<td valign="top">Double</td>
+<td valign="top">(Read-write) Maximum number of entries allowed in $UpdatedBy field</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ListInDbCatalog</a></td>
+<td valign="top">Double</td>
+<td valign="top">(Read-write) True if a database appears in database catalogs</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Managers</a></td>
+<td valign="top">String array</td>
+<td valign="top">(Read-only) Users that have Manager access to a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">MaxSize</a></td>
+<td valign="top">Double</td>
+<td valign="top">(Read-only) Shows the maximum size assigned to a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">NotesURL</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The Notes URL of a database.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#Parent">Parent</a></td>
+<td valign="top">NotesSession</td>
+<td valign="top">(Read-only) Session that contains a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">PercentUsed</a></td>
+<td valign="top">Double</td>
+<td valign="top">(Read-only) Percent of the total size of a database that is occupied by real data</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ReplicaID</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Database replica ID in hexadecimal</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#ReplicationInfo">ReplicationInfo</a></td>
+<td valign="top">NotesReplication</td>
+<td valign="top">(Read-only) Provides access to a NotesReplication object</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#Server">Server</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of the server containing a database</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Size</a></td>
+<td valign="top">Double</td>
+<td valign="top">(Read-only) Database size, in bytes</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SizeQuota</a></td>
+<td valign="top">Long</td>
+<td valign="top">(Read-write) Database size quota, if any; you must be an administrator to write</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SizeWarning</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-write) The size warning threshold of a database, in kilobytes; you must be an administrator to write</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">TemplateName</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Database template name, if database is a template</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Title</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) Database title</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Type</a></td>
+<td valign="top">Integer constant</td>
+<td valign="top">(Read-only) Database type</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">UndeleteExpireTime</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-write) Expiration time for soft deletions in hours</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#UnprocessedDocuments">UnprocessedDocuments</a></td>
+<td valign="top">NotesDocumentCollection</td>
+<td valign="top">(Read-only) All documents not yet processed in agent or view</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html#Views">Views</a></td>
+<td valign="top">NotesView array</td>
+<td valign="top">(Read-only) Named views in a database</td>
+</tr>
+</table>
+
+<p>For further details on accessing the properties and methods of a database, see the Usage section in the <a href="NotesDatabase.html">NotesDatabase</a> class topic.</p>
+
+<p>Use <a href="#">Fixup</a> to run the Fixup task on a database.</p>
+
+<p>Use <a href="NotesDatabase.html#CreateFTIndex">CreateFTIndex</a> and <a href="#">RemoveFTIndex</a> to create and remove full-text indexes.</p>
+
+<p>Use <a href="#">GetOption</a> and <a href="#">SetOption</a> to get and set database options.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing Domino databases</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Domino URL Commands</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Domino URL Commands</h1></center>
+
+<p>A URL command combines a specific URL with a command that manipulates an item such as a document or view. Adding Domino URL commands as HTML in forms gives users shortcuts for navigating databases and performing other tasks quickly.</p>
+
+<h3>The Domino URL command syntax</h3>
+
+<p>Domino URL commands have the syntax:</p>
+
+<p>http://Host/DominoObject?Action&amp;Arguments</p>
+
+<p>Where</p>
+
+<ul>
+<li>Host = a DNS entry or an IP address</li>
+<li>DominoObject = a Domino construct (for example, a database, view, document, form, navigator, agent, and so on).URL commands for accessing DominoObjects use the following syntax: http://Host/Database/DominoObject?Action&amp;Arguments where Database = the database in which the DominoObject resides.</li>
+<h3>  </h3>
+
+
+
+<li>Action = the desired operation on the specified DominoObject (For example, ?OpenDatabase, ?OpenView, ?OpenDocument, ?EditDocument, ?OpenForm, and so on).</li>
+<li>Arguments = a qualifier of the action (for example, Count = 10 combined with the ?OpenView action limits the number of rows displayed in a view to 10).</li>
+</ul>
+
+<h3>Syntax Guidelines</h3>
+
+<ul>
+<li>Domino URLs do not use the server name. Host identifies the server.</li>
+<li>You can specify the maximum size and other limits of a URL command in the Server record, in fields listed under the Internet Protocols -HTTP tab.</li>
+<li>Special identifiers used in Domino URL commands include: $defaultView, $defaultForm, $searchForm, $file, $icon, $help, $about, and $first.</li>
+<li>DominoObject can be any of the following: for a database, the database name or replica ID; for other objects, the DominoObject’s name, universal ID, or special identifier. For example, to specify a view in a URL, you can use any of the following: the view name, view universal ID, or $defaultView.</li>
+<li>A Notes database can be specified by its file name, for example leads.nsf, or by placing a double underscore before the replica ID and adding an .nsf suffix to the end. For example,specify __852562F3007ABFD6.nsf</li>
+<h3> </h3>
+
+
+
+<li>A DominoObject’s name and universal ID are identical in all replicas of a database. One name or alias can refer to two objects -- for example, two forms with the same name when one is hidden from Notes users and one is hidden from Web users.</li>
+<li>Action can be explicit or implicit.Examples of explicit actions include ?OpenDatabase, ?OpenView, ?OpenDocument, ?OpenForm, and ?EditDocument. Examples of implicit actions include ?Open, ?Edit, and ?Delete. If you do not specify an action, Domino defaults to the ?Open action. </li>
+<h3> </h3>
+
+
+
+<li>To require user authentication, append the Login argument to any Domino URL.</li>
+<li>Because URLs cannot contain spaces, use the + (plus sign) or the hex value %20 to represent a space. For example: </li>
+</ul>
+
+<p>http://www.mercury.com/discussion.nsf/By+Author</p>
+
+<p>Http://www.mercury.com/discussion.nsf/By%20Author</p>
+
+<ul>
+<li>If a name contains a mixture of spaces and the "+" character, it may be necessary to use %20 to indicate the space.  For example, if the document's key is "Smith + Jones" then</li>
+</ul>
+
+<p>http://www.mercury.com/leads.nsf/ByCompany/Smith%20%2B%20Jones?OpenDocument</p>
+
+<p>and</p>
+
+<p>http://www.mercury.com/leads.nsf/ByCompany/Smith%20+%20Jones?OpenDocument</p>
+
+<p>will work but</p>
+
+<p>http://www.mercury.com/leads.nsf/ByCompany/Smith+++Jones?OpenDocument</p>
+
+<p>will not.</p>
+
+<ul>
+<li>Where a name or argument contains a symbol that is not part of the URL syntax or would conflict with URL syntax, such as plus signs (+), slashes (\ or /), or ampersands (&amp;), use the escaped form %xx (where xx is the hex ascii value) to represent the symbol.  For example, the following URL opens the document which has the key value "Smith&amp;Jones, Inc.":</li>
+</ul>
+
+<p>Http://www.mercury.com/leads.nsf/By%20Company/Smith%26Jones,%20Inc.?OpenDocument</p>
+
+<ul>
+<li>Slashes and backslashes in URL path components are not distinguishable, even if escaped.  (This is because the first step in URL processing is to unescape all escaped characters and to change '\' to '/'.)  The result is that some names will be ambiguous or not addressable.  For example while two views, one named "a/b\c/d" and the other "a\b/c\d" are different in the designer, they cannot be named uniquely with a URL.</li>
+<li>Document keys containing slashes and/or backslashes are addressable with the following restrictions:</li>
+<li>You must supply the ?OpenDocument command argument in the URL.  For example if the document key is "Smith/Jones"  the following URL will find the document:</li>
+</ul>
+
+<p>http://www.mercury.com/leads.nsf/ByCompany/Smith/Jones?OpenDocument</p>
+
+<p>but this one will result in "Error 404 - Entry not found in index":</p>
+
+<p>http://www.mercury.com/leads.nsf/ByCompany/Smith/Jones</p>
+
+<ul>
+<li>The document title as stored in the database must use all "/" or "\".  If it uses a mixture, it won't be found.</li>
+<li>Using slashes (both kinds) in view names along with slashes in document titles may result in ambiguities and "unreachable" documents.   If you have a view named "a" which has a document in it titled "b/c", and a view named "a\b" which contains a document "c", the URL /database.nsf/a/b/c?OpenDocument will open the document in the view a/b.</li>
+<li>Document titles which begin or end with the "/" or "\" character won't be found.</li>
+<li>The percent character ("%") is not allowed in a URL, even in "escaped" form.  This is to help prevent attacks which attempt to mask their intent by escaping the escape character.</li>
+<li>Separate arguments with an ampersand (&amp;). For example: </li>
+</ul>
+
+<p>http://www.mercury.com/leads.nsf/By+Salesperson?OpenView&amp;ExpandView</p>
+
+<ul>
+<li>Separate hierarchical names with a slash (/). For example, to open a view named Docs\By Author in a database named Discussion, enter:</li>
+</ul>
+
+<p>http://www.mercury.com/discussion.nsf/Docs/By+Author</p>
+
+<ul>
+<li>If you are generating your own URLs for any part of an application, use simple aliases whenever possible to avoid URLs with unsupported characters. </li>
+<li>URL commands may also refer to databases with .nsf4, .nsf5, .nsf6 or .box suffixes. They may also refer to template files (.ntf), but these databases can only be opened in preview mode.</li>
+<li>Selecting "Web access: Use JavaScript when generating pages" in Database properties will enable you to compute URLs attached to buttons and hotspots on the Click event. If this option is not selected, URLs attached to buttons and hotspots will be computed when the page is generated. Enabling this property can be useful if you're using editable fields on a form.</li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">URL commands for opening servers, databases, and views</a><br>
+<a href="#">URL commands for opening framesets</a><br>
+<a href="#">URL commands for opening agents, forms, and navigators</a><br>
+<a href="#">URL commands for creating, deleting, editing, opening, and saving documents</a><br>
+<a href="#">URL commands for opening documents by key</a><br>
+<a href="#">URL commands for opening pages</a><br>
+<a href="#">URL commands for opening attachments, image files, and OLE objects</a><br>
+<a href="#">URL commands for searching for text </a><br>
+<a href="#">Using Next and Previous buttons or hotspots with Start and Count parameters</a><br>
+<a href="#">URL commands for required authentication</a><br>
+<a href="#">URL commands for processing SSL certificates</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

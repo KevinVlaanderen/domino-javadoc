@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: Working with text in Java classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: Working with text in Java classes</h1></center>
+
+<p>  1.	This agent gets the text in a rich text item a paragraph at a time.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      DocumentCollection dc = agentContext.getUnprocessedDocuments();
+      Document doc = dc.getFirstDocument();
+      RichTextItem body = (RichTextItem)doc.getFirstItem("Body");
+      RichTextNavigator rtnav = body.createNavigator();
+      if (rtnav.findFirstElement(
+      RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH)) {
+        RichTextRange rtrange = body.createRange();
+        int count = 0;
+        do {
+          count++;
+          rtrange.setBegin(rtnav);
+          System.out.println(
+            count + ") " + rtrange.getTextParagraph());
+        } while (rtnav.findNextElement());
+      }
+      else
+        System.out.println("No text in Body item");
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  2.	This agent gets the paragraphs in a rich text item, and the runs within each paragraph.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      DocumentCollection dc = agentContext.getUnprocessedDocuments();
+      Document doc = dc.getFirstDocument();
+      RichTextItem body = (RichTextItem)doc.getFirstItem("Body");
+      RichTextNavigator rtnav = body.createNavigator();
+      if (rtnav.findFirstElement(
+      RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH)) {
+        RichTextRange rtrange = body.createRange();
+      //  RichTextNavigator rtnav2 = body.createNavigator();
+        RichTextRange rtrange2 = body.createRange();
+        int count = 0;
+        do {
+          count++;
+          // Set range for paragraph
+          rtrange.setBegin(rtnav);
+          rtrange.setEnd(rtnav);
+          // Create navigator for paragraph
+          RichTextNavigator rtnav2 = rtrange.getNavigator();
+          // Find text runs in paragraph
+          if (rtnav2.findFirstElement(
+          RichTextItem.RTELEM_TYPE_TEXTRUN)) {
+            int count2 = 0;
+            do {
+              count2++;
+              // Set range for text run
+              rtrange2.setBegin(rtnav2);
+              rtrange2.setEnd(rtnav2);
+              // Print text of run
+              System.out.println(
+              count + ", " + count2 + ") " + rtrange2.getTextRun
+            } while (rtnav2.findNextElement(
+                RichTextItem.RTELEM_TYPE_TEXTRUN));
+          }
+        } while (rtnav.findNextElement(
+            RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH));
+      }
+      else
+        System.out.println("No text in Body item");
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  3.	This agent creates a rich text item and populates it with two paragraphs of text.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      Document doc = db.createDocument();
+      doc.appendItemValue("Form", "MainTopic");
+      doc.appendItemValue("Subject",
+        "CreateRichTextItem");
+      // Create rich text item and append text
+      RichTextItem rti = doc.createRichTextItem("Body");
+      rti.appendText("First paragraph.");
+      rti.addNewLine(1);
+      rti.appendText("Second paragraph.");
+      doc.save(true, true);
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  4.	This example creates a rich text item and uses several styles for the appended text.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      Document doc = db.createDocument();
+      doc.appendItemValue("Form", "Memo");
+      doc.appendItemValue("Subject",
+        "Meeting time changed");
+      // Create 2 styles
+      RichTextStyle rts1 = session.createRichTextStyle();
+      rts1.setBold(RichTextStyle.NO);
+      rts1.setFontSize(12);
+      RichTextStyle rts2 = session.createRichTextStyle();
+      rts2.setBold(RichTextStyle.YES);
+      rts2.setFontSize(18);
+      // Create rich text item and append styles and text
+      RichTextItem rti = doc.createRichTextItem("Body");
+      rti.appendStyle(rts1);
+      rti.appendText("The meeting is at ");
+      rti.appendStyle(rts2);
+      rti.appendText("2 PM");
+      rti.appendStyle(rts1);
+      rti.appendText(" not 3 PM.");
+      doc.send("MyGroup");
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  5.	This example creates a rich text paragraph style and displays its properties.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      RichTextParagraphStyle rtps = session.createRichTextParagraphStyle();
+      // Alignment
+      switch (rtps.getAlignment()) {
+        case RichTextParagraphStyle.ALIGN_CENTER:
+          System.out.println("Alignment: Center"); break;
+        case RichTextParagraphStyle.ALIGN_FULL:
+          System.out.println("Alignment: Full"); break;
+        case RichTextParagraphStyle.ALIGN_LEFT:
+          System.out.println("Alignment: Left"); break;
+        case RichTextParagraphStyle.ALIGN_NOWRAP:
+          System.out.println("Alignment: No wrap"); break;
+        case RichTextParagraphStyle.ALIGN_RIGHT:
+          System.out.println("Alignment: Right"); break;
+      }
+      // First line left margin
+      float margin = rtps.getFirstLineLeftMargin();
+      System.out.println("First line left margin (inches): " +
+        (margin / RichTextParagraphStyle.RULER_ONE_INCH));
+      System.out.println("First line left margin (centimeters): " +
+        (margin / RichTextParagraphStyle.RULER_ONE_CENTIMETER));
+      // Interline spacing
+      switch (rtps.getInterLineSpacing()) {
+        case RichTextParagraphStyle.SPACING_DOUBLE:
+          System.out.println("Interline spacing: Double"); break;
+        case RichTextParagraphStyle.SPACING_ONE_POINT_50:
+          System.out.println("Interline spacing: 1.5"); break;
+        case RichTextParagraphStyle.SPACING_SINGLE:
+          System.out.println("Interline spacing: Single"); break;
+      }
+      // Left margin
+      margin = rtps.getLeftMargin();
+      System.out.println("Left margin (inches): " +
+        (margin / RichTextParagraphStyle.RULER_ONE_INCH));
+      System.out.println("Left margin (centimeters): " +
+        (margin / RichTextParagraphStyle.RULER_ONE_CENTIMETER));
+      // Right margin
+      margin = rtps.getRightMargin();
+      System.out.println("Right margin (inches): " +
+        (margin / RichTextParagraphStyle.RULER_ONE_INCH));
+      System.out.println("Right margin (centimeters): " +
+        (margin / RichTextParagraphStyle.RULER_ONE_CENTIMETER));
+      // Spacing above
+      switch (rtps.getSpacingAbove()) {
+        case RichTextParagraphStyle.SPACING_DOUBLE:
+          System.out.println("Spacing above: Double"); break;
+        case RichTextParagraphStyle.SPACING_ONE_POINT_50:
+          System.out.println("Spacing above: 1.5"); break;
+        case RichTextParagraphStyle.SPACING_SINGLE:
+          System.out.println("Spacing above: Single"); break;
+      }
+      // Spacing below
+      switch (rtps.getSpacingBelow()) {
+        case RichTextParagraphStyle.SPACING_DOUBLE:
+          System.out.println("Spacing below: Double"); break;
+        case RichTextParagraphStyle.SPACING_ONE_POINT_50:
+          System.out.println("Spacing below: 1.5"); break;
+        case RichTextParagraphStyle.SPACING_SINGLE:
+          System.out.println("Spacing below: Single"); break;
+      }
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  6.	This example changes styles and paragraph styles in a rich text item.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      Document doc = db.createDocument();
+      doc.appendItemValue("Form", "MainTopic");
+      doc.appendItemValue("Subject", "Q1 report");
+      // Create rich text item and append styles and text
+      RichTextItem rti = doc.createRichTextItem("Body");
+      RichTextParagraphStyle rtps = session.createRichTextParagraphStyle();
+      RichTextStyle rts = session.createRichTextStyle();
+        // Heading
+      rtps.setAlignment(RichTextParagraphStyle.ALIGN_CENTER);
+      rtps.setSpacingBelow(RichTextParagraphStyle.SPACING_ONE_POINT_50);
+      rts.setBold(RichTextStyle.YES);
+      rti.appendStyle(rts);
+      rti.appendParagraphStyle(rtps);
+      rti.appendText("Q1 Report");
+      rti.addNewLine(1);
+        // Regular paragraphs
+      rtps.setAlignment(RichTextParagraphStyle.ALIGN_LEFT);
+      rtps.setSpacingBelow(RichTextParagraphStyle.SPACING_SINGLE);
+      rts.setBold(RichTextStyle.NO);
+      rti.appendStyle(rts);
+      rti.appendParagraphStyle(rtps);
+      rti.appendText("Blah. Blah. Blah.");
+      doc.save(true, true);
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

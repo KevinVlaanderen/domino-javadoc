@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing an outline</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing an outline</h1></center>
+
+<p>You can access and create outlines in a database as follows:</p>
+
+<ul>
+<li>
+<a href="Database.html#getOutline">getOutline</a> in Database returns an Outline object representing an existing outline.</li>
+<li>
+<a href="Database.html#createOutline">createOutline</a> in Database returns an Outline object representing a newly created outline.</li>
+</ul>
+
+<p>The <a href="Outline.html">Outline</a> class provides access to properties through the following methods:</p>
+
+<ul>
+<li>
+<a href="Outline.html#Alias">getAlias</a> returns a String value containing the programming name of an outline; <a href="Outline.html#Alias">setAlias</a> sets the value.</li>
+<li>
+<a href="Outline.html#Comment">getComment</a> returns a String value containing an informational description of an outline; <a href="Outline.html#Comment">setComment</a> sets the value.</li>
+<li>
+<a href="Outline.html#Name">getName</a> returns a String value containing the name of an outline; <a href="Outline.html#Name">setName</a> sets the value.</li>
+<li>
+<a href="Outline.html#ParentDatabase">getParentDatabase</a> returns a Database object representing the parent database of an outline.</li>
+</ul>
+
+<p>The <a href="Outline.html#getChild">getChild</a>, <a href="Outline.html#getFirst">getFirst</a>, <a href="Outline.html#getFirst">getLast</a>, <a href="Outline.html#getNext">getNext</a>, <a href="Outline.html#getNextSibling">getNextSibling</a>, <a href="Outline.html#getPrev">getPrev</a>, and <a href="Outline.html#getPrevSibling">getPrevSibling</a> methods return OutlineEntry objects that represent entries in the outline. The <a href="Outline.html#addEntry">addEntry</a>, <a href="Outline.html#createEntry">createEntry</a>, <a href="Outline.html#moveEntry">moveEntry</a>, and <a href="Outline.html#removeEntry">removeEntry</a> methods manipulate entries in the outline. You must <a href="Outline.html#save">save</a> an outline after manipulating an entry.</p>
+
+<p>The <a href="OutlineEntry.html">OutlineEntry class</a> provides access to properties through the following methods:</p>
+
+<ul>
+<li>
+<a href="OutlineEntry.html#Alias">getAlias</a> returns a String value containing the programming name of an outline entry.</li>
+<li>
+<a href="OutlineEntry.html#Database">getDatabase</a> returns a Database object representing the link for a database outline entry.</li>
+<li>
+<a href="OutlineEntry.html#Document">getDocument</a> returns a Database object representing the link for a database outline entry.</li>
+<li>
+<a href="OutlineEntry.html#EntryClass">getEntryClass</a> returns an int constant containing the class of entry.</li>
+<li>
+<a href="OutlineEntry.html#Formula">getFormula</a> returns a String value containing the formula of an action outline entry.</li>
+<li>
+<a href="OutlineEntry.html#FrameText">getFrameText</a> returns a String value containing the name of the entry's frame; <a href="OutlineEntry.html#FrameText">setFrameText</a> sets the value.</li>
+<li>
+<a href="OutlineEntry.html#HasChildren">hasChildren</a> returns true if the entry has child entries.</li>
+<li>
+<a href="OutlineEntry.html#HideFormula">getHideFormula</a> returns a String value containing the hide formula, if any; <a href="OutlineEntry.html#HideFormula">setHideFormula</a> sets the value.</li>
+<li>
+<a href="OutlineEntry.html#ImagesText">getImagesText</a> returns a String value containing the name of the entry's frame; <a href="OutlineEntry.html#ImagesText">setImagesText</a> sets the value.</li>
+<li>
+<a href="OutlineEntry.html#IsHidden">isHidden</a> returns true if the entry is hidden in the current user context; <a href="OutlineEntry.html#IsHidden">setHidden</a> sets the entry hidden in both the Notes client and a Web browser.</li>
+<li>
+<a href="OutlineEntry.html#IsHiddenFromNotes">isHiddenFromNotes</a> returns true if the entry is hidden in the Notes client; <a href="OutlineEntry.html#IsHiddenFromNotes">setHiddenFromNotes</a> sets the entry hidden in the Notes client.</li>
+<li>
+<a href="OutlineEntry.html#IsHiddenFromWeb">isHiddenFromWeb</a> returns true if the entry is hidden in a Web browser; <a href="OutlineEntry.html#IsHiddenFromWeb">setHiddenFromWeb</a> sets the entry hidden in a Web browser.</li>
+<li>
+<a href="OutlineEntry.html#IsInThisDB">isInThisDB</a> returns true if entry refers to an element in the current database.</li>
+<li>
+<a href="OutlineEntry.html#IsPrivate">isPrivate</a> returns true if an entry is specific to an individual.</li>
+<li>
+<a href="OutlineEntry.html#KeepSelectionFocus">getKeepSelectionFocus</a> returns true if the entry keeps selection focus; <a href="OutlineEntry.html#KeepSelectionFocus">setKeepSelectionFocus</a> sets the value.</li>
+<li>
+<a href="OutlineEntry.html#Label">getLabel</a> returns a String value containing the entry label; <a href="OutlineEntry.html#Label">setLabel</a> sets the value.</li>
+<li>
+<a href="OutlineEntry.html#Level">getLevel</a> returns an int value containing the level of the entry.</li>
+<li>
+<a href="OutlineEntry.html#NamedElement">getNamedElement</a> returns a String value containing the name for a named element outline entry.</li>
+<li>
+<a href="OutlineEntry.html#Parent">getParent</a> returns the parent outline of the specified entry.</li>
+<li>
+<a href="OutlineEntry.html#Type">getType</a> returns an int constant containing the type of entry.</li>
+<li>
+<a href="OutlineEntry.html#URL">getURL</a> returns a String value containing the formula of an action outline entry.</li>
+<li>
+<a href="OutlineEntry.html#UseHideFormula">getUseHideFormula</a> returns true if the entry uses the hide formula; <a href="OutlineEntry.html#UseHideFormula">setUseHideFormula</a> sets the value.</li>
+<li>
+<a href="OutlineEntry.html#View">getView</a> returns a View object representing the link for a view outline entry.</li>
+</ul>
+
+<p>You can set class and type attributes with the following methods:</p>
+
+<ul>
+<li>
+<a href="OutlineEntry.html#setAction">setAction</a> specifies the formula for an outline entry.</li>
+<li>
+<a href="OutlineEntry.html#setNoteLink">setNoteLink</a> sets the link for a database, document, or view outline entry.</li>
+<li>
+<a href="OutlineEntry.html#setURL">setURL</a> specifies the URL for an outline entry.</li>
+<li>
+<a href="OutlineEntry.html#setNamedElement">setNamedElement</a> specifies the database and named element for an outline entry.</li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="ways_to_access_notes_databases.html">Accessing databases</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

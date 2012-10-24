@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Locking documents and design elements</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Locking documents and design elements</h1></center>
+
+<p>Locks permit you to synchronize multi-user access to documents and the following design elements: agents, forms, and views.</p>
+
+<p>To permit locking in a database:</p>
+
+<ul>
+<li>The database must have an administration (master lock) server. You can set and check the administration server with <a href="ACL.html#AdministrationServer">NotesACL.AdministrationServer</a>.</li>
+<li>Locking must be enabled. You can set and check locking through:</li>
+<li><a href="Database.html#IsDocumentLockingEnabled">NotesDatabase.IsDocumentLockingEnabled</a></li>
+<li>
+<a href="Database.html#IsDesignLockingEnabled">NotesDatabase.IsDesignLockingEnabled</a>.</li>
+</ul>
+
+<p>The following methods manipulate locks:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Document</td>
+<td valign="top">Agent</td>
+<td valign="top">Form</td>
+<td valign="top">View</td>
+</tr>
+<tr>
+<td valign="top"><a href="Document.html#LockHolders">getLockHolders</a></td>
+<td valign="top"><a href="Agent.html#LockHolders">getLockHolders</a></td>
+<td valign="top"><a href="Form.html#LockHolders">getLockHolders</a></td>
+<td valign="top"><a href="View.html#LockHolders">getLockHolders</a></td>
+</tr>
+<tr>
+<td valign="top"><a href="Document.html#lock">lock</a></td>
+<td valign="top"><a href="Agent.html#lock">lock</a></td>
+<td valign="top"><a href="Form.html#lock">lock</a></td>
+<td valign="top"><a href="View.html#lock">lock</a></td>
+</tr>
+<tr>
+<td valign="top"><a href="Document.html#lockProvisional">lockProvisional</a></td>
+<td valign="top"><a href="Agent.html#lockProvisional">lockProvisional</a></td>
+<td valign="top"><a href="Form.html#lockProvisional">lockProvisional</a></td>
+<td valign="top"><a href="View.html#lockProvisional">lockProvisional</a></td>
+</tr>
+<tr>
+<td valign="top"><a href="Document.html#unlock">unLock</a></td>
+<td valign="top"><a href="Agent.html#unlock">unLock</a></td>
+<td valign="top"><a href="Form.html#unlock">unLock</a></td>
+<td valign="top"><a href="View.html#unlock">unLock</a></td>
+</tr>
+</table>
+
+<p>To apply a lock, call lock or lockProvisional. The first parameter specifies the lock holder or holders, and defaults to the effective user. The lockHolders property returns the current lock holders.</p>
+
+<p>A lock is:</p>
+
+<ul>
+<li>Persistent if the administration server is available and lock is called. If the administration server is not available and provisional locks are not permitted (second parameter to lock is false), an error is raised.</li>
+<li>Provisional if the administration server is not available, lock is called, and the second parameter is true; or lockProvisional is called.</li>
+</ul>
+
+<p>To serialize or otherwise limit access to a document or design element, apply lock or lockProvisional and examine the return status:</p>
+
+<ul>
+<li>true means either:</li>
+<li>No lock is in effect and your lock is applied.</li>
+<li>A lock is in effect but the effective user is one of the lock holders. The lock stays in effect.</li>
+<li>false means a lock is in effect and the effective user is not one of the lock holders.</li>
+</ul>
+
+<p>The typical protocol is to proceed on true, and to exit or wait on false.</p>
+
+<p>Locks are not supported in Web applications.</p>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

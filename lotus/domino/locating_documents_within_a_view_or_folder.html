@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Locating documents within a view or folder in LotusScript classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Locating documents within a view or folder in LotusScript classes</h1></center>
+
+<p>First, find and set the view or folder to a NotesView object using the <a href="NotesDatabase.html#GetView">GetView method</a> or the <a href="NotesDatabase.html#Views">Views property</a> of a NotesDatabase object.</p>
+
+<p>Note:  Views or folders must be public views or folders or private views or folders owned by the effective id running the agent and stored in the database.  You cannot use LotusScript to access private views or folders stored in the desktop.</p>
+
+<h3>Traversing a view</h3>
+
+<p>Use the <a href="NotesView.html#GetFirstDocument">GetFirstDocument</a> (or <a href="NotesView.html#GetLastDocument">GetLastDocument</a>) method of NotesView, followed by a loop of <a href="NotesView.html#GetNextDocument">GetNextDocument</a> (or <a href="#">GetPrevDocument</a>) methods to traverse all the documents in a view or folder.</p>
+
+<h3>Getting a document at a known position in a view</h3>
+
+<p>Use the <a href="#">GetNthDocument</a> of NotesView to get a document at a known position within the top-level (main) documents of a view or folder. This method does not access response documents.</p>
+
+<h3>Subsetting a view with a full-text search</h3>
+
+<p>The <a href="NotesView.html#FTSearch">FTSearch method</a> of NotesView creates a subset of the view or folder consisting of documents that match a search query. The search query, specified as the first argument of FTSearch, is a string that meets the rules for full-text search queries. The rules require that a search entity be a single word or multiple words enclosed in quotes (double quotes in a LotusScript string constant). Search entities can include ? and * wildcards, and can be combined by ! (not), &amp; (and), and | (or) operators.</p>
+
+<p>A database does not need to be full-text indexed for a search to work, but the search is slower. The <a href="NotesDatabase.html#UpdateFTIndex">UpdateFTIndex method</a> of NotesDatabase creates or updates a full-text index. The <a href="NotesDatabase.html#IsFTIndexed">IsFTIndexed property</a> of NotesDatabase tests for the existence of an index.</p>
+
+<p>After creating the subset view or folder, traverse it using <a href="NotesView.html#GetFirstDocument">GetFirstDocument</a> (or <a href="NotesView.html#GetLastDocument">GetLastDocument</a>) of NotesView and <a href="NotesView.html#GetNextDocument">GetNextDocument</a> (or <a href="#">GetPrevDocument</a>). The subsetted view is flat; that is, no response hierarchy exists.</p>
+
+<p>Use the <a href="NotesView.html#Clear">Clear method</a> of NotesView to restore the full view or folder.</p>
+
+<h3>Subsetting a view with a sorted column key</h3>
+
+<p>Use the <a href="NotesView.html#GetDocumentByKey">GetDocumentByKey method</a> to find the first document in a view or folder that matches specified character strings in the sorted columns. For example, if columns 1 and 2 are sorted, you can specify one character string to find a match in the first column, or two strings to find a match in the second column after the first column is matched. You can specify a partial or exact match on the keys.</p>
+
+<p>Use the <a href="NotesView.html#GetAllDocumentsByKey">GetAllDocumentsByKey method</a> to find all documents in a view or folder that match specified character strings in the sorted columns. This technique does not set the ColumnValues property in the retrieved documents; if this is a concern, use GetDocumentByKey to find the first matching document, then use <a href="NotesView.html#GetNextDocument">GetNextDocument</a> to find subsequent documents that might also match -- you have to check that they do.</p>
+
+<h3>Working with response documents</h3>
+
+<p>Use the <a href="NotesView.html#GetNextSibling">GetNextSibling</a> and <a href="NotesView.html#GetPrevSibling">GetPrevSibling</a> methods of NotesView to skip documents that are at a different level from the current document in the response hierarchy. For example, if you have accessed a main document that has response documents, GetNextSibling gets the next main document whereas GetNextDocument gets the first response document to the current main document.</p>
+
+<p>Use the <a href="NotesView.html#GetChild">GetChild method</a> to get the first document at the next lower level to the current document. Use the <a href="NotesView.html#GetParentDocument">GetParentDocument method</a> to move up a level; you can also pass the <a href="NotesDocument.html#ParentDocumentUNID">ParentDocumentUNID property</a> of NotesDatabase to the <a href="NotesDatabase.html#GetDocumentByUNID">GetDocumentByUNID method</a>.</p>
+
+<p>Use the <a href="NotesDocument.html#Responses">Responses property</a> of NotesDocument to collect all the first-level responses for a document in a NotesDocumentCollection object. The object contains zero responses if the document is not a parent. To obtain response documents at subsequent levels, you must access the Responses property for every response document at each level. Documents collected in the Responses property do not have a particular order.</p>
+
+<p>Use the <a href="NotesDocument.html#IsResponse">IsResponse property</a> of NotesDocument to see if a document is a response document.</p>
+
+<p>Use the <a href="NotesDocument.html#MakeResponse">MakeResponse method</a> to make one document a response to another.</p>
+
+<h3>Putting a document in a folder</h3>
+
+<p>Use the <a href="#">PutAllInFolder method</a> of NotesDocumentCollection or the <a href="#">PutInFolder method</a> of NotesDocument to copy documents to a public or private folder. Use the <a href="#">RemoveAllFromFolder method</a> of NotesDocumentCollection or the <a href="#">RemoveFromFolder method</a> of NotesDocument to remove a document from a public or private folder.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing documents in LotusScript classes</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Working with tables in Java classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Working with tables in Java classes</h1></center>
+
+<p>To access a table in a rich text item, use the <a href="RichTextNavigator.html">RichTextNavigator</a> methods in conjunction with the type RichTextItem.RTELEM_TYPE_TABLE and RichTextItem.RTELEM_TYPE_TABLECELL. To access the cells in a table, use the <a href="RichTextNavigator.html">RichTextNavigator</a> methods in conjunction with the type RichTextItem.RTELEM_TYPE_TABLECELL. To create a table, use the <a href="RichTextItem.html#appendTable">appendTable method</a> in RichTextItem. After creating a table, you must navigate in the rich text item to access it.</p>
+
+<p>Once you access a table, the <a href="RichTextTable.html">NotesRichTextTable class</a> lets you <a href="RichTextTable.html#addRow">add rows</a>, <a href="RichTextTable.html#removeRow">remove rows</a>, <a href="RichTextTable.html#remove">remove the table</a>, and use the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextTable.html#AlternateColor">getAlternateColor</a></td>
+<td valign="top">ColorObject</td>
+<td valign="top">Alternate color style. Set this property with <a href="RichTextTable.html#setAlternateColor">setAlternateColor</a>. Use with <a href="RichTextTable.html#Style">Style</a>.</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextTable.html#Color">getColor</a></td>
+<td valign="top">ColorObject</td>
+<td valign="top">Primary color style. Set this property with <a href="RichTextTable.html#setColor">setColor</a>. Use with <a href="RichTextTable.html#Style">Style</a>.</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextTable.html#ColumnCount">getColumnCount</a></td>
+<td valign="top">int</td>
+<td valign="top">Number of columns in the table.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="RichTextTable.html#IsRightToLeft">isRightToLeft</a> and <a href="RichTextTable.html#IsRightToLeft">setRightToLeft</a>
+</td>
+<td valign="top">boolean</td>
+<td valign="top">True if the reading order of the table is right to left.</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextTable.html#RowCount">getRowCount</a></td>
+<td valign="top">int</td>
+<td valign="top">Number of rows in the table.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="RichTextTable.html#RowLabels">getRowLabels</a> and <a href="RichTextTable.html#RowLabels">setRowLabels</a>
+</td>
+<td valign="top">String vector</td>
+<td valign="top">Labels, one per row, that appear in tabbed tables.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="RichTextTable.html#Style">getStyle</a> and <a href="RichTextTable.html#Style">setStyle</a>
+</td>
+<td valign="top">int</td>
+<td valign="top">Table color style. Use with <a href="RichTextTable.html#Color">Color</a> and <a href="RichTextTable.html#AlternateColor">AlternateColor</a>.</td>
+</tr>
+</table>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

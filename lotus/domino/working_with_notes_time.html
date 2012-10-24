@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Working with time</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Working with time</h1></center>
+
+<p>The <a href="DateTime.html">DateTime class</a> represents a date-time. Use <a href="Session.html#createDateTime">createDateTime</a> in Session to create a DateTime object. Various methods throughout the lotus.domino package return DateTime objects.</p>
+
+<p>The following methods access the DateTime properties:</p>
+
+<ul>
+<li>
+<a href="DateTime.html#LocalTime">getLocalTime</a> returns a String value containing a date-time in local time; <a href="DateTime.html#LocalTime">setLocalTime</a> with a String parameter sets the date-time to the local time represented by the String; <a href="DateTime.html#LocalTime">setLocalTime</a> with int parameters sets the time component of the date-time; <a href="DateTime.html#LocalTime">setLocalDate</a>, which takes int parameters, sets the date component of the date-time.</li>
+<li>
+<a href="DateTime.html#GMTTime">getGMTTime</a> returns a String value containing a date-time in GMT.</li>
+<li>
+<a href="DateTime.html#DateOnly">getDateOnly</a> returns a String value containing the date component of a date-time in local time.</li>
+<li>
+<a href="DateTime.html#TimeOnly">getTimeOnly</a> returns a String value containing the date component of a date-time in local time.</li>
+<li>
+<a href="DateTime.html#TimeZone">getTimeZone</a> returns an int value containing the time zone of a date-time; <a href="DateTime.html#TimeZone">setTimeZone</a> sets the time zone.</li>
+<li>
+<a href="DateTime.html#ZoneTime">getZoneTime</a> returns a String value containing a date-time adjusted for the time zone and daylight-saving time, which can be changed with <a href="DateTime.html#convertToZone">convertToZone</a>.</li>
+<li>
+<a href="DateTime.html#IsDST">isDST</a> returns true if a date-time is in daylight-saving time.</li>
+<li>
+<a href="DateTime.html#Parent">getParent</a> returns a Session object representing the current session.</li>
+</ul>
+
+<p>You can change a date-time with the following methods: <a href="DateTime.html#adjustSecond">adjustSecond</a>, <a href="DateTime.html#adjustMinute">adjustMinute</a>, <a href="DateTime.html#adjustHour">adjustHour</a>, <a href="DateTime.html#adjustDay">adjustDay</a>, <a href="DateTime.html#adjustMonth">adjustMonth</a>, and <a href="DateTime.html#adjustYear">adjustYear</a>. You can initialize a date-time or date-time component with the following methods: <a href="DateTime.html#setNow">setNow</a>, <a href="DateTime.html#setAnyDate">setAnyDate</a>, and <a href="DateTime.html#setAnyTime">setAnyTime</a>. You can get the difference in seconds between two times with <a href="DateTime.html#timeDifference">timeDifference</a>. You can convert a date-time to a java.util.Date object with <a href="DateTime.html#toJavaDate">toJavaDate</a>.</p>
+
+<p>The <a href="DateRange.html">DateRange class</a> represents a range of dates. The following methods access the DateTime properties:</p>
+
+<ul>
+<li>
+<a href="DateRange.html#EndDateTime">getEndDateTime</a> returns a DateTime object representing the end date of the range; <a href="DateRange.html#EndDateTime">setEndDateTime</a> sets the end date of the range to the specification of a DateTime object.</li>
+<li>
+<a href="DateRange.html#StartDateTime">getStartDateTime</a> returns a DateTime object representing the start date of the range; <a href="DateRange.html#StartDateTime">setStartDateTime</a> sets the start date of the range to the specification of a DateTime object.</li>
+<li>
+<a href="DateRange.html#Text">getText</a> returns a String value containing the range (two date-times in String format separated by a hyphen); <a href="DateRange.html#Text">setText</a> sets the range to the specification of a String value.</li>
+<li>
+<a href="DateRange.html#Parent">getParent</a> returns a Session object representing the current session.</li>
+</ul>
+
+<p>When you set a DateRange object, write to either StartDate and EndDate, or Text, but not both. Values written to StartDate or EndDate are immediately transcribed to Text, and vice-versa. Any changes made to the DateTime object that is the basis for StartDateTime or EndDateTime also affect the DateRange object.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="ways_to_access_notes_sessions.html">Accessing Domino sessions</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

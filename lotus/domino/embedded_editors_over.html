@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Creating an embedded editor</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Creating an embedded editor</h1></center>
+
+<p>You can embed an editor into a form. One use of the embedded editor is to let you embed one or more forms into an existing form. Another use of the embedded editor is targeting in which you link an embedded editor to an embedded view. Targeting allows the user to edit documents in a view without having to open separate windows.</p>
+
+<p>You can do almost everything in an embedded editor that you can do in a document. However, you cannot include the following in an embedded editor: buttons, action hotspots, formula popup hotspots, computed text, or navigators. Note also that you should not use embedded editors in animated tables. </p>
+
+<h3>To create an embedded editor</h3>
+
+<p>  1.	Create a form or open an existing form.</p>
+
+<p>  2.	In the form, place the cursor where you want to create the embedded editor.</p>
+
+<p>  3.	Choose Create - Embedded Element - Editor. The Insert Embedded Form dialog box appears.</p>
+
+<p>  4.	Choose one of the following options:</p>
+
+<ul>
+<li>None</li>
+</ul>
+
+<p>This is the first choice under "Choose a form." Choose None if you want to paste a document or anchor link into the embedded editor or if you want to use <a href="embedded_editors_over.html">targeting by linking an embedded editor to an embedded view</a>. </p>
+
+<ul>
+<li>An existing form from the list of forms</li>
+</ul>
+
+<p>The list of forms in the current database appears under "Choose a form." To insert an existing form into the embedded editor, choose one of the forms. </p>
+
+<p>To insert a form from another database, select a database from the pull-down list of databases and then choose a form listed under "Choose a form." </p>
+
+<ul>
+<li>Insert form based on formula</li>
+</ul>
+
+<p>To insert a form based on a formula, check "Insert form based on formula."</p>
+
+<p>  5.	Choose Element - Editor Properties to open the Embedded Editor Properties box. Click the Info tab, and then set any of the following properties: </p>
+
+<ul>
+<li>Name - enter a name for the embedded editor. Entering a name is necessary only if you are targeting to an embedded view.</li>
+<li>Size - enter a size in inches for the width and height of the embedded editor. Alternately, you can check "Fit to window" for the width and for the height.</li>
+<li>Type and Value - these fields are automatically filled out, depending on how the editor is created. The following values may appear:</li>
+</ul>
+
+<p>- Link </p>
+
+<p>Link appears in the Type field if you selected None in the "Insert Embedded Form" dialog box. The field next to the Type field and the Value field are both left blank. </p>
+
+<p>Link requires that you paste a link that you’ve already copied to the Clipboard. Click the Paste icon to paste in this link. Note that you can paste only an anchor or a document link. You cannot paste a view or a database link.</p>
+
+<p>- Named Element </p>
+
+<p><a href="#">Named Element</a> appears if you selected an existing form in the Insert Embedded Form" dialog box. The field next to "Named Element" displays as Form. The Value field contains the name of the form you chose in the Insert Embedded Form dialog box.</p>
+
+<ul>
+<li>Hide action bar - selecting this causes the action bar of the form you inserted to be hidden. If it is unchecked, the action bar is displayed.</li>
+<li>Disable scroll bars - selecting this hides scroll bars. If it is deselected, the embedded editor shows scroll bars when all of its content does not fit on the screen. </li>
+</ul>
+
+<h3>To use an embedded editor for targeting</h3>
+
+<p>You can place one or more embedded views on a form and then link them to one or more embedded editors. This feature, called targeting, allows users to edit documents in a view without having to open separate windows. </p>
+
+<p>  1.	Create a new form.</p>
+
+<p>  2.	Choose Create - Embedded Element - Editor.</p>
+
+<p>  3.	Select None in the Insert Embedded Form dialog box and click OK.</p>
+
+<p>  4.	Choose Element - Editor Properties. The Embedded Editor Properties box opens.</p>
+
+<p>  5.	Specify a name for the embedded editor and close the properties box.</p>
+
+<p>  6.	Choose Create - Embedded Element - View. The Insert Embedded View properties box appears.</p>
+
+<p>  7.	Choose a view and click OK.</p>
+
+<p>  8.	Choose Element - View Properties. The Embedded View Properties box opens.</p>
+
+<p>  9.	In the "Target Frame" (for single click) field, enter the name of the embedded editor that you want to link to. Close the properties box.</p>
+
+<p> 10.	Save and close the new form.</p>
+
+<p> 11.	Create a new document with the form.</p>
+
+<p> 12.	Highlight a document in the embedded view. The document opens in the embedded editor. You can now edit that document in the embedded editor. You can then switch to another document in the embedded view and continue editing. </p>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

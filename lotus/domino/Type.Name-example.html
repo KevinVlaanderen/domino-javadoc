@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: LastModified, Name, Text, Type, and ValueLength properties</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: LastModified, Name, Text, Type, and ValueLength properties</h1></center>
+
+<p>This agent gets the name, text value, type, length, and last modification date of each item in a document.</p>
+
+<pre>import lotus.domino.*;
+import java.util.Vector;
+import java.util.Enumeration;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      DocumentCollection dc = db.getAllDocuments();
+      Document doc = dc.getFirstDocument();
+      if (doc != null) {
+        Enumeration items = doc.getItems().elements();
+        while (items.hasMoreElements()) {
+          Item item = (Item)items.nextElement();
+          String type;
+          switch (item.getType()) {
+            case Item.ACTIONCD : type = "Action CD"; break;
+            case Item.ASSISTANTINFO : type = "Assistant 
+              information"; break;
+            case Item.ATTACHMENT : type = "File attachment";
+              break;
+            case Item.AUTHORS : type = "Authors"; break;
+            case Item.COLLATION : type = "Collation"; break;
+            case Item.DATETIMES :
+              type = "Date-time or range of date-times"; break;
+            case Item.EMBEDDEDOBJECT : type = "Embedded 
+              object"; break;
+            case Item.ERRORITEM : type = "Error while accessing 
+              type"; break;
+            case Item.FORMULA : type = "Formula"; break;
+            case Item.HTML : type = "HTML source text"; break;
+            case Item.ICON : type = "Icon"; break;
+            case Item.LSOBJECT : type = "LotusScript object"; 
+              break;
+            case Item.NAMES : type = "Names"; break;
+            case Item.NOTELINKS :
+              type = "Link to database, view, or document"; 
+              break;
+            case Item.NOTEREFS :
+              type = "Reference to the parent document"; break;
+            case Item.NUMBERS : type = "Number or number list"; 
+              break;
+            case Item.OTHEROBJECT : type = "Other object"; 
+              break;
+            case Item.QUERYCD : type = "Query CD"; break;
+            case Item.RICHTEXT : type = "Rich text"; break;
+            case Item.READERS : type = "Readers"; break;
+            case Item.SIGNATURE : type = "Signature"; break;
+            case Item.TEXT : type = "Text or text list"; break;
+            case Item.UNAVAILABLE : type = "Unavailable type"; 
+              break;
+            case Item.UNKNOWN : type = "Unknown typet"; break;
+            case Item.USERDATA : type = "User data"; break;
+            case Item.USERID : type = "User ID name"; break;
+            case Item.VIEWMAPDATA : type = "View map data"; 
+              break;
+            case Item.VIEWMAPLAYOUT : type = "View map layout"; 
+              break;
+            default : type = "Other";
+            }
+          System.out.println(item.getName());
+          System.out.println(type);
+          System.out.println(item.getValueLength() + " bytes");
+          System.out.println("Last modified " +
+            item.getLastModified().getLocalTime());
+          if (item.getText().length() == 0)
+            System.out.println("[no text]\n");
+          else
+            System.out.println(item.getText(80) + "\n");
+          }
+        }
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="Item.html#LastModified">LastModified property</a><br>
+<a href="Item.html#Name">Name property</a><br>
+<a href="Item.html#Text">Text property</a><br>
+<a href="Item.html#Type">Type property</a><br>
+<a href="Item.html#ValueLength">ValueLength property</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

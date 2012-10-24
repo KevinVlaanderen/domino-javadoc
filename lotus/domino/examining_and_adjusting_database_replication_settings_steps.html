@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examining and adjusting database replication settings</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examining and adjusting database replication settings</h1></center>
+
+<p>You examine and adjust the replication settings of a database through the <a href="NotesReplication.html">NotesReplication</a> and <a href="NotesReplicationEntry.html">NotesReplicationEntry</a> classes.</p>
+
+<p>Each database object has exactly one associated NotesReplication object, accessible through the <a href="NotesDatabase.html#ReplicationInfo">ReplicationInfo</a> property in NotesDatabase. NotesReplication has the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Abstract</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to truncate large documents and remove attachments.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CutoffDate</a></td>
+<td valign="top">Variant of type DATE</td>
+<td valign="top">(Read-only) Today's date minus the cutoff interval.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CutoffDelete</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to automatically delete documents older than the cutoff date.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CutoffInterval</a></td>
+<td valign="top">Long</td>
+<td valign="top">(Read-write) Number of days after which documents are automatically deleted if CutoffDelete is True.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Disabled</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to disable replication.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">DontSendLocalSecurityUpdates</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to not send local security (encryption) updates.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IgnoreDeletes</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to not replicate outgoing deletions.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IgnoreDestDeletes</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to not replicate incoming deletions.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Priority</a></td>
+<td valign="top">Long</td>
+<td valign="top">(Read-write) Replication priority. </td>
+</tr>
+</table>
+
+<p>The following methods are available:</p>
+
+<ul>
+<li>
+<a href="#">ClearHistory</a> clears the replication history.</li>
+<li>
+<a href="#">Reset</a> enables you to reset the replication properties of a database to their last saved values.</li>
+<li>
+<a href="NotesReplication.html#Save">Save</a> must be called to preserve any changes you make to the replication properties.</li>
+</ul>
+
+<p>A database has any number of <a href="NotesReplicationEntry.html">NotesReplicationEntry</a> objects, accessible through the <a href="NotesReplication.html#GetEntry">GetEntry</a> method of NotesReplication. A replication entry describes the replication settings for a pair of servers, of which one is the source and the other is the destination. The following properties are available:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Destination</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of the destination server.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Formula</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) The replication formula.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsIncludeACL</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to include the ACL.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsIncludeAgents</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to include agents.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsIncludeDocuments</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to include documents.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsIncludeForms</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to include forms.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsIncludeFormulas</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to include the replication formula.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Source</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of the source server. </td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Views</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) The views to be included.</td>
+</tr>
+</table>
+
+<p>The following methods are available:</p>
+
+<ul>
+<li>
+<a href="#">Remove</a> removes the entry.</li>
+<li>
+<a href="NotesReplication.html#Save">Save</a> must be called to preserve any changes you make to the replication entry.</li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing Domino databases</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

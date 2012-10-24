@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: addEntry, createEntry, and save methods, OutlineEntry FrameText, ImagesText, setNamedElement properties</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: addEntry, createEntry, and save methods, OutlineEntry FrameText, ImagesText, setNamedElement properties</h1></center>
+
+<p>  1.	This agent creates an entry as a subentry to the first entry in an outline.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+    public void NotesMain() {
+
+       try {
+            Session session = getSession();
+            AgentContext agentContext = 
+                 session.getAgentContext();
+
+            // (Your code goes here) 
+            Database db = agentContext.getCurrentDatabase();
+            Outline outline = db.getOutline("DiscOutline");
+            System.out.println(
+                 "Creating entry ... Some Documents ...");
+            OutlineEntry entry = outline.createEntry(
+                            "Some Documents",outline.getFirst(),
+                             true,false);
+            entry.setNamedElement(db, "Database", 
+                   OutlineEntry.OUTLINE_CLASS_DATABASE); 
+            entry.setFrameText("NotesView"); 
+            entry.setImagesText("Domino\\icons\\abook.gif"); 
+            entry.setLabel("Some Documents");
+            outline.save();
+           } catch(Exception e) {
+                  e.printStackTrace();
+            }
+     }
+}</pre>
+
+<p>  2.	This example creates a copy of the first entry in the "Some Documents" outline. The entry is then added to the outline after the second entry at the top level.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+    public void NotesMain() {
+        try {
+            Session session = getSession();
+            AgentContext agentContext = session.getAgentContext();
+
+            // (Your code goes here) 
+            Database db = agentContext.getCurrentDatabase();
+            Outline outline = db.getOutline("Some Documents");
+            OutlineEntry entryA = outline.getFirst();
+            OutlineEntry entryB = outline.getNext(entryA);
+            outline.createEntry(entryA,entryB,true,false);
+            outline.save();    
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+}</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="Outline.html#addEntry">addEntry method</a><br>
+<a href="Outline.html#createEntry">createEntry method</a><br>
+<a href="Outline.html#save">save method</a><br>
+<a href="OutlineEntry.html#ImagesText">ImagesText property</a><br>
+<a href="OutlineEntry.html#setNamedElement">setNamedElement method</a><br>
+<a href="OutlineEntry.html">OutlineEntry class</a><br>
+<a href="OutlineEntry.html#FrameText">FrameText property</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

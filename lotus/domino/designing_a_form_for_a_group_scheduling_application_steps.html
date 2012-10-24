@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Creating an embedded scheduler</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Creating an embedded scheduler</h1></center>
+
+<p>The embedded scheduler allows you to design a form or subform that displays the schedules of users. For example, you can create a form for users to schedule department meetings. Embedding a scheduler on the form lets users check everyone's schedules before planning the meeting time. Also, within the embedded scheduler users can click on a person's name to open that person's calendar view (provided the user has been given access in the person's mail preferences). You can program the calendar to open in a separate frame, or in its own window. For an example of an embedded scheduler form, see the Group Calendar form in the Mail template.</p>
+
+<p>There are four parts to using an embedded scheduler:</p>
+
+<ul>
+<li>Create an embedded scheduler on a form or subform (Create - Embedded Element - Scheduler). </li>
+<li>Create the fields that collect the data needed to display the embedded scheduler.</li>
+<li>Program the embedded scheduler to retrieve the data from the fields.</li>
+<li>Set properties for the embedded scheduler.</li>
+</ul>
+
+<h3>To create an embedded scheduler on a form or subform</h3>
+
+<p>You can embed one or more embedded schedulers on a form or subform. </p>
+
+<p>  1.	Open or create a form or subform for the embedded scheduler.</p>
+
+<p>  2.	Move the cursor where you want the embedded scheduler to appear.</p>
+
+<p>  3.	Choose Create - Embedded Element - Scheduler.</p>
+
+<p>Note:  The embedded scheduler does not display scheduling information while you are designing the form or subform. </p>
+
+<h3>To create fields for the embedded scheduler</h3>
+
+<p>The embedded scheduler needs three pieces of information before it can display anyone's schedule.</p>
+
+<ul>
+<li>Whose schedule to display (individuals or group).</li>
+<li>What week to start the schedule information from.</li>
+<li>How many hours per day of schedule information to display.</li>
+</ul>
+
+<p>One way to collect this data is to create editable fields on the form and have users enter in those fields the information they want displayed. You can also use LotusScript or the Formula language to create the field items. For an example of collecting the data using an action button and Formula language, look at the GroupScheduler form in the Mail Template. </p>
+
+<p>Once you have created the fields or other method for collecting the data, you must associate those fields with the Embedded Scheduler attributes, as described in the following section.</p>
+
+<h3>To program the embedded scheduler</h3>
+
+<p>Once you have created the fields for collecting the data, you must program the embedded scheduler so that it can retrieve the data from the fields. You can program the embedded scheduler using the following attributes. </p>
+
+<p>To associate the fields with the attributes: </p>
+
+<p>  1.	Select the attribute from Objects tab of the Info List and </p>
+
+<p>  2.	Enter a field name in quotation marks in the Script area of the Programmer's Pane.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Attribute</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">Required people items</td>
+<td valign="top">A formula that evaluates to a text list of one or more item names. At runtime, the scheduler displays the set of required people. <br>
+If you are writing a LotusScript formula to obtain the data for this attribute, the formula must evaluate to a text list of one or more field names.</td>
+</tr>
+<tr>
+<td valign="top">Optional people items</td>
+<td valign="top">A formula that evaluates to a text list of one or more item names. At runtime, the scheduler displays the set of optional people.</td>
+</tr>
+<tr>
+<td valign="top">Rooms items</td>
+<td valign="top">A formula that evaluates to a text list of one or more item names. At runtime, the scheduler displays the set of rooms. </td>
+</tr>
+<tr>
+<td valign="top">Resources items</td>
+<td valign="top">A formula that evaluates to a text list of one or more item names. At runtime, the scheduler displays the set of resource rooms.</td>
+</tr>
+<tr>
+<td valign="top">Interval start time</td>
+<td valign="top">A formula that evaluates to an item name. At runtime, the time/date value contained in this item indicates the start date/time of the meeting.</td>
+</tr>
+<tr>
+<td valign="top">Interval end time</td>
+<td valign="top">A formula that evaluates to an item name. At runtime, the time/date value contained in this item indicates the end date/time of the meeting.</td>
+</tr>
+<tr>
+<td valign="top">Grid Start time </td>
+<td valign="top">A formula that evaluates to an item name. If this attribute is not specified, the scheduler's busy time grid begins on the current time and date. If the event is specified, the time/date value contained in this item is examined. <br>
+If the time portion of the time/date value is set to ALLDAY, the busy time grid uses the specified date and the current time. If the date portion of the time/date value is set to ANYDAY, the busy time grid uses the current date and the specified time.<br>
+The value of this field should be a date and time. If the value is not a date and time, the current date and time of the user's system is the default. If the value is a date only, that date and the current time on the user's system are the default. If the value is a time only, that time and the current date on the user's system are the default.<br>
+When a user accesses the form, the scheduling information starts from the specified date. The user can change which week is displayed by clicking on the left and right arrow keys. Each day will begin at the specified time. The time is rounded down to the nearest hour.<br>
+Note that the schedules are displayed in terms of the user's local time zone -- for example, a Pacific time zone user free between 9 and 5 PST will appear free between 12 and 8 to an EST user.</td>
+</tr>
+<tr>
+<td valign="top">Display hours per day</td>
+<td valign="top">A formula that evaluates to an item name. At runtime, the number value contained in this item indicates the number of hours that the busy time grid displays for each day. <br>
+This attribute is examined to determine how many hours of each person's schedule to display. The value of this field should be an integer between 1 and 24, inclusive. A value less than 1 will be defaulted to 1 and a value greater than 24 will be defaulted to 12.</td>
+</tr>
+<tr>
+<td valign="top">Schedule Detail items</td>
+<td valign="top">A formula that evaluates to a text list of one or more item names. When the scheduler retrieves scheduling data, detailed data is requested for these items.</td>
+</tr>
+</table>
+
+<h3>Displaying a legend</h3>
+
+<p>You can create a reserved field on the form that contains the embedded scheduler to allow users to turn the legend off or on. The reserved field name is $GroupScheduleShowLegend. Valid values are 0 (to turn the legend off), and 1 (to display the legend).</p>
+
+<h3>To set properties for the embedded scheduler</h3>
+
+<p>  1.	Open the Embedded Scheduler Properties box.</p>
+
+<p>  2.	At the Info tab, you can set any of the following properties for the embedded scheduler:</p>
+
+<ul>
+<li>Name -- Name of the scheduling element. This is the name used to obtain a LotusScript object for this scheduler control. </li>
+<li>Target frame -- Specify the frame in which to display the group members' calendar views and appointment documents. </li>
+<li>Show interval indicator -- Indicates whether or not to display the appointment indicator (the appointment indicator is one you can drag).</li>
+<li>Show color legend -- Checking this displays the busy time color legend. </li>
+<li>Show twisties -- Checking this displays twistie icons for required and optional people, allowing the user to collapse and expand the required and optional list of people.</li>
+<li>Initialize from item values -- Checking this causes the scheduler control initially to determine which participants to display based on the values of the items previously specified (see the preceding attributes table ). You may want to uncheck this field for R5 backward compatibility with group calendars. </li>
+<li>Refresh from item values -- Checking this causes the scheduler control to refresh data from the values of the items previously specified. When a DocRecalc event occurs and this attribute is checked, the scheduler control discards any participant data it has and generates a new list of participants from the values of the items on the form. It also updates the meeting start and end times as well as the hours to display and the display start time. Because problems may occur when the NotesUIScheduler object has been used to add or remove participants, you may want to disable this field if a call to AddAttendee or RemoveAttendee is made through the NotesUIScheduler object.</li>
+<li>Allow filtering -- Checking this field turns on the filtering button that is displayed above the attendee names.</li>
+<li>Top, Middle, and Bottom titles -- Lets you specify titles for the top, middle, and bottom of the embedded scheduler. You can click the formula symbol for each title and enter a formula that evaluates to a title.</li>
+</ul>
+
+<p>  3.	At the Colors tab of the Embedded Scheduler Properties box, you can customize various foreground and background colors. </p>
+
+<p>  4.	At the Layout tab of the Embedded Scheduler Properties box, you can set the width and height properties for the embedded scheduler. </p>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

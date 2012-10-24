@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: Type property</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: Type property</h1></center>
+
+<p>This agent displays the type of element for each element in a Body item. For a text paragraph or text run, the agent displays the associated text.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+
+  public void NotesMain() {
+
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+
+      // (Your code goes here) 
+      DocumentCollection dc = agentContext.getUnprocessedDocuments();
+      Document doc = dc.getFirstDocument();
+      RichTextItem body = (RichTextItem)doc.getFirstItem("Body");
+      RichTextNavigator rtnav = body.createNavigator();
+      RichTextRange rtrange = body.createRange();
+      int[] elemType = new int[8];
+      elemType[0] = RichTextItem.RTELEM_TYPE_DOCLINK;
+      elemType[1] = RichTextItem.RTELEM_TYPE_FILEATTACHMENT;
+      elemType[2] = RichTextItem.RTELEM_TYPE_OLE;
+      elemType[3] = RichTextItem.RTELEM_TYPE_SECTION;
+      elemType[4] = RichTextItem.RTELEM_TYPE_TABLE;
+      elemType[5] = RichTextItem.RTELEM_TYPE_TABLECELL;
+      elemType[6] = RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH;
+      elemType[7] = RichTextItem.RTELEM_TYPE_TEXTRUN;
+      for (int i = 0; i &lt; 8; i++) {
+        if (rtnav.findFirstElement(elemType[i])) {
+          do {
+            rtrange.setBegin(rtnav);
+            rtrange.setEnd(rtnav);
+            displayRange(rtrange);
+          } while (rtnav.findNextElement());
+        }
+        else
+          System.out.println(
+            "No elements of type " + getTypeString(elemType[i]));
+      }
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  
+  void displayRange(RichTextRange range) {
+    try {
+      System.out.println("*" + getTypeString(range.getType()) + "*");
+      if (range.getType() == RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH)
+        System.out.println(range.getTextParagraph());
+      else if (range.getType() == RichTextItem.RTELEM_TYPE_TEXTRUN)
+        System.out.println(range.getTextRun());
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  
+  String getTypeString(int elemType) {
+    String elemTypeString = "Unknown";
+    switch (elemType) {
+      case RichTextItem.RTELEM_TYPE_DOCLINK :
+        elemTypeString = "Doc link"; break;
+      case RichTextItem.RTELEM_TYPE_FILEATTACHMENT :
+        elemTypeString = "File attachment"; break;
+      case RichTextItem.RTELEM_TYPE_OLE :
+        elemTypeString = "OLE object"; break;
+      case RichTextItem.RTELEM_TYPE_SECTION :
+        elemTypeString = "Section"; break;
+      case RichTextItem.RTELEM_TYPE_TABLE :
+        elemTypeString = "Table"; break;
+      case RichTextItem.RTELEM_TYPE_TABLECELL :
+        elemTypeString = "Table cell"; break;
+      case RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH :
+        elemTypeString = "Text paragraph"; break;
+      case RichTextItem.RTELEM_TYPE_TEXTRUN :
+        elemTypeString = "Text run";
+    }
+    return(elemTypeString);
+  }
+}</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="RichTextRange.html#Type">Type property</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

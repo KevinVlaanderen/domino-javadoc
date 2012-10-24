@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Creating a calendar view</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Creating a calendar view</h1></center>
+
+<p>In a calendar view, documents that are created using a form designed for scheduling individual meetings, appointments, events, and the like, display as entries on a calendar. For an example of a calendar view, see the R6 Mail template (mail6.ntf) $Calendar view, and for an example of a calendar form see the form _Calendar Entry. It is best to create the form first, and then create the calendar view to display the documents created using the form.</p>
+
+<h3>To create a calendar view</h3>
+
+<p>You begin by creating a standard outline view. You can either complete Steps 1 through 10 for <a href="#">creating a standard view</a>  or you can convert an existing view to a calendar view. </p>
+
+<p>  1.	Create a new view or open an existing view.</p>
+
+<p>  2.	Open the View Properties box.</p>
+
+<p>  3.	In the Style field, select Calendar. A dialog box appears. Click yes to continue.</p>
+
+<p>  4.	Click the first column. In the Column properties box, select "Hide column."</p>
+
+<p>The first column of a calendar view defines the Date/Time the entry will display and should be hidden.</p>
+
+<p>  5.	In the Programmer's pane, choose one of the following and enter a value for the first column that will evaluate to both a date and time:</p>
+
+<ul>
+<li>
+<a href="#">Simple function</a> - Select a value from the list that evaluates to a date and time -- for example, "creation date."</li>
+<li>
+<a href="#">Field</a> - This displays a list of all the fields in the database. Select a date/time field from the form you will use with the calendar view.</li>
+<li>
+<a href="#">Formula</a> - Write a formula in the Programmer's pane that evaluates to a date and time.</li>
+</ul>
+
+<p>  6.	Open the Column properties box and click the Sorting tab. Choose the sort option Ascending.</p>
+
+<h3>Note </h3>
+
+<p> If you have a field on your form that allows multiple values, and you want each value to display as separate entries in the calendar view, select the column sorting option "Show multiple values as separate entries" for the first column. For example, the Mail template uses this technique for displaying repeating events. Otherwise, the entries display under the first matching date only.</p>
+
+<p>  7.	Click the Date and Time tab of the Column properties box and check the Display Date and Display Time options.</p>
+
+<h3>Tip</h3>
+
+<p>  The column settings for this column allow you to specify "Always show time zone," but this setting (along with the other column display settings) is not used by the calendar display.  If you want the time zone to always be displayed, add another (visible) column to the view and put the time zone information in that column.</p>
+
+<p>  8.	Create a second column or click the second column of the existing view. The second column must map to a field or formula on the document that specifies, in minutes, the duration of the event and it should be hidden. In the Column properties box, select "Hide column."</p>
+
+<p>  9.	Create a view <a href="#">selection formula</a>  that will select the documents to be displayed  -- for example, _Calendar Entry.</p>
+
+<h3>Formatting options for calendar views</h3>
+
+<p>Once you create a calendar view, you can format it. Click the Date and Time format of the View properties box. The Date and Time format tab appears only when Calendar is selected for the view style. On the Date and Time tab you have the following display options.</p>
+
+<ul>
+<li>Calendar formats available to users</li>
+</ul>
+
+<p>Check all of the display options you want to make available for users to select. For example, if you want to give the user the choice to view the calendar in a one month format or a one day format, check those two options. Note that the "Work calendars" option includes one work week, two work weeks, and the work month formats. These are weeks that display without Saturday and Sunday.</p>
+
+<ul>
+<li>Initial format</li>
+</ul>
+
+<p>Sets the format displayed to the user when the view first opens.</p>
+
+<ul>
+<li>Time slot display available to users</li>
+</ul>
+
+<p>A time slot is a graphical display of time periods in the view. If "Time slot display" is selected, time slots appear in the view. If you select this option then you must choose a start and end time for the time slots as well as the duration -- for example, one hour. If you select the option "Users may override these times,"  the user's Notes client calendar preference determines how time slots are displayed in the calendar. </p>
+
+<p>The option "Users may toggle time slots on/off for each day lets a user display and hide time slots for a selected day.</p>
+
+<ul>
+<li>Other options</li>
+</ul>
+
+<p>In weekly and monthly views, "Group entries together by time slot" clusters entries under time slots instead of listing entries for a day. For example, if you have two entries for 12 PM and one entry for 1 PM, the different displays are as follows:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Group entries checked</td>
+<td valign="top">Group entries unchecked</td>
+</tr>
+<tr>
+<td valign="top">12:00pm<br>
+  Appointment 1<br>
+  Appointment 2<br>
+1:00pm<br>
+  Appointment 3</td>
+<td valign="top">Appointment 1  12:00pm<br>
+Apppointment 2  12:00pm<br>
+Appointment 3  1:00pm</td>
+</tr>
+</table>
+
+<h3>Troubleshooting a calendar view</h3>
+
+<p>If the calendar view does not display as you expect, there may be a problem with the selection formula or with the definition of the first column.</p>
+
+<ul>
+<li>Check the selection formula for the view. Make sure the documents you want to display in the view match the selection formula. To test the selection formula, change the view to a standard view or refresh the view while in Designer. If the documents display, the selection formula is valid.</li>
+<li>Make sure the first column of the view is based on a Date/Time field and is sorted in ascending order. Display the documents in Designer to test the view. Both the date and time should display. The documents should display first sorted by date, and then for each date, sorted in chronological order, so that a 9 AM appointment displays before a 3 PM appointment on the same day.</li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Standard outline views</a><br>
+<a href="#">Calendar views</a><br>
+<a href="#">Creating columns in a view</a><br>
+<a href="#">Selecting which documents display in a view</a><br>
+<a href="#">Date/Time fields</a><br>
+<a href="#">Designing forms</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

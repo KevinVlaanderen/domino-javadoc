@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Representing a name</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Representing a name</h1></center>
+
+<p>A NotesName object allows you to represent a Notes user or server name so that you can access the parts of the name as properties. Use the New method of NotesName or the <a href="#">CreateName method</a> NotesSession to establish the object and specify the name. If the name is in the form of a hierarchical name, it is treated as a hierarchical name; otherwise, it is treated as a flat name.</p>
+
+<p>The following table lists the NotesName properties.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Abbreviated</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Abbreviated form of hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Addr821</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Internet address in the format based on FRC821 Address Format Syntax.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Addr822Comment1</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Comment1 component of Internet address in the format based on RFC 822 Address Format.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Addr822Comment2</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Comment2 component of the Internet address is the format based on RFC 822 Address Format.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Addr822Comment3</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Comment3 component of the Internet address is the format based on RFC 822 Address Format.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Addr822LocalPart</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) LocalPart component of Internet address in the format based on RFC 822 Address Format.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Addr822Phrase</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Phrase component of Internet address in the format based on RFC 822 Address Format.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ADMD</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Administration management domain name part of a name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Canonical</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Canonical form of a hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Common</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Common name (CN=) component of a hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Country</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Country or region (C=) component of a hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Generation</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Generation part of a name, for example, "Jr."</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Given</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Given part of a name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Initials</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Initials part of a name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsHierarchical</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the name is hierarchical.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Keyword</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Country\organization\organizational unit 1\organizational unit 2\organizational unit 3\organizational unit 4.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NotesName.html#Language">Language </a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The language code associated with a name. Returns null if the property is undefined.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Organization</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Organization (O=) component of a hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">OrgUnit1</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) First organizational unit (OU=) component of a hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">OrgUnit2</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Second organizational unit (OU=) component of a hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">OrgUnit3</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Third organizational unit (OU=) component of a hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">OrgUnit4</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Fourth organizational unit (OU=) component of a hierarchical name.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Parent</a>  </td>
+<td valign="top">NotesSession</td>
+<td valign="top">(Read-only) The session that contains a Name object. For COM only.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">PRMD</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Private management domain name part of a name.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Surname</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Surname part of a name.</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing supporting Domino objects</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

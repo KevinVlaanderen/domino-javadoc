@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Representing a color</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Representing a color</h1></center>
+
+<p>The <a href="NotesColorObject.html">NotesColorObject class</a> allows you to represent a Domino color so that you can access its Domino value, RGB (red, green, blue) value, and HSL (hue, saturation, luminance) value as properties. Use the <a href="NotesSession.html#CreateColorObject">CreateColorObject method</a> of NotesSession to establish the object.</p>
+
+<p>The following table lists the NotesColorObject properties.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Blue</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Blue RGB value 0-255.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Green</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Green RGB value 0-255.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Hue</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Hue HSL value 0-240.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Luminance</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Luminance HSL value 0-240.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesColorObject.html#NotesColor">NotesColor</a></td>
+<td valign="top">Integer</td>
+<td valign="top">Domino color value.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Red</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Red RGB value 0-255.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Saturation</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Saturation HSL value 0-240.</td>
+</tr>
+</table>
+
+<p>Domino color values are in the range 0-240. Setting <a href="NotesColorObject.html#NotesColor">NotesColor</a> sets the RGB and HSL properties to values that correspond to the Domino color value. You can base the color properties on HSL and RGB values through the methods <a href="NotesColorObject.html#SetHSL">SetHSL</a> and<a href="NotesColorObject.html#SetRGB"> SetRGB</a>.</p>
+
+<p>The following properties and methods use Domino color values:</p>
+
+<ul>
+<li>NotesRichTextSection: <a href="#">BarColor</a>, <a href="#">SetBarColor</a>
+</li>
+<li>NotesRichTextStyle: <a href="NotesRichTextStyle.html#NotesColor">NotesColor</a>
+</li>
+<li>NotesRichTextTable: <a href="#">AlternateColor</a>, <a href="#">Color</a>, <a href="#">SetAlternateColor</a>, and <a href="#">SetColor</a>
+</li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing supporting Domino objects</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

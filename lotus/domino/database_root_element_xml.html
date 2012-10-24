@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>database element</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>database element</h1></center>
+
+<p>Defines the structure of a Domino database. </p>
+
+<p>For more details on database settings, see <a href="#">Database Properties box - Advanced tab</a>.</p>
+
+<h3>Containment Hierarchy</h3>
+
+<p>Contains:  <a href="#">&lt;databaseinfo&gt;</a>, <a href="#">&lt;acl&gt;</a>, <a href="fulltextsettings_element_xml.html">&lt;fulltextsettings&gt;</a>, <a href="#">&lt;launchsettings&gt;</a>, <a href="database_root_element_xml.html">%note.types;</a></p>
+
+<h3>Content</h3>
+
+<pre>databaseinfo?, acl?, fulltextsettings?, launchsettings?, (%note.types;)*)</pre>
+
+<p>Contains an optional &lt;databaseinfo&gt; element, followed by optional &lt;acl&gt;, &lt;fulltextsettings&gt;, and &lt;launchsettings&gt; elements, then any number of the contents of the %note.types; entity.</p>
+
+<h3>Attributes</h3>
+
+<pre>&lt;!ATTLIST database
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">  <a href="#">%root.attrs;</a>
+</td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">  path</td>
+<td valign="top">%string;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  title</td>
+<td valign="top">%tstring;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  categories</td>
+<td valign="top">CDATA</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  templatename</td>
+<td valign="top">%string;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  fromtemplate</td>
+<td valign="top">%string;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  type</td>
+<td valign="top"><a href="database_root_element_xml.html">(%database.types;)</a></td>
+<td valign="top">"standard"</td>
+</tr>
+<tr>
+<td valign="top">  allowstoredforms</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  allowbackgroundagents</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  imageloadsdeferred</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  usejavascriptinpages</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  requiressl</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  allowdesignlocking</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  allowexternalconnections</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  showinopendialog</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  advancedtemplate</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  markmodifiedunread</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  multidbindexed</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  multilingual</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  defaultlanguage</td>
+<td valign="top">%string;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  defaultregion</td>
+<td valign="top">%string;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  defaultsortorder</td>
+<td valign="top">%string;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  maintainunread</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  optimizetablebitmaps</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  overwritefreespace</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  savelastaccessed</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  logtransactions</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  allowsoftdeletion</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  allowspecialhierarchy</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  allowheadlinemonitors</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+<tr>
+<td valign="top">  increasemaxfields</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  maxupdatedbyentries</td>
+<td valign="top">%integer;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  maxrevisionentries</td>
+<td valign="top">%integer;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  softdeletionsexpirein</td>
+<td valign="top">%integer;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  nourlopen</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  unicodestandardsorting</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  allowdocumentlocking</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  copyprofiledocswithdesign</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  singlecopytemplate</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  uselz1</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+</table>
+
+
+
+&gt;</pre>
+
+<p>advancedtemplate</p>
+
+<p>If true, lists the database as an advanced template in the New Database dialog box. Advanced templates are displayed when you click the Show advanced templates check box in the New Database dialog box at the time of database creation.</p>
+
+<p>allowbackgroundagents</p>
+
+<p>If true, allows agents that are scheduled or triggered by an event to run. Domino checks the security restrictions of all agents that run in the background before running them. Set this attribute to false if you are doubtful of the security authorizations that users of your database might have.</p>
+
+<p>allowdesignlocking</p>
+
+<p>If true, enables designers working on a team to lock a design element, such as a view or form, so that no other designers can edit it. The designer locks an element by highlighting it in the work pane, right-clicking it, and choosing Lock from the pop-up menu.</p>
+
+<p>allowdocumentlocking</p>
+
+<p>If true, locks any documents that users are editing and unlocks it when they save and close it. Also enables you to explicitly lock and unlock documents to prevent duplicate work, unauthorized design changes and other conflicts.</p>
+
+<p>allowexternalconnections</p>
+
+<p>If true, allows a field on a form to interact with an external data source. This setting does not appear on the Database Properties box unless a Data Connection Resource has been created.</p>
+
+<p>allowheadlinemonitors</p>
+
+<p>If true, allows subscription databases to monitor new postings in this database. Subscription databases are created by users who want to be informed of updates, changes, or news associated with specific databases. Users create subscription profiles that outline those databases and topics which are of interest to them. Several users monitoring a database negatively affects its performance.</p>
+
+<p>allowsoftdeletion</p>
+
+<p>If true, retains deleted documents in the database for a specified number of hours before permanently deleting them. Specify the number of hours to wait before permanently deleting a document in the softdeletionsexpirein attribute.</p>
+
+<p>allowspecialhierarchy</p>
+
+<p>If true, enables the @AllChildren and @AllDescendants formula language @functions to use specially stored hierarchical information to access documents in selection and replication formulas. Storing and maintaining this hierarchy information negatively affects database performance. Disabling this attribute does not affect the hierarchical structure of views that do not use the above-mentioned @functions to display their entries.</p>
+
+<p>allowstoredforms</p>
+
+<p>If true, allows a designer to store the form that creates a document in that document. This setting can require up to 20 times more disk space, having a negative effect on database performance. Set this attribute to true if the resulting documents will be mailed to databases that do not contain the form or the alias for the form necessary to view it, or if the form contains an OLE object or subscription that you want to capture any updates to, or if you want the form's static text to be searchable.</p>
+
+<p>categories</p>
+
+<p>Name of the category under which the database appears in the Database Catalog.</p>
+
+<p>copyprofiledocswithdesign</p>
+
+<p>If true, propagates to databases created from the template specified on the Design tab of the Database Properties box any profile documents within the template.</p>
+
+<p>defaultlanguage</p>
+
+<p>For multiple language databases, indicates the default language to display the database contents in. This attribute is only evaluated if the multilingual attribute equals true.</p>
+
+<p>defaultregion</p>
+
+<p>Further specifies the language based on the region that the database targets. For example, English is the default language, you can specify the default language from among: England, United States, New Zealand, Ireland, and others. This attribute is only evaluated if the multilingual attribute equals true.</p>
+
+<p>defaultsortorder</p>
+
+<p>Language to use as the default when an application is taken offline by an end-user. For more details, see the topic "<a href="#">Creating a DOLS Offline Subscription Configuration profile document</a>" in the book Application Development with Domino Designer. This attribute is only evaluated if the multilingual attribute equals true.</p>
+
+<p>fromtemplate</p>
+
+<p>Name of the template that the database inherits its design from.</p>
+
+<p>imageloadsdeferred</p>
+
+<p>If true, displays a document's text before displaying its images, when viewed through the Notes client. By default, Lotus Notes displays the first item it encounters on the document; if that item is a large image, the document can be slow to display. Display setting for images in documents accessed by the Web are determined by the Web browser used to view them.</p>
+
+<p>increasemaxfields</p>
+
+<p>If true, increases the number of fields the database can contain from the standard of having a maximum total length for all field names of approximately 64K to allowing for up to 64K of uniquely-named fields.</p>
+
+<p>logtransactions</p>
+
+<p>If true, keeps a log of all transactions that occur in your back-end database. Logging is important because it enables you to recover databases after a system failure. You might want to disable logging for a database that stores only attachment files, for instance, since changes to those files are not recorded as transactions.</p>
+
+<p>maintainunread</p>
+
+<p>If true, maintains unread marks. Maintaining unread marks uses up substantial system resources. You might want to disable unread marks in databases that are continually updated, such as a log or directory database.</p>
+
+<p>markmodifiedunread</p>
+
+<p>If true, continually marks documents that have been updated since last viewed as unread.</p>
+
+<p>maxrevisionentries</p>
+
+<p>Maximum number of edit sessions to archive in the $Revisions field on a form. The $Revisions field stores the date and time of each document editing session and is used to resolve replication or save conflicts. By default, the field stores up to 500 edit sessions, each of which requires 8 bytes of disk space. You can set this field to store fewer sessions in order to conserve disk space. Once the limit is met, Lotus Domino deletes the oldest entry and adds the newest entry.</p>
+
+<p>maxupdatedbyentries</p>
+
+<p>Maximum number of edit sessions to archive in the $UpdatedBy field on a form. The $Updatedby field stores the name of the user or server associated with each document editing session. You can conserve disk space by decreasing the maximum number of edit sessions stored in this field.</p>
+
+<p>multidbindexed</p>
+
+<p>If true, indicates that the current database is included in the multiple database index for searching purposes.</p>
+
+<p>multilingual</p>
+
+<p>If true, indicates that this database is available in more than one language. Specify the default language, region, and sorting order in the defaultlanguage, defaultregion, and defaultsortorder attributes respectively.</p>
+
+<p>nourlopen</p>
+
+<p>If true, prohibits users from using URL commands in the browser to self-navigate your Web application.</p>
+
+<p>optimizetablebitmaps</p>
+
+<p>If true, internally maintains a record of the forms associated with all documents in a view. If this form-document association is known to Lotus Domino when a view is updated, the update can occur much faster. There is some performance cost to maintaining this association, but the increased speed with which view can be updated, especially small views in large databases, make the cost worthwhile.</p>
+
+<p>overwritefreespace</p>
+
+<p>If true, overwrites deleted data with a pattern that prevents unauthorized users from using a utility to access the deleted data. You can set this attribute to false for databases that are already secure, that automatically reallocate deleted space, or in which security is not an issue, such as in an informal discussion database.</p>
+
+<p>path</p>
+
+<p>Full path showing the location of the database.</p>
+
+<p>requiressl</p>
+
+<p>If true, indicates that the database requires SSL certification to be accessed by a user. SSL stands for Secure Sockets Layer, which is a security protocol that protects data by encrypting it as it passes between servers and Web clients. Web users must have an SSL certificate in their browser configuration to be able to access SSL-protected databases.</p>
+
+<p>savelastaccessed</p>
+
+<p>If true, updates the Accessed property of a document, which indicates the date on which a document was last modified, even if the document was only read and not edited. This setting uses substantial system resources to maintain.</p>
+
+<p>showinopendialog</p>
+
+<p>If true, displays the database in the list of available databases for a given server in the Open Database dialog box which displays when a user selects File - Database - Open (or Ctrl+O) from the menu. If you want to deter users from accessing this database, set this attribute to false. The database can still be accessed by manually entering its file name in the Filename field of the Open Database dialog box.</p>
+
+<p>singlecopytemplate</p>
+
+<p>If true, databases created from this template reference the design elements within the template but do not get their own copies of the design elements. The template and the databases created from the template must be on the same server.</p>
+
+<p>softdeletionsexpirein</p>
+
+<p>Number of hours to retain deleted documents in the database before permanently deleting them. This attribute is only evaluated if the allowsoftdeletion attribute equals true.</p>
+
+<p>templatename</p>
+
+<p>Name of the template, if the database is used as a template.</p>
+
+<p>title</p>
+
+<p>Database title.</p>
+
+<p>type</p>
+
+<p>Type of database from the options defined in the <a href="database_root_element_xml.html">Defined entities for &lt;database&gt; element</a> entity.</p>
+
+<p>unicodestandardsorting</p>
+
+<p>If true, enables you to sort a multilingual database in Unicode standard format. For more information on Unicode sorting, go to http://oss.software.ibm.com/icu/.</p>
+
+<p>usejavascriptinpages</p>
+
+<p>If true, allows for pass-thru JavaScript to be included in design elements. Some of the benefits of this are that hotspot formulas are evaluated only when the hotspot is clicked, you can add multiple buttons to a page or form, and some of the formula language @commands that would not function on the Web otherwise are supported. For more details, see the topic <a href="#">"Creating formulas and buttons for the Web"</a> in the book Application Development with Domino Desginer.</p>
+
+<p>uselz1</p>
+
+<p>If true, specifies that database attachments should be compressed using the LZ1 algorithm instead of the Huffman algorithm. Huffman passes over the attachment twice, the first time to create an encoding tree, and the second time to encode the file. LZ1 handles a limited window of the file at a time, creating a dictionary of repeating byte patterns. It does not save the dictionary but, instead, uses it to encode the attachment on the fly. </p>
+
+<h3>Defined entities for &lt;database&gt; element</h3>
+
+<p>The  entity defines the types of databases that can exist on a Domino server.</p>
+
+<h3>%database.types;</h3>
+
+<p>Syntax:</p>
+
+<pre>&lt;!ENTITY % database.types "standard | library | addressbook | lightaddressbook | multidbsearch | portfolio | imapproxy | subscriptions | mailbox | personaljournal | mailfile "&gt;</pre>
+
+<p>addressbook</p>
+
+<p>Functions as the personal address book for users, storing information about the people, companies, and server computers they communicate with.</p>
+
+<p>imapproxy</p>
+
+<p>Enables a user to access, read, and manipulate messages received or sent from a mailbox on an IMAP server. This database is automatically created when a user creates and saves an Internet Account document. The template name is imapcl5.ntf.</p>
+
+<p>library</p>
+
+<p>Functions as a document storage database that enables review workflow and archiving. The template name is doclbw6.ntf.</p>
+
+<p>lightaddressbook</p>
+
+<p>Represents the Domino Directory catalog, which is a directory of all the databases in an enterprise. The template name is dircat5.ntf.</p>
+
+<p>mailbox</p>
+
+<p>Holds mail that is in transit to other servers or users, as well as undeliverable mail. This database is automatically created on a server the first time the router task is run and is automatically created on a workstation when a user sets the location document to accept Workstation-based Mail. The template name is mailbox.ntf.</p>
+
+<p>mailfile</p>
+
+<p>Database that sends and receives electronic mail via Lotus Domino. Also has calendaring and scheduling features. The template name is mail6.ntf or mail6ex.ntf for the extended template.</p>
+
+<p>multidbsearch</p>
+
+<p>Search site database that you can use to search across multiple databases. The template name is srchsite.ntf.</p>
+
+<p>personaljournal</p>
+
+<p>Functions as an electronic diary, enabling users to write and organize private ideas and documents. The template name is journal6.ntf.</p>
+
+<p>portfolio</p>
+
+<p>Stores bookmarks to Notes databases. The template name is bookmark.ntf.</p>
+
+<p>standard</p>
+
+<p>Created from the "blank" database design template. A standard database contains all the standard design elements of a Notes database and can be built into any type of application using Lotus Domino Designer.</p>
+
+<p>subscriptions</p>
+
+<p>Updates a user on activity, news, and new postings created in databases of interest to the user, that reside on a server the user has access to, and that allow for subscriptions. Users define which databases and types of information they want to be updated on by creating a subscription profile. The template name is headline.ntf.</p>
+
+<p>The  entity maps to the various design elements in Lotus Domino Designer. This entity is used in the %note.types; entity.</p>
+
+<h3>%design.elements;</h3>
+
+<p>Syntax:</p>
+
+<pre>&lt;!ENTITY % design.elements "form | subform | page | frameset | view | folder | sharedfield | sharedactions | imageresource | appletresource | agent | agentdata | scriptlibrary | databasescript | helpusingdocument | helpaboutdocument | dataconnection "&gt;</pre>
+
+<p>The  entity defines the basic types of notes or root elements in a Domino database. A %note.classes; entity differs from a %note.types; entity in that a note's class is determined by a value stored in the note's header; its type is determined first by its class and is then further specified by the presence or absence of a specific item within the note. For instance, agents and scripts both belong to the FILTER class; yet their note types differ based on the value of the item called $Flags, which they each contain.</p>
+
+<h3>%note.types;</h3>
+
+<p>Syntax:</p>
+
+<pre>&lt;!ENTITY % note.types "note | document | profiledocument | %design.elements; "&gt;</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="domino_dtd.html">The Domino DTD</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

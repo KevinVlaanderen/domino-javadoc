@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing session properties</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing session properties</h1></center>
+
+<p>The following table lists the NotesSession properties.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#AddressBooks">AddressBooks</a></td>
+<td valign="top">NotesDatabase array</td>
+<td valign="top">(Read-only) Accessible Public and Personal Address books, both local and remote</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#CommonUserName">CommonUserName</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Common name of the current server or user</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#ConvertMIME">ConvertMIME</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if items of type MIME_PART are converted to rich text upon instantiation</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#CurrentAgent">CurrentAgent</a></td>
+<td valign="top">NotesAgent</td>
+<td valign="top">(Read-only) Agent in which the program is running</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#CurrentDatabase">CurrentDatabase</a></td>
+<td valign="top">NotesDatabase</td>
+<td valign="top">(Read-only) Database in which the program is running</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#DocumentContext">DocumentContext</a></td>
+<td valign="top">DocumentContext</td>
+<td valign="top">(Read-only) In-memory document created by an external program through the Notes API</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#EffectiveUserName">EffectiveUserName</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) User ID of the creator of the current script</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">HttpURL</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The HTTP URL of a session.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">International</a> </td>
+<td valign="top">
+<a href="NotesInternational.html">NotesInternational</a>  </td>
+<td valign="top">(Read-only) The international (regional) settings for your operating environment</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsOnServer</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the program is running on a server</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#LastExitStatus">LastExitStatus</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Status the last time the script ran, if an agent</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#LastRun">LastRun</a></td>
+<td valign="top">Date/Time</td>
+<td valign="top">(Read-only) Date and time the script last ran, if an agent</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">NotesBuildVersion</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Build version of Domino Designer</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">NotesURL</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The Notes URL of a session. For COM only.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">NotesVersion</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Version of Domino Designer</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">OrgDirectoryPath</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Default directory of the current user in a hosted organization</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Platform</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Operating system platform</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#SavedData">SavedData</a></td>
+<td valign="top">NotesDocument</td>
+<td valign="top">(Read-only) Document that stores data between agent invocations, if an agent</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">ServerName</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The full name of the server. For COM only.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">URLDatabase</a> </td>
+<td valign="top">NotesDatabase</td>
+<td valign="top">(Read-only) Database object representing the default Web Navigator database.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">UserGroupNameList</a></td>
+<td valign="top">Array of NotesName</td>
+<td valign="top">(Read-only) Returns the groups to which the current user belongs</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesSession.html#UserName">UserName</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) User ID (hierarchical name) of the current server or user</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NotesSession.html#UserNameList">UserNameList</a> </td>
+<td valign="top">Array of NotesName</td>
+<td valign="top">(Read-only) Returns all the user names on a session, including primary and alternate names</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NotesSession.html#UserNameObject">UserNameObject</a> </td>
+<td valign="top">NotesName</td>
+<td valign="top">(Read-only) The name of the user or server that created the session. For COM only.</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing sessions</a><br>
+<a href="accessing_notes_agents.html">Accessing agents</a><br>
+<a href="accessing_the_current_document.html">Accessing the current document in LotusScript classes</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

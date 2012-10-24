@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing a form</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing a form</h1></center>
+
+<p>You can access existing forms in a database as follows:</p>
+
+<ul>
+<li>The <a href="NotesDatabase.html#Forms">Forms property</a> of NotesDatabase returns an array of NotesForm objects.</li>
+<li>The <a href="NotesDatabase.html#GetForm">GetForm method</a> of NotesDatabase returns a named NotesForm object.</li>
+</ul>
+
+<p>The<a href="NotesForm.html"> NotesForm class</a> provides access to the following form properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Aliases</a></td>
+<td valign="top">Array of strings</td>
+<td valign="top">(Read-only) Aliases of the form</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Fields</a></td>
+<td valign="top">Array of strings</td>
+<td valign="top">(Read-only) Names of all the fields of the form</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FormUsers</a></td>
+<td valign="top">Array of strings</td>
+<td valign="top">(Read-write) Contents of the $FormUsers field</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">HttpURL</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The HTTP URL of a form.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsSubform</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the form is a subform</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Name</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of the form</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">NotesURL</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The Notes URL of a form. </td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Parent</a> </td>
+<td valign="top">NotesDatabase</td>
+<td valign="top">(Read-only) Database that contains a Form object. For COM only.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ProtectReaders</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Protects $Readers items from being overwritten by replication</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ProtectUsers</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Protects $FormUsers items from being overwritten by replication</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Readers</a></td>
+<td valign="top">Array of strings</td>
+<td valign="top">(Read-write) Contents of the $Readers field</td>
+</tr>
+</table>
+
+<p>In addition, you can get the type of a field on the form with <a href="#">GetFieldType</a>. See <a href="NotesItem.html#Type">Type</a> in NotesItem for the valid field types. You can remove an existing form from the database with <a href="#">Remove method</a>.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing Domino databases</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

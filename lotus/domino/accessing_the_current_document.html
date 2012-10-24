@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing the current document in LotusScript classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing the current document in LotusScript classes</h1></center>
+
+<p>You can access the back-end document that is currently open through the <a href="NotesUIWorkspace.html">NotesUIWorkspace</a> and <a href="NotesUIDocument.html">NotesUIDocument</a> classes. Using the <a href="NotesUIView.html">NotesUIView </a> class, you can access the back-end documents in the view with the Documents property. </p>
+
+<p>The <a href="NotesUIDocument.html">NotesUIDocument class</a> has the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">AutoReload</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to automatically reload the current document any time there is a change.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CurrentField</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The name of the current field if the document is in Edit mode.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">DialogBoxCanceled</a> </td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) Indicates if a user cancels a dialog.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Document</a></td>
+<td valign="top">NotesDocument</td>
+<td valign="top">(Read-only) A reference to the NotesDocument object associated with this document window, giving you access to the back-end properties and methods. If you modify and save an item using the NotesDocument object, the item is automatically updated in the workspace, except for rich text items.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">EditMode</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True for Edit mode.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FieldHelp</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to display field help.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">HorzScrollBar</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if the horizontal scroll bar is visible.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">HiddenChars</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to display hidden characters.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">InPreviewPane</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is being accessed from the preview pane.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsNewDoc</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is not yet saved.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">PreviewParentDoc</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if the lower pane containing the parent document is displayed.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">PreviewDocLink</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if the lower pane containing the linked document is displayed.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Ruler</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if the ruler is visible.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">WindowTitle</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The name of the window title.</td>
+</tr>
+</table>
+
+<p>The NotesUIDocument class has the following methods: </p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Method</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Categorize</a></td>
+<td valign="top">Categorizes the current document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Clear</a></td>
+<td valign="top">Clears the selected text.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Close</a></td>
+<td valign="top">Closes the current document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CollapseAllSections</a></td>
+<td valign="top">Collapses all sections in the document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Copy</a></td>
+<td valign="top">Copies the selected text to the Clipboard.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CreateObject</a></td>
+<td valign="top">Creates an object in a rich text item.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Cut</a></td>
+<td valign="top">Cuts the selected text and places it on the Clipboard.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">DeleteDocument</a> </td>
+<td valign="top">Marks the current document for deletion and closes it. The NotesUIDocument object is no longer available once you call this method.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">DeselectAll</a></td>
+<td valign="top">Deselects the entire contents of the current field.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ExpandAllSections</a></td>
+<td valign="top">Expands all sections in the document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FieldAppendText</a></td>
+<td valign="top">Appends the specified text to the specified or current field.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FieldClear</a></td>
+<td valign="top">Clears the contents of the specified or current field.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FieldContains</a></td>
+<td valign="top">Returns True if the specified or current field contains the specified case-sensitive text.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FieldGetText</a></td>
+<td valign="top">Gets the text of the specified or current field.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FieldSetText</a></td>
+<td valign="top">Sets the specified or current field to the specified text.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FindFreeTimeDialog</a></td>
+<td valign="top">Brings up the Find Free Time box. </td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">FindFreeTimeDialogEx</a> </td>
+<td valign="top">Brings up the Find Free Time box to allow searches for available meeting times.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">FindString</a> </td>
+<td valign="top">Finds the text in a given field.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Forward</a></td>
+<td valign="top">Creates a new mail document and prompts for recipients.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GetObject</a></td>
+<td valign="top">Gets a specified object.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesUIDocument.html#GetSchedulerObject">GetSchedulerObject</a></td>
+<td valign="top">Gets an embedded scheduler.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">GetSelectedText</a> </td>
+<td valign="top">Gets the selected text in a UI document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GotoTop</a></td>
+<td valign="top">Goes to the first field or scrolls to the top of the document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GotoBottom</a></td>
+<td valign="top">Goes to the last field or scrolls to the bottom of the document.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">GotoField</a> </td>
+<td valign="top">Given a field name, puts the cursor in the specified field in a document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GotoNextField</a></td>
+<td valign="top">Goes to the next field or scrolls so that it is visible.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GotoPrevField</a></td>
+<td valign="top">Goes to the previous field or scrolls so that it is visible.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">GotoTop</a> </td>
+<td valign="top">Places the cursor in the first editable field or the first button in a document.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Import</a> </td>
+<td valign="top">Imports a file to the document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">InsertText</a></td>
+<td valign="top">Inserts the specified text at the current cursor position.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">NavBarSetText</a></td>
+<td valign="top">Sets the URL navigation bar text. </td>
+</tr>
+<tr>
+<td valign="top"><a href="#">NavBarSpinnerStart</a></td>
+<td valign="top">Starts the URL navigation bar spinner. </td>
+</tr>
+<tr>
+<td valign="top"><a href="#">NavBarSpinnerStop</a></td>
+<td valign="top">Stops the URL navigation bar spinner. </td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Paste</a></td>
+<td valign="top">Pastes the Clipboard text to the current cursor position.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Print</a></td>
+<td valign="top">Prints the current document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Refresh</a></td>
+<td valign="top">Refreshes the document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">RefreshHideFormulas</a></td>
+<td valign="top">Recalculates the hide-when formulas for the current document; this is an expensive operation.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Reload</a></td>
+<td valign="top">Refreshes the current document with any changes made to the stored document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Save</a></td>
+<td valign="top">Saves the current document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SaveNewVersion</a></td>
+<td valign="top">Saves the current document as a new version.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SelectAll</a></td>
+<td valign="top">Selects the entire contents of the current field.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Send</a></td>
+<td valign="top">Mails the current document and closes it.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">SpellCheck</a> </td>
+<td valign="top">Checks the spelling in a document.</td>
+</tr>
+</table>
+
+<p>The NotesUIView class has the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">CalendarDateTime</a> </td>
+<td valign="top">Variant of type DATE</td>
+<td valign="top">(Read-only) The date and time of the current region in a calendar view.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">CaretCategory</a> </td>
+<td valign="top">Variant</td>
+<td valign="top">(Read-only) Returns the current category in the view for the current document.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NotesUIView.html#Documents">Documents</a> </td>
+<td valign="top">NotesDocumentCollection</td>
+<td valign="top">(Read-only) All the documents that the current NotesUIView event is working on.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">View</a> </td>
+<td valign="top">NotesView</td>
+<td valign="top">(Read-only) The back-end view that corresponds to the currently open view.</td>
+</tr>
+</table>
+
+<p>The NotesUIView class has the following methods:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Method</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Print</a> </td>
+<td valign="top">Implements the @Command([FilePrint]). Prints the currently open or selected document(s), or the current view.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">SelectDocument</a> </td>
+<td valign="top">Selects the specified document in a view.</td>
+</tr>
+</table>
+
+<p>For a list of events in NotesUIView, see "<a href="#">Event Descriptions</a>" in the "Programming Overview" chapter.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing documents in LotusScript classes</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Building a note collection</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Building a note collection</h1></center>
+
+<p>The <a href="NoteCollection.html">NoteCollection class</a> lets you build a collection of Domino design and data elements in a database. Use the <a href="Database.html#createNoteCollection">createNoteCollection method</a> in the Database class to create a new NoteCollection object.</p>
+
+<p>The following table lists the NoteCollection properties.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#Count">getCount</a> </td>
+<td valign="top">int</td>
+<td valign="top">The number of notes in the collection.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#LastBuildTime">getLastBuildTime</a> </td>
+<td valign="top"><a href="DateTime.html">DateTime</a></td>
+<td valign="top">Date and time of the last build for this note collection.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NoteCollection.html#Parent">getParent</a></td>
+<td valign="top"><a href="Database.html">Database</a></td>
+<td valign="top">The database that contains the note collection.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectAcl">getSelectACL and setSelectACL</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains an ACL note.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectActions">getSelectActions and setSelectActions</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for actions.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectAgents">getSelectAgents and setSelectAgents</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for agents.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectDatabaseScript">getSelectDatabaseScript and setSelectDatabaseScript</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains a database script note.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectDocuments">getSelectDocuments and setSelectDocuments</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains the data documents.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectFolders">getSelectFolders and setSelectFolders</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for folders.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectForms">getSelectForms and setSelectForms</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for forms.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectFramesets">getSelectFrameSets and setSelectFrameSets</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for frame sets.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectHelpAbout">getSelectHelpAbout and setSelectHelpAbout</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains an "About Database" note.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectHelpIndex">getSelectHelpIndex and setSelectHelpIndex</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains a help index note. </td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectHelpUsing">getSelectHelpUsing and setSelectHelpUsing</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains a "Using Database" note. </td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectIcon">getSelectIcon and setSelectIcon</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains an icon note.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectImageResources">getSelectImageResources and setSelectImageResources</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for image resources.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectionFormula">getSelectionFormula and setSelectionFormula</a> </td>
+<td valign="top">String</td>
+<td valign="top">A formula that selects notes for inclusion in the collection.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectJavaResources">getSelectJavaResources and setSelectJavaResources</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for Java resources.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectMiscCodeElements">getSelectMiscCodeElements and setSelectMiscCodeElements</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for miscellaneous code elements.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectMiscFormatElements">getSelectMiscFormatElements and setSelectMiscFormatElements</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for miscellaneous format elements.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectMiscIndexElements">getSelectMiscIndexElements and setSelectMiscIndexElements</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for miscellaneous index elements.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectNavigators">getSelectNavigators and setSelectNavigators</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for navigators.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectOutlines">getSelectOutlines and setSelectOutlines</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for outlines.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectPages">getSelectPages and setSelectPages</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for pages.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NoteCollection.html#SelectProfiles">getSelectProfiles and setSelectProfiles</a></td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains profile documents.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NoteCollection.html#SelectReplicationFormulas">getSelectReplicationFormulas and setSelectReplicationFormulas</a></td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains replication formulas.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectScriptLibraries">getSelectScriptLibraries and setSelectScriptLibraries</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for script libraries.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectSharedFields">getSelectSharedFields and setSelectSharedFields</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for shared fields.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectStylesheetResources">getSelectStyleSheetResources and setSelectStyleSheetResources</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for style sheet resources.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectSubforms">getSelectSubforms and setSelectSelectSubforms</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for subforms.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SelectViews">getSelectViews and setSelectViews</a> </td>
+<td valign="top">boolean</td>
+<td valign="top">Indicates whether the collection contains notes for views.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NoteCollection.html#SinceTime">getSinceTime and setSinceTime</a> </td>
+<td valign="top"><a href="DateTime.html">DateTime</a></td>
+<td valign="top">Indicates the earliest note creation time in the collection.</td>
+</tr>
+</table>
+
+<p>The methods are as follows:</p>
+
+<ul>
+<li>
+<a href="NoteCollection.html#add">add</a> adds one or more notes to a note collection.</li>
+<li>
+<a href="NoteCollection.html#buildCollection">buildCollection</a> builds (compiles) the note collection.</li>
+<li>
+<a href="NoteCollection.html#clearCollection">clearCollection</a> clears (invalidates) a note collection build.</li>
+<li>
+<a href="NoteCollection.html#getFirstNoteID">getFirstNoteId</a> gets the first note in a collection.</li>
+<li>
+<a href="NoteCollection.html#getNextNoteID">getNextNoteId</a> gets the next note in a collection.</li>
+<li>
+<a href="NoteCollection.html#intersect">intersect</a> creates a note collection containing the notes common to the original collection and the note or notes specified in the intersection parameter.</li>
+<li>
+<a href="NoteCollection.html#remove">remove</a> removes one or more notes from a note collection.</li>
+<li>
+<a href="NoteCollection.html#selectAllAdminNotes">selectAllAdminNotes</a> selects or deselects the administration notes for inclusion in the collection.</li>
+<li>
+<a href="NoteCollection.html#selectAllCodeElements">selectAllCodeElements</a> selects or deselects the notes for code elements for inclusion in the collection.</li>
+<li>
+<a href="NoteCollection.html#selectAllDataNotes">selectAllDataNotes</a> selects or deselects the data notes for inclusion in the collection. </li>
+<li>
+<a href="NoteCollection.html#selectAllDesignElements">selectAllDesignElements</a> selects or deselects the notes for design elements for inclusion in the collection. </li>
+<li>
+<a href="NoteCollection.html#selectAllFormatElements">selectAllFormatElements</a> selects or deselects the notes for format elements for inclusion in the collection.</li>
+<li>
+<a href="NoteCollection.html#selectAllIndexElements">selectAllIndexElements</a> selects or deselects the notes for index elements for inclusion in the collection.</li>
+<li>
+<a href="NoteCollection.html#selectAllNotes">selectAllNotes</a> selects or deselects all notes for inclusion in the collection.</li>
+</ul>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Collecting all documents and all unprocessed documents</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Collecting all documents and all unprocessed documents</h1></center>
+
+<p>The <a href="NotesDatabase.html#AllDocuments">AllDocuments property</a> of the NotesDatabase class is a NotesDocumentCollection object that contains all the data documents in a database. The <a href="NotesDatabase.html#UnprocessedDocuments">UnprocessedDocuments property</a> applies only to agents and view actions. For agents, this property contains all documents not yet processed by the agent or the result of the search specified in the agent's Document Selection object, depending on how you create the agent. For view actions, this property contains all selected documents. Use <a href="NotesDatabase.html#GetModifiedDocuments">GetModifiedDocuments</a> in NotesDatabase to get documents modified since a specified time.</p>
+
+<p>The <a href="NotesDocumentCollection.html">NotesDocumentCollection class</a> has the following properties and methods for accessing documents:</p>
+
+<ul>
+<li>Use the <a href="#">GetFirstDocument</a> and <a href="#">GetNextDocument</a> methods to get the first and next document in a loop until the next document is Nothing.</li>
+<li>Use the <a href="#">GetLastDocument</a> and <a href="#">GetPrevDocument</a> methods to get the last and previous document in a loop until the previous document is Nothing.</li>
+<li>Use the <a href="#">Count property</a> to get the number of documents in the collection.</li>
+<li>Use the <a href="#">GetNthDocument method</a> to get a particular document.</li>
+</ul>
+
+<p>The documents in a document collection are not ordered.</p>
+
+<p>The<a href="NotesDocumentCollection.html"> NotesDocumentCollection class</a> contains the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Count</a></td>
+<td valign="top">Long</td>
+<td valign="top">(Read-only) Number of documents in the collection</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsSorted</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the documents are sorted</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Parent</a></td>
+<td valign="top">NotesDatabase</td>
+<td valign="top">(Read-only) Database that contains the collection</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Query</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Text of the query that created the collection</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocumentCollection.html#UntilTime">UntilTime</a></td>
+<td valign="top">NotesDateTime</td>
+<td valign="top">(Read-only) Database end time for a collection made through <a href="NotesDatabase.html#GetModifiedDocuments">GetModifiedDocuments</a> in NotesDatabase</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing documents in LotusScript classes</a><br>
+<a href="locating_documents_within_a_view_or_folder.html">Locating documents within a view or folder in LotusScript classes</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

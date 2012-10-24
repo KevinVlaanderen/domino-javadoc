@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing an outline</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing an outline</h1></center>
+
+<p>You can access a <a href="NotesOutline.html">NotesOutline</a> object through the <a href="NotesDatabase.html#CreateOutline">CreateOutline</a> and <a href="NotesDatabase.html#GetOutline">GetOutline</a> methods in NotesDatabase. The <a href="NotesOutline.html#CreateEntry">CreateEntry</a> method in NotesOutline allows you to create a new <a href="NotesOutline.html#CreateEntry">NotesOutlineEntry</a> object and place it in the outline.</p>
+
+<p>NotesOutline contains the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Alias</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Alias name of the outline, used for programmatic access.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Comment</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) A brief description of the outline.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Name</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of the outline, used for programmatic access.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">ParentDatabase</a> </td>
+<td valign="top">NotesDatabase</td>
+<td valign="top">(Read-only) The parent database that contains an Outline object. For COM only.</td>
+</tr>
+</table>
+
+<p>NotesOutline contains the following methods:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Method</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesOutline.html#AddEntry">AddEntry</a></td>
+<td valign="top">Adds a new entry to the outline. <br>
+This method is obsolete as of Release 5.0.2, but is supported for backward compatibility. Use  <a href="NotesOutline.html#CreateEntry">CreateEntry</a>  to add a new entry to an outline.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesOutline.html#CreateEntry">CreateEntry</a></td>
+<td valign="top">Creates a new entry and adds it to an outline.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">CreateEntryFrom</a> </td>
+<td valign="top">Creates a copy of an existing entry. <br>
+This method is new in Release 5.0.2.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">GetChild</a> </td>
+<td valign="top">Gets the child of the specified entry in an outline. <br>
+This method is new in Release 5.0.2.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GetFirst</a></td>
+<td valign="top">Gets the first entry of an outline.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GetLast</a></td>
+<td valign="top">Gets the last entry of an outline.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GetNext</a></td>
+<td valign="top">Returns the entry immediately following the specified entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GetNextSibling</a></td>
+<td valign="top">Given an entry in an outline, returns the entry immediately following it at the same level.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GetParent</a></td>
+<td valign="top">Given a response entry in an outline, returns its parent entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GetPrev</a></td>
+<td valign="top">Given an entry in an outline, returns the entry preceding it.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">GetPrevSibling</a></td>
+<td valign="top">Given an entry in an outline, returns the entry immediately preceding it at the same level.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesOutline.html#MoveEntry">MoveEntry</a></td>
+<td valign="top">Moves the specified entry from one location to another in an outline.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesOutline.html#RemoveEntry">RemoveEntry</a></td>
+<td valign="top">Deletes the specified entry and its subentries from an outline.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesOutline.html#Save">Save</a></td>
+<td valign="top">Saves any changes made to an outline.</td>
+</tr>
+</table>
+
+<p><a href="NotesOutlineEntry.html">NotesOutlineEntry</a> contains the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Alias</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Alias name of the outline entry, used for programmatic access.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Database</a></td>
+<td valign="top">NotesDatabase</td>
+<td valign="top">(Read-only) Database resource link for an outline entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Document</a></td>
+<td valign="top">NotesDocument</td>
+<td valign="top">(Read-only) Document resource link for an outline entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">EntryClass</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Class of an outline entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Formula</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Formula for an action outline.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">FrameText</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The name of the target frame in which you want the entry to appear.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">HasChildren</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Indicates whether an entry contains child entries.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">HideFormula</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) The hide formula, if any.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ImagesText</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) The name of the image file you would use to add an icon to your entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsHidden</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Indicates whether an entry is hidden in the current context, or sets all contexts.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsHiddenFromNotes</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Indicates whether an entry is hidden in the Notes client.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsHiddenFromWeb</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Indicates whether an entry is hidden in a Web browser.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsInThisDb</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) Indicates whether an entry refers to an element within the current database.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsPrivate</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) Indicates whether an entry is specific to an individual.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">KeepSelectionFocus</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Indicates whether an entry keeps selection focus.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Label</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) Label for an entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Level</a></td>
+<td valign="top">Long</td>
+<td valign="top">(Read-write) Indicates the level of this entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">NamedElement</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Named element referenced by an outline entry.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Parent</a> </td>
+<td valign="top">NotesOutline</td>
+<td valign="top">(Read-only) The outline that contains an OutlineEntry object. For COM only.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Type</a></td>
+<td valign="top">Constant of type Long</td>
+<td valign="top">(Read-write) Type of outline entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">URL</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The URL of an outline entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">UseHideFormula</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) Indicates whether an entry uses the hide formula.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">View</a></td>
+<td valign="top">NotesView</td>
+<td valign="top">(Read-only) View resource link for an outline entry.</td>
+</tr>
+</table>
+
+<p><a href="NotesOutlineEntry.html">NotesOutlineEntry</a> contains the following methods:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Method</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SetAction</a></td>
+<td valign="top">Specifies a formula for an action outline entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SetNamedElement</a></td>
+<td valign="top">Specifies a named element for an outline entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SetNoteLink</a></td>
+<td valign="top">Specifies a resource link for an outline entry.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SetURL</a></td>
+<td valign="top">Specifies a URL as the resource link for an outline entry.</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing Domino databases</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examining and adjusting an access control list</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examining and adjusting an access control list</h1></center>
+
+<p>You examine and adjust the access control list (ACL) of a database through objects of the following classes:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Class</td>
+<td valign="top">Contains</td>
+<td valign="top">To</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDatabase.html">NotesDatabase</a></td>
+<td valign="top"><a href="#">ACL property</a></td>
+<td valign="top">Access a NotesACL object</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="#">CurrentAccessLevel property</a></td>
+<td valign="top">Determine the current user access level</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesDatabase.html#GrantAccess">GrantAccess</a>, <a href="NotesDatabase.html#RevokeAccess">RevokeAccess</a>, <a href="NotesDatabase.html#QueryAccess">QueryAccess</a>, <a href="#">QueryAccessPrivileges</a>, and <a href="#">QueryAccessRoles</a> methods</td>
+<td valign="top">Directly create, remove, and check ACL entries</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesACL.html">NotesACL</a></td>
+<td valign="top">
+<a href="#">GetEntry</a>, <a href="#">GetFirstEntry</a>, and <a href="#">GetNextEntry</a> methods</td>
+<td valign="top">Access ACL entries</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">CreateACLEntry </a> method</td>
+<td valign="top">Create ACL entries</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">RemoveACLEntry</a> method</td>
+<td valign="top">Remove ACL entries in COM only</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"><a href="#">AdministrationServer</a></td>
+<td valign="top">Determine and set name of administration server</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"> <a href="#">IsAdminNames</a>, <a href="#">IsAdminReaderAuthor</a>
+</td>
+<td valign="top">Determine administration access to Names, Authors, and Readers fields</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">InternetLevel</a>  property</td>
+<td valign="top">Determine and set the maximum Internet access level for the current database</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">Roles</a> property and <a href="#">AddRole</a>, <a href="#">DeleteRole</a>, and <a href="#">RenameRole</a> methods</td>
+<td valign="top">Access roles</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">Parent </a> property</td>
+<td valign="top">Determine the database that owns the ACL</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">UniformAccess</a> property</td>
+<td valign="top">Enforce, or not enforce, a consistent ACL across all replicas of a database</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">IsExtendedAccess</a> property</td>
+<td valign="top">Enable, or not enable, extended access</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesACLEntry.html">NotesACLEntry</a></td>
+<td valign="top">
+<a href="#">CanCreateDocuments</a>, <a href="#">CanCreateLSOrJavaAgent</a>,  <a href="#">CanCreatePersonalAgent</a>, <a href="#">CanCreatePersonalFolder</a>, <a href="#">CanCreateSharedFolder</a>, <a href="#">CanDeleteDocuments</a>, <a href="#">CanReplicateOrCopyDocuments</a>, <a href="#">IsAdminReaderAuthor</a>, <a href="#">IsAdminServer</a>, <a href="#">Level</a>, <a href="#">Name</a>, and <a href="#">Parent</a> properties</td>
+<td valign="top">Examine the ACL entry</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">NameObject</a> property</td>
+<td valign="top">Supported in COM only</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="NotesACLEntry.html">New</a> and <a href="#">Remove</a> methods</td>
+<td valign="top">Create and remove an entry</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">Roles property</a> and <a href="#">IsRoleEnabled</a>, <a href="#">EnableRole</a>, and <a href="#">DisableRole</a> methods</td>
+<td valign="top">Associate ACL entries with roles</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">IsPublicReader</a> and <a href="#">IsPublicWriter</a> properties</td>
+<td valign="top">Become public readers and writers</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">
+<a href="#">IsGroup</a>, <a href="#">IsPerson</a>, and <a href="#">IsServer</a> properties</td>
+<td valign="top">Determine and set the user type for an ACL entry</td>
+</tr>
+</table>
+
+<p>The <a href="NotesACL.html#Save">Save method</a> of NotesACL writes changes that you make to the ACL and ACL entries to permanent storage. Otherwise, the changes are lost when your program exits.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing Domino databases</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examining and adjusting database replication settings</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examining and adjusting database replication settings</h1></center>
+
+<p>You examine and adjust the replication settings of a database through the <a href="Replication.html">Replication</a> and <a href="ReplicationEntry.html">ReplicationEntry</a> classes.</p>
+
+<p>Each Database object has exactly one Replication object, accessible through the <a href="Database.html#ReplicationInfo">ReplicationInfo</a> property in Database. The following methods access the Replication properties:</p>
+
+<ul>
+<li>
+<a href="Replication.html#IsAbstract">getAbstract</a> returns true if large documents are truncated and attachments removed; <a href="Replication.html#IsAbstract">setAbstract</a> truncates large documents and removes attachments if set to true.</li>
+<li>
+<a href="Replication.html#CutoffDate">getCutoffDate</a> returns an int value containing today's date minus the cutoff interval.</li>
+<li>
+<a href="Replication.html#CutoffInterval">getCutoffInterval</a> returns a long value containing the number of days after which documents are automatically deleted; <a href="Replication.html#CutoffInterval">setCutoffInterval</a> sets the cutoff interval.</li>
+<li>
+<a href="Replication.html#DontSendLocalSecurityUpdates">getDontSendLocalSecurityUpdates</a> returns true if local security (encryption) updates are not sent; <a href="Replication.html#DontSendLocalSecurityUpdates">setDontSendLocalSecurityUpdates</a> does or does not send local security updates.</li>
+<li>
+<a href="Replication.html#IsCutoffDelete">isCutoffDelete</a> returns true if documents older than the cutoff date are deleted; <a href="Replication.html#IsCutoffDelete">setCutoffDelete</a> deletes documents older than the cutoff date.</li>
+<li>
+<a href="Replication.html#IsDisabled">isDisabled</a> returns true if replication is disabled; <a href="Replication.html#IsDisabled">setDisabled</a> disables replication. Unlike NeverReplicate, this property is accessible through the UI.</li>
+<li>
+<a href="Replication.html#IsIgnoreDeletes">isIgnoreDeletes</a> returns true if outgoing deletions are not replicated; <a href="Replication.html#IsIgnoreDeletes">setIgnoreDeletes</a> prevents outgoing replication of deletions.</li>
+<li>
+<a href="Replication.html#IsIgnoreDestDeletes">isIgnoreDestDeletes</a> returns true if incoming deletions are not replicated; <a href="Replication.html#IsIgnoreDestDeletes">setIgnoreDestDeletes</a> prevents replication of incoming deletions.</li>
+<li>
+<a href="Replication.html#Priority">getPriority</a> returns an int value containing the replication priority; <a href="Replication.html#Priority">setPriority</a> sets the replication priority.</li>
+</ul>
+
+<p>If you set replication properties, you must <a href="Replication.html#save">save</a> them to make them permanent. You can <a href="Replication.html#reset">reset</a> the current property values back to the last saved values. You can clear the replication history with <a href="Replication.html#clearHistory">clearHistory</a>.</p>
+
+<p>A database has any number of <a href="ReplicationEntry.html">ReplicationEntry</a> objects, accessible through the <a href="Replication.html#getEntry">getEntry</a> method of Replication. A replication entry describes the replication settings for a pair of servers, of which one is the source and the other is the destination. The following methods access the ReplicationEntry properties:</p>
+
+<ul>
+<li>
+<a href="ReplicationEntry.html#Destination">getDestination</a> returns a String value containing the name of the destination server.</li>
+<li>
+<a href="ReplicationEntry.html#Formula">getFormula</a> returns a String value containing the replication formula; <a href="ReplicationEntry.html#Formula">setFormula</a> sets the formula.</li>
+<li>
+<a href="ReplicationEntry.html#IsIncludeACL">isIncludeACL</a> returns true if the ACL is included; <a href="ReplicationEntry.html#IsIncludeACL">setIncludeACL</a> includes the ACL or not.</li>
+<li>
+<a href="ReplicationEntry.html#IsIncludeAgents">isIncludeAgents</a> returns true if agents are included; <a href="ReplicationEntry.html#IsIncludeAgents">setIncludeAgents</a> includes agents or not. </li>
+<li>
+<a href="ReplicationEntry.html#IsIncludeDocuments">isIncludeDocuments</a> returns true if documents are included; <a href="ReplicationEntry.html#IsIncludeDocuments">setIncludeDocuments</a> includes documents or not. </li>
+<li>
+<a href="ReplicationEntry.html#IsIncludeForms">isIncludeForms</a> returns true if forms are included; <a href="ReplicationEntry.html#IsIncludeForms">setIncludeForms</a> includes forms or not. </li>
+<li>
+<a href="ReplicationEntry.html#IsIncludeFormulas">isIncludeFormulas</a> returns true if the replication formula is included; <a href="ReplicationEntry.html#IsIncludeFormulas">setIncludeFormulas</a> includes the replication formula or not. </li>
+<li>
+<a href="ReplicationEntry.html#Source">getSource</a> returns a String value containing the name of the source server.</li>
+<li>
+<a href="ReplicationEntry.html#Views">getViews</a> returns a String value containing the names of the views to be included; <a href="ReplicationEntry.html#Views">setViews</a> sets the names.</li>
+</ul>
+
+<p>Use <a href="ReplicationEntry.html#remove">remove</a> to remove an entry. The <a href="ReplicationEntry.html#save">save</a> method must be called to preserve any changes you make to the replication entry.</p>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

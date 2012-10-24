@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>note element</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>note element</h1></center>
+
+<p>Defines the structure of a note in a Domino database. A note is usually represented as a document element or as a defined design element, such as a form or view. Exporting or importing note elements in DXL is for advanced users. More data is interpreted when you access a note as a design element, such as a form or view, than when you access it as a note element.</p>
+
+<h3>Containment Hierarchy</h3>
+
+<p>Contained by: <a href="database_root_element_xml.html">%note.types;</a></p>
+
+<p>Contains:  <a href="#">%note.prolog;</a>, <a href="#">%note.epilog;</a></p>
+
+<h3>Content</h3>
+
+<pre>%note.prolog; , %note.epilog;</pre>
+
+<p>Contains any one of the contents of the %note.prolog; and %note.epilog; entities.</p>
+
+<h3>Attributes</h3>
+
+<pre>&lt;!ATTLIST note
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">  <a href="#">%note.attrs;</a>
+</td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">  class</td>
+<td valign="top">(<a href="note_root_element_xml.html">%note.classes;</a>)</td>
+<td valign="top">#REQUIRED</td>
+</tr>
+<tr>
+<td valign="top">  default</td>
+<td valign="top">%boolean;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  private </td>
+<td valign="top">%boolean;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+</table>
+
+
+
+&gt;</pre>
+
+<p>class</p>
+
+<p>Type of note class, as defined in the <a href="note_root_element_xml.html">%note.classes;</a> entity.</p>
+
+<p>default</p>
+
+<p>If true, this note is the default for the specified note class.</p>
+
+<p>private</p>
+
+<p>If true, this note is private. Use this attribute to specify private design elements.</p>
+
+<h3>Defined entity for &lt;note&gt; element</h3>
+
+<p>The  entity lists the types of notes classes that compose a Notes database. The class of a note is determined by a value stored in its header. A %note.classes; entity differs from a %note.types; entity in that a note's type is determined first by its class and is then further specified by the presence or absence of a specific item within the note. For instance, agents and scripts both belong to the FILTER class; yet their note types differ based on the value of the item called $Flags, which they each contain.</p>
+
+<h3>%note.classes;</h3>
+
+<h3>Syntax:</h3>
+
+<pre>&lt;!ENTITY % note.classes "document | helpaboutdocument | form | view | icon | helpindex | helpusingdocument | filter | sharedfield | replicationformula "&gt;</pre>
+
+<p>The %note.classes; entity defines the following:</p>
+
+<p>document</p>
+
+<p>DOCUMENT class note, which includes documents.</p>
+
+<p>filter</p>
+
+<p>FILTER class note, which includes agents, database scripts, outlines, and script libraries.</p>
+
+<p>form</p>
+
+<p>FORM class note, which includes forms, framesets, pages, and subforms.</p>
+
+<p>helpaboutdocument</p>
+
+<p>INFO class note, which specifies the "About This Database" document for Help.*</p>
+
+<p>helpindex</p>
+
+<p>HELP_INDEX class note, which specifies the index for Help.*</p>
+
+<p>helpusingdocument</p>
+
+<p>HELP class note, which specifies the "Using This Database" document for Help.</p>
+
+<p>icon</p>
+
+<p>ICON class note.*</p>
+
+<p>replicationformula	</p>
+
+<p>REPLFORMULA class note, which specifies the replication formula for a database.</p>
+
+<p>sharedfield</p>
+
+<p>FIELD class note, which includes shared fields.</p>
+
+<p>view</p>
+
+<p>VIEW class note, which includes views and folders.</p>
+
+<p>*Each database contains only a single occurrence of these classes.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="domino_dtd.html">The Domino DTD</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

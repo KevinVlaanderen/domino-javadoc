@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing agents</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing agents</h1></center>
+
+<p>The <a href="NotesAgent.html">NotesAgent class</a> represents an agent. You can access the current agent through the <a href="NotesSession.html#CurrentAgent">CurrentAgent property</a> of NotesSession; this property is empty if the script is not running as an agent. You can access all agents in a database through the <a href="NotesDatabase.html#Agents">Agents property</a> of NotesDatabase; this property is empty if the database contains no agents. You can access a named agent in a database through the <a href="NotesDatabase.html#GetAgent">GetAgent method</a> of NotesDatabase.</p>
+
+<p>The following table lists the NotesAgent properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Comment</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Comment entered by agent designer</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesAgent.html#CommonOwner">CommonOwner</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Common name of the user who last modified the agent</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesAgent.html#HasRunSinceModified">HasRunSinceModified</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the agent has run since it was created or last modified</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">HttpURL</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The HTTP URL of an agent.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsActivatable</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if user activation is in effect when enabling an agent.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsEnabled</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if the agent can run.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsNotesAgent</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the agent can run in the Domino client environment</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsPublic</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the agent is public</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">IsWebAgent</a> </td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the agent can run in a Web browser environment</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesAgent.html#LastRun">LastRun</a></td>
+<td valign="top">Date variant</td>
+<td valign="top">(Read-only) Date that the agent last ran</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Name</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of the agent</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">NotesURL</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The Notes URL of an agent.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">OnBehalfOf</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of user under whose identity a scheduled or Web agent runs. </td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Owner</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of the creator of the agent</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesAgent.html#ParameterDocID">ParameterDocID</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The note ID of a document</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Parent</a></td>
+<td valign="top">NotesDatabase</td>
+<td valign="top">(Read-only) Database that contains the agent</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Query</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Query used by the agent to select documents</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ServerName</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) Name of the server on which the agent runs</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Target</a> </td>
+<td valign="top">Boolean or Constant</td>
+<td valign="top">(Read-only) Indicates which documents the agent acts on</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Trigger</a> </td>
+<td valign="top">Boolean or Constant</td>
+<td valign="top">(Read-only) Indicates when the agent runs</td>
+</tr>
+</table>
+
+<p>If you write a script that changes a read-write property, you must call the <a href="#">Save method</a> to make the change effective.</p>
+
+<p>The NotesAgent class contains a <a href="#">Remove method</a> to remove the agent from the database.</p>
+
+<p>The <a href="NotesSession.html#SavedData">SavedData property</a> of NotesSession returns a NotesDocument object. The agent can use this document to store data that is persistent across invocations of the agent. However, if the agent is modified in any way, the saved data document is cleared. This document is not accessible from the parent NotesDatabase object or from a NotesView object.</p>
+
+<p>The <a href="NotesAgent.html#Run">Run</a> method runs the agent on the computer running the current program. The <a href="NotesAgent.html#RunOnServer">RunOnServer</a> method runs the agent on the computer containing the agent's database.</p>
+
+<p>The <a href="#">GetPerformanceDocument</a> method returns the latest profiling results for the agent.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing sessions</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

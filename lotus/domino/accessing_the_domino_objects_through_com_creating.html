@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Creating a session object</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Creating a session object</h1></center>
+
+<p>To access the Domino Objects, create an object based on the registered Lotus.NotesSession class.</p>
+
+<h3>Visual Basic</h3>
+
+<p>Include the Domino object library in the Visual Basic project:</p>
+
+<ul>
+<li>Choose Project - References.</li>
+<li>Check "Lotus Domino Objects."</li>
+</ul>
+
+<p>The location will show the path to DOMOBJ.TLB in the Domino or Notes program directory.</p>
+
+<p>Alternatively, you can select the Browse button and specify DOMOBJ.TLB in the Domino or Notes program directory.</p>
+
+<p>The Domino Objects then become available to the project. You can see them in the Object Browser, and they appear as prompts when you start typing an object name.</p>
+
+<p>The classes appear in the left-hand pane of the browser; the properties and methods appear in the right-hand pane for the selected class. Constants appear in the left-hand pane as Enum data structures; the members appear in the right-hand pane. For example, the Enum structure named ACLLEVEL contains the members ACLLEVEL_AUTHOR, ACLLEVEL_DEPOSITOR, and so on. The error constants appear in the right-hand pane when NOTES_ERRORS is selected in the left-hand pane.</p>
+
+<p>To access the Domino Objects, create a NotesSession object with either the following:</p>
+
+<pre>Dim session As New NotesSession</pre>
+
+<p>Or:</p>
+
+<pre>Dim session As NotesSession
+Set session = CreateObject("Lotus.NotesSession")</pre>
+
+<p>Note:  If you declare the session variable as Variant or Object, COM uses late binding.</p>
+
+<h3>VBScript</h3>
+
+<p>In VBScript, create a NotesSession object with the following:</p>
+
+<pre>Dim session
+Set session = CreateObject("Lotus.NotesSession")</pre>
+
+<p>VBScript treats all variables as Variant, so COM uses late binding.</p>
+
+<p>The Domino constants are not defined. You must specify the actual values (or define the constants yourself). See the discussion of constant values below in "<a href="#">Constants</a>."</p>
+
+<h3>JScript and JavaScript</h3>
+
+<p>In JScript or JavaScript, create a NotesSession object with the following:</p>
+
+<pre>var session;
+session = new ActiveXObject("Lotus.NotesSession");</pre>
+
+<p>JScript and JavaScript treat all variables as variants, so COM uses late binding.</p>
+
+<p>The Domino constants are not defined. You must specify the actual values (or define the constants yourself). See the discussion of constant values below in "<a href="#">Constants</a>."</p>
+
+<p>Array return values must be converted using the toArray method of VBArray. For example:</p>
+
+<pre>var forms = new Array(256);
+forms = VBArray(doc.GetItemValue("Form")).toArray();</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing the Domino Objects through COM</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

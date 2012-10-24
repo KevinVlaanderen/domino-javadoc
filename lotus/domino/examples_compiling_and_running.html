@@ -1,0 +1,559 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: Running a Java program</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: Running a Java program</h1></center>
+
+<p>The following examples demonstrate the minimal code needed for a Java program that uses the Domino classes. The examples instantiate a Session object and print the String output of its getPlatform method (Platform property).</p>
+
+<p>  1.	This is an application that makes local calls and extends the NotesThread class:</p>
+
+<pre>import lotus.domino.*;
+public class platform1 extends NotesThread
+{
+  public static void main(String argv[])
+    {
+        platform1 t = new platform1();
+        t.start();
+    }
+  public void runNotes()
+    {
+    try
+      {
+        Session s = NotesFactory.createSession();
+        // To bypass Readers fields restrictions
+        // Session s = NotesFactory.createSessionWithFullAccess();
+        String p = s.getPlatform();
+        System.out.println("Platform = " + p);
+      }
+    catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+}</pre>
+
+<p>  2.	This is an application that makes local calls and implements the Runnable interface:</p>
+
+<pre>import lotus.domino.*;
+public class platform2 implements Runnable
+{
+  public static void main(String argv[])
+    {
+        platform2 t = new platform2();
+        NotesThread nt = new NotesThread((Runnable)t);
+        nt.start();
+    }
+  public void run()
+    {
+    try
+      {
+        Session s = NotesFactory.createSession();
+        String p = s.getPlatform();
+        System.out.println("Platform = " + p);
+      }
+    catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+}</pre>
+
+<p>  3.	This is an application that makes local calls and uses the static NotesThread methods:</p>
+
+<pre>import lotus.domino.*;
+public class platform3
+{
+    public static void main(String argv[])
+    {
+        try
+        {
+            NotesThread.sinitThread();
+            Session s = NotesFactory.createSession();
+            String p = s.getPlatform();
+            System.out.println("Platform = " + p);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            NotesThread.stermThread();
+        }
+    }
+}</pre>
+
+<p>  4.	This is an agent program where the code is entered through the Domino Designer UI. The UI generates everything in the example except the two lines following // (Your code goes here).</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = 
+           session.getAgentContext();
+      // (Your code goes here)
+      String p = session.getPlatform();
+      System.out.println("Platform = " + p);
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  5.	This is an agent program where the code is imported into Domino Designer:</p>
+
+<pre>import lotus.domino.*;
+public class platform4 extends AgentBase
+{
+    public void NotesMain()
+    {
+    try
+        {
+            Session s = getSession();
+            String p = s.getPlatform();
+            System.out.println("Platform =" + p);
+        }
+    catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+}</pre>
+
+<p>  6.	This is an agent program with print output that can be seen by a browser:</p>
+
+<pre>import lotus.domino.*;
+import java.io.PrintWriter;
+public class platform5 extends AgentBase
+{
+    public void NotesMain()
+    {
+        try
+        {
+            Session s = getSession();
+            String p = s.getPlatform();
+            PrintWriter pw = getAgentOutput();
+            pw.println("Platform = " + p);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+}</pre>
+
+<p>  7.	This example demonstrates an application that makes remote (IIOP) calls. The example requires the user to enter the name of the host Domino server and optionally a user name and password. If a user name and password are not supplied, the server must allow anonymous access.</p>
+
+<pre>import lotus.domino.*;
+public class platform6 implements Runnable
+{
+  String host=null, user="", pwd="";
+  public static void main(String argv[])
+    {
+      if(argv.length&lt;1)
+      {
+        System.out.println(
+           "Need to supply Domino server name");
+        return;
+      }
+      platform6 t = new platform6(argv);
+      Thread nt = new Thread((Runnable)t);
+      nt.start();
+    }
+  public platform6(String argv[])
+  {
+    host = argv[0];
+    if(argv.length &gt;= 2) user = argv[1];
+    if(argv.length &gt;= 3) pwd = argv[2];
+  }
+  public void run()
+    {
+    try
+      {
+        Session s = NotesFactory.createSession(
+                    host, user, pwd);
+        String p = s.getPlatform();
+        System.out.println("Platform = " + p);
+      }
+    catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+}</pre>
+
+<p>  8.	To enable SSL in the previous application example, replace:</p>
+
+<pre>        Session s = NotesFactory.createSession(
+                    host, user, pwd);</pre>
+
+<p>With:</p>
+
+<pre>        String args[] = new String[1];
+        args[0] = "-ORBEnableSSLSecurity";
+        Session s = NotesFactory.createSession(
+                    host, args, user, pwd);</pre>
+
+<p>TrustedCerts.class (typically in domino\java in the data directory of the server) must be on the classpath. This file is generated by the DIIOP task when it starts.</p>
+
+<p>In order to enable SSL for an applet, you should also enable the attribute "Applet uses CORBA SSL Security" in the "Java Applet Properties" dialog.</p>
+
+<p>  9.	This example demonstrates an applet that makes Domino calls. AppletBase makes the calls locally if possible, remotely otherwise.</p>
+
+<pre>import lotus.domino.*;
+public class foo extends AppletBase
+{
+  java.awt.TextArea ta;
+  public void notesAppletInit()
+  {
+    setLayout(null);
+    setSize(100,100);
+    ta = new java.awt.TextArea();
+    ta.setBounds(0,0,98,98);
+    add(ta);
+    ta.setEditable(false);
+    setVisible(true);
+  }
+  public void notesAppletStart()
+  {
+    Session s = null;
+    try
+    {
+      // Can also do openSession(user, pwd)
+      s = this.openSession();
+      if (s == null) { //not able to make connection, warn user
+        ta.append("Unable to create a session with the server");
+        return;
+      }
+      String p = s.getPlatform();
+      ta.append("Platform = " + p);
+    }
+    catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+    finally
+    {
+      try {this.closeSession(s);}
+      catch(NotesException e) {e.printStackTrace();}
+    }
+  }
+}</pre>
+
+<p> 10.	This example demonstrates an applet that makes Domino calls in code that responds to an AWT event. Because the AWT event handler is a separate thread, you must explicitly initialize and terminate a Domino session if the code is running locally, and must not if the code is running remotely (IIOP).</p>
+
+<pre>import lotus.domino.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class awt extends AppletBase implements ActionListener
+{
+  private Button b;
+  private String text = "";
+  Graphics g;
+  public java.awt.TextArea ta;
+  public Session s;
+
+  public void notesAppletInit()
+  {
+    g = getGraphics();
+    b = new Button("Get user common name");
+    add(b);
+    ta = new java.awt.TextArea(15, 30);
+    add(ta);
+    setVisible(true);
+  }
+
+  public void paint(Graphics g)
+  {
+    b.setLocation(0, 0);
+    ta.setLocation(200, 0);
+  }
+
+  public void notesAppletStart()
+  {
+    try
+    {
+      s = this.getSession();
+      b.addActionListener(this);
+    }
+    catch(NotesException e)
+    {
+      text = e.id + " " + e.text;
+    }
+    catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  public void actionPerformed(ActionEvent e)
+  {
+    text = "";
+    getTheName();
+    ta.append(text + "\n");
+  }
+
+  public void getTheName()
+  {
+    try
+    {
+      if (isNotesLocal())
+      {
+        NotesThread.sinitThread();
+      }
+      text = "User " + s.getCommonUserName();
+    }
+    catch(NotesException e)
+    {
+      text = e.id + " " + e.text;
+    }
+    catch(Exception e)
+    {
+      e.printStackTrace();
+    }
+    finally
+    {
+      if (isNotesLocal())
+      {
+        NotesThread.stermThread();
+      }
+    }
+  }
+}</pre>
+
+<p> 11.	This Domino agent gets a token for Single Sign-on and creates a remote (IIOP) session to another server based on the token. The agent runs on the server containing the token.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+      Session s2 = NotesFactory.createSession("test5.irish.com",
+                   session.getSessionToken());
+      System.out.println("remote session name = " + s2.getUserName());
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p> 12.	This Domino agent gets a token for Single Sign-on and creates a remote (IIOP) session to a server based on the token. The agent runs a Notes client.</p>
+
+<pre>import lotus.domino.*;
+
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+      Session s2 = NotesFactory.createSession("test5.irish.com",
+                   session.getSessionToken("test5.irish.com"));
+      System.out.println("remote session name = " + s2.getUserName());
+
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p> 13.	This servlet gets a token for Single Sign-on from the LtpaToken cookie through HttpServletRequest and creates a session based on the token.</p>
+
+<pre>import java.lang.*;
+import java.lang.reflect.*;
+import java.util.*;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import lotus.domino.*;
+
+public class Cookies extends HttpServlet
+{
+  private void respond(HttpServletResponse response, String entity)
+    throws IOException
+    {
+      response.setContentType("text/plain");
+      if (entity == null)
+      { response.setContentLength(0);}
+      else
+      {
+        response.setContentLength(entity.length() + 1);
+        ServletOutputStream out = response.getOutputStream();
+        out.println(entity);
+      }
+  }
+
+  public void doGet (HttpServletRequest request,
+    HttpServletResponse response) 
+    throws ServletException, IOException
+    {
+      String s1 = "";
+      Cookie[] cookies = null;
+      String sessionToken = null;
+      try 
+      {
+        cookies = request.getCookies();
+      }
+      catch (Exception e)
+      {   
+        respond(response,"Exception from request.getCookies(): " +
+          e.toString()); 
+        return;
+      }
+      if (cookies == null)
+      {
+        s1 = "No cookies received";
+      }
+      else
+      {
+        for (int i = 0; i &lt; cookies.length; i++)
+        {
+          if (cookies[i].getName().equals("LtpaToken"))
+          {
+            sessionToken = cookies[i].getValue();
+          }
+        }
+      }
+      if (sessionToken != null)
+      {
+        try
+          {
+          NotesThread.sinitThread();
+          Session session = NotesFactory.createSession(null, sessionToken);
+          s1 += "\n" + "Server:           " + session.getServerName();
+          s1 += "\n" + "IsOnServer:       " + session.isOnServer();
+          s1 += "\n" + "CommonUserName:   " + session.getCommonUserName();
+          s1 += "\n" + "UserName:         " + session.getUserName();
+          s1 += "\n" + "NotesVersion:     " + session.getNotesVersion();
+          s1 += "\n" + "Platform:         " + session.getPlatform();
+          NotesThread.stermThread();
+          }
+          catch (NotesException e)
+          {
+              s1 += "\n" + e.id + e.text;
+              e.printStackTrace();
+          }
+      }
+
+      respond(response,s1);
+  }
+}</pre>
+
+<p> 14.	This application snippet creates a session based on a Credentials object obtained from the WebSphere loginHelper.</p>
+
+<pre>    org.omg.SecurityLevel2.Credentials credentials =
+      loginHelper.request_login("Jane Doe", "", "password",
+      new org.omg.SecurityLevel2.CredentialsHolder(),
+      new org.omg.Security.OpaqueHolder());
+    Session s = NotesFactory.createSession("test5.iris.com", credentials);
+    System.out.println("Got Session for " + s.getUserName());</pre>
+
+<p> 15.	This WebSphere Enterprise JavaBeans (ERB) application creates a session based on the current Credentials object in the WebSphere environment.</p>
+
+<pre>import lotus.domino.*;
+
+public class HelloBean extends Object implements SessionBean {
+
+ ... /* See HelloBean.java from Websphere for the complete class code */
+
+  /**
+    Returns the greeting. But has been modified to create a remote session to the
+    Domino server.
+    @return The greeting.
+    @exception RemoteException Thrown if the remote method call fails.
+  */
+  public String getMessage () throws RemoteException
+  {
+  String result = "hello bean ";
+
+  try {
+    Session s = NotesFactory.createSession("test5.iris.com", null);
+    result = result + " -- Got Session for " + s.getUserName();
+  }
+  catch (NotesException ne)
+  {
+    result = result + "-- " + ne.text;
+    result = result + "-- failed to get session for user";
+  }
+
+  return (String) result + " -- done";
+  }
+}</pre>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

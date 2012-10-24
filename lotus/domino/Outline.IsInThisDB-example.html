@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: Outline class, Alias, Comment, and Name properties, getFirst and getNext methods, OutlineEntry class, Alias, EntryClass, IsInThisDB, IsPrivate, Label, Level, and Type properties</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: Outline class, Alias, Comment, and Name properties, getFirst and getNext methods, OutlineEntry class, Alias, EntryClass, IsInThisDB, IsPrivate, Label, Level, and Type properties</h1></center>
+
+<p>  1.	This agent gets the properties of every entry in an outline.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try 
+      Session session = getSession()
+      AgentContext agentContext = 
+      session.getAgentContext();
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      Outline outline = db.getOutline("DiscOutline");
+      System.out.println("*** " + outline.getName() + 
+      " ***");
+      System.out.println("Alias: " + outline.getAlias());
+      System.out.println("Comment: " + 
+      outline.getComment());
+      OutlineEntry entry = outline.getFirst();
+      while (entry != null) {
+        System.out.println(entry.getLabel());
+        if (entry.getAlias().length() &gt; 0)
+          System.out.println("\tAlias: " + 
+          entry.getAlias());
+        String type = null;
+        switch (entry.getType()) {
+          case OutlineEntry.OUTLINE_OTHER_FOLDERS_TYPE:
+            type = "Other folders"; break;
+          case OutlineEntry.OUTLINE_OTHER_VIEWS_TYPE:
+            type = "Other views"; break;
+          case OutlineEntry.OUTLINE_OTHER_UNKNOWN_TYPE:
+            type = "Other unknown"; break;
+          case OutlineEntry.OUTLINE_TYPE_ACTION:
+            type = "Action"; break;
+          case OutlineEntry.OUTLINE_TYPE_NAMEDELEMENT:
+            type = "Named element"; break;
+          case OutlineEntry.OUTLINE_TYPE_NOTELINK:
+            type = "Note link"; break;
+          case OutlineEntry.OUTLINE_TYPE_URL:
+            type = "URL"; break;
+          }
+        System.out.println("\tType: " + type);        
+        String entryClass = null;
+        switch (entry.getEntryClass()) {
+          case OutlineEntry.OUTLINE_CLASS_DATABASE:
+            entryClass = "Database"; break;
+          case OutlineEntry.OUTLINE_CLASS_DOCUMENT:
+            entryClass = "Document"; break;
+          case OutlineEntry.OUTLINE_CLASS_FORM:
+            entryClass = "Form"; break;
+          case OutlineEntry.OUTLINE_CLASS_FOLDER:
+            entryClass = "Folder"; break;
+          case OutlineEntry.OUTLINE_CLASS_FRAMESET:
+            entryClass = "Frame set"; break;
+          case OutlineEntry.OUTLINE_CLASS_NAVIGATOR:
+            entryClass = "Navigator"; break;
+          case OutlineEntry.OUTLINE_CLASS_PAGE:
+            entryClass = "Page"; break;
+          case OutlineEntry.OUTLINE_CLASS_UNKNOWN:
+            entryClass = "Unknown"; break;
+          case OutlineEntry.OUTLINE_CLASS_VIEW:
+            entryClass = "View"; break;
+          }
+        System.out.println("\tEntry class: " + 
+          entryClass);
+        System.out.println("\tLevel: " + 
+          entry.getLevel());
+        if (entry.isInThisDB())
+          System.out.println("\tRefers to an element in 
+            this database");
+        else
+          System.out.println
+          ("\tDoes not refer to an element in this database");
+        if (entry.isPrivate())
+          System.out.println("\tEntry is private");
+        else
+          System.out.println("\tEntry is public");
+        if (entry.getFrameText().length() &gt; 0)
+          System.out.println("\tFrame text: " + 
+            entry.getFrameText());
+        if (entry.getImagesText().length() &gt; 0)
+          System.out.println("\tImages text: " + 
+            entry.getImagesText());
+        entry = outline.getNext(entry);
+        }
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  2.	This agent creates an outline.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = 
+      session.getAgentContext();
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      Outline outline = db.createOutline("Some 
+        Documents");
+      outline.setAlias("SomeDocuments");
+      outline.setComment("Gives partial view of 
+        database");
+      outline.save();
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="Outline.html">Outline class</a><br>
+<a href="OutlineEntry.html#Alias">Alias property</a><br>
+<a href="Outline.html#Comment">Comment property</a><br>
+<a href="Outline.html#Name">Name property</a><br>
+<a href="Outline.html#getFirst">getFirst method</a><br>
+<a href="Outline.html#getNext">getNext method</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Working with a MIME entity in LotusScript classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Working with a MIME entity in LotusScript classes</h1></center>
+
+<p>The <a href="NotesMIMEEntity.html">NotesMIMEEntity</a> class is used to access items of type MIME (Multipurpose Internet Mail Extensions). MIME defines techniques for handling 8-bit data, character sets, and a variety of content types. MIME also allows for structured messages, where a message can have multiple parts and relations between the parts.</p>
+
+<p>A typical example is an Internet mail message routed to a mail file without conversion to rich text.</p>
+
+<p>The MIME parts of a document are items of type MIME_PART. In Internet mail messages they are typically named "Body." Programmatically you can access these items as NotesItem, NotesRichTextItem, or NotesMIMEEntity objects.</p>
+
+<p>To access the MIME content of a NotesDocument:</p>
+
+<ul>
+<li>First set <a href="NotesSession.html#ConvertMIME">NotesSession.ConvertMIME</a> to False to override normal conversion of MIME items to rich text.</li>
+<li>Then call <a href="NotesDocument.html#GetMIMEEntity">NotesDocument.GetMIMEEntity</a>.</li>
+<li>Or call <a href="NotesDocument.html#GetFirstItem">NotesDocument.GetFirstItem</a> followed by <a href="NotesItem.html#GetMIMEEntity">NotesItem.GetMIMEEntity</a>.</li>
+<li>To create an item in MIME format, call <a href="NotesDocument.html#CreateMIMEEntity">NotesDocument.CreateMIMEEntity</a>.</li>
+<li>To close MIME processing so you can work on items directly, call <a href="NotesDocument.html#CloseMIMEEntities">NotesDocument.CloseMIMEEntities</a>.</li>
+<li>Before exiting your code, set <a href="NotesSession.html#ConvertMIME">NotesSession.ConvertMIME</a> back to True (or the original setting).</li>
+</ul>
+
+<p>The following table lists the properties of NotesMIMEEntity.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">BoundaryEnd</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The boundary that follows a child entity in a multipart entity.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">BoundaryStart</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The boundary that precedes a child entity in a multipart entity.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CharSet</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Content character set of a MIME entity.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ContentAsText</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The content of a MIME entity in text format.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ContentSubType</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The sub-type of the content type of a MIME entity.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ContentType</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The content type of a MIME entity.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesMIMEEntity.html#Encoding">Encoding</a></td>
+<td valign="top">Constant of type Integer</td>
+<td valign="top">(Read-only) Current encoding for the non-header content of a MIME entity.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesMIMEEntity.html#HeaderObjects">HeaderObjects</a></td>
+<td valign="top">Array of type NotesMIMEHeader</td>
+<td valign="top">(Read-only) All headers for a MIME entity.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Headers</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) All headers for a MIME entity as one string; <a href="#">GetSomeHeaders</a> returns specified headers.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Preamble</a></td>
+<td valign="top">String</td>
+<td valign="top">Preamble of a MIME multipart entity.</td>
+</tr>
+</table>
+
+<p>The following methods access the content of a MIME entity:</p>
+
+<ul>
+<li><a href="NotesMIMEEntity.html#DecodeContent">DecodeContent</a></li>
+<li><a href="NotesMIMEEntity.html#EncodeContent">EncodeContent</a></li>
+<li><a href="#">GetContentAsBytes</a></li>
+<li><a href="#">GetContentAsText</a></li>
+<li><a href="#">GetEntityAsText</a></li>
+<li><a href="NotesMIMEEntity.html#SetContentFromBytes">SetContentFromBytes</a></li>
+<li><a href="NotesMIMEEntity.html#SetContentFromText">SetContentFromText</a></li>
+</ul>
+
+<p>The following methods manipulate multipart MIME entities:</p>
+
+<ul>
+<li><a href="#">CreateChildEntity</a></li>
+<li><a href="#">CreateParentEntity</a></li>
+<li><a href="#">GetFirstChildEntity</a></li>
+<li><a href="#">GetNextEntity</a></li>
+<li><a href="#">GetNextSibling</a></li>
+<li><a href="#">GetParentEntity</a></li>
+<li><a href="#">GetPrevEntity</a></li>
+<li><a href="#">GetPrevSibling</a></li>
+</ul>
+
+<p>The <a href="#">Remove</a> method removes an entity.</p>
+
+<p>The <a href="NotesMIMEEntity.html#CreateHeader">CreateHeader</a> and <a href="NotesMIMEEntity.html#GetNthHeader">GetNthHeader</a> methods access MIME headers as <a href="NotesMIMEHeader.html">NotesMIMEHeader</a> objects (as well as the <a href="NotesMIMEEntity.html#HeaderObjects">HeaderObjects</a> property).</p>
+
+<p>The <a href="NotesMIMEHeader.html">NotesMIMEHeader</a> class has a <a href="#">HeaderName</a> property, a <a href="#">Remove</a> method, and the following methods for accessing header content:</p>
+
+<ul>
+<li><a href="#">AddValText</a></li>
+<li><a href="#">GetHeaderVal</a></li>
+<li><a href="#">GetHeaderValAndParams</a></li>
+<li><a href="#">GetParamVal</a></li>
+<li><a href="#">SetHeaderVal</a></li>
+<li><a href="#">SetHeaderValAndParams</a></li>
+<li><a href="#">SetParamVal</a></li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing items in LotusScript classes</a><br>
+<a href="NotesSession.html#ConvertMIME">ConvertMIME property</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing international settings</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing international settings</h1></center>
+
+<p>The <a href="NotesInternational.html">NotesInternational class</a> represents the international (regional) settings of the operating environment. You can access the international settings through the <a href="#">International property</a> of NotesSession.</p>
+
+<p>The following table lists the NotesInternational properties. They are read-only.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">AMString</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) String that denotes AM time</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CurrencyDigits</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Number of decimal digits in number format</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">CurrencySymbol</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Symbol that indicates a number is currency</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">DateSep</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Character used to separate months, days, and years</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">DecimalSep</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Decimal separator in number format</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsCurrencySpace</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the currency format has a space between the currency symbol and the number</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsCurrencySuffix</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the currency symbol follows the number in the currency format</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsCurrencyZero</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if fractions have a zero before the decimal point in number format</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsDateDMY</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the order of the date format is day-month-year</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsDateMDY</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the order of the date format is month-day-year</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsDateYMD</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the order of the date format is year-month-day</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsDST</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the date format reflects daylight-saving time</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsTime24Hour</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the time format is 24-hour</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Parent</a> </td>
+<td valign="top">NotesSession</td>
+<td valign="top">(Read-only) The session that contains a NotesInternational object. For COM only.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">PMString</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) String that denotes PM time</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ThousandsSep</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Thousands separator in number format</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">TimeSep</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Character used to separate hours, minutes, and seconds</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">TimeZone</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Time zone</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Today</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) String that means today in a time-date specification</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Tomorrow</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) String that means tomorrow in a time-date specification</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Yesterday</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) String that means yesterday in a time-date specification</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing sessions</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

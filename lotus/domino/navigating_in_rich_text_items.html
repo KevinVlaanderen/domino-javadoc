@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Navigating in rich text items in Java classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Navigating in rich text items in Java classes</h1></center>
+
+<p>Use <a href="Document.html#getFirstItem">Document.getFirstItem</a> or <a href="Document.html#Items">Document.getItems</a> to access an item as a rich text item. Cast the return value to RichTextItem.</p>
+
+<p>For navigation, a rich text item is a collection of elements of various types accessible through <a href="RichTextNavigator.html">RichTextNavigator</a>. You can find (navigate to) all types of elements. You can get some types of elements as objects; others you cannot get but must access through <a href="RichTextRange.html">RichTextRange</a>. The element types are:</p>
+
+<ul>
+<li>RichTextItem.RTELEM_TYPE_DOCLINK (5) is a doclink, which you can get as a <a href="RichTextDoclink.html">RichTextDocLink</a> object.</li>
+<li>RichTextItem.RTELEM_TYPE_FILEATTACHMENT (8) is a file attachment, which you can get as an <a href="EmbeddedObject.html">EmbeddedObject</a> of type Item.EMBED_ATTACHMENT.</li>
+<li>RichTextItem.RTELEM_TYPE_OLE (9) is an OLE object , which you can get as an <a href="EmbeddedObject.html">EmbeddedObject</a> of type Item.EMBED_OBJECT or Item.EMBED_OBJECTLINK.</li>
+<li>RichTextItem.RTELEM_TYPE_SECTION (6) is a collapsible section, which you can get as a <a href="RichTextSection.html">RichTextSection</a> object.</li>
+<li>RichTextItem.RTELEM_TYPE_TABLE (1) is a table, which you can get as a <a href="RichTextTable.html">RichTextTable</a> object.</li>
+<li>RichTextItem.RTELEM_TYPE_TABLECELL (7) is table cell, which you must access through <a href="RichTextRange.html">RichTextRange</a>.</li>
+<li>RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH (4) is a paragraph of text, which you must access through <a href="RichTextRange.html">RichTextRange</a>.</li>
+<li>RichTextItem.RTELEM_TYPE_TEXTRUN (3) is a paragraph or less of text of the same style, which you must access through <a href="RichTextRange.html">RichTextRange</a>.</li>
+</ul>
+
+<p>Use <a href="RichTextItem.html#createNavigator">RichTextItem.createNavigator</a> or <a href="RichTextRange.html#Navigator">RichTextRange.getNavigator</a> to create a <a href="RichTextNavigator.html">RichTextNavigator</a> object.</p>
+
+<p>Navigation is within elements of the same type. You can find or get the first element of a type, the next element of a type, and the nth element of a type. You cannot find or get an element regardless of type.</p>
+
+<p>The navigator maintains a current position. Both find and get operations change the current position in the rich text item.</p>
+
+<p><a href="RichTextNavigator.html">RichTextNavigator</a> has the following methods:</p>
+
+<ul>
+<li>
+<a href="RichTextNavigator.html#findFirstElement">findFirstElement</a> moves the current position to the first element of a specified type in a rich text item.</li>
+<li>
+<a href="RichTextNavigator.html#findLastElement">findLastElement</a> moves the current position to the last element of a specified type in a rich text item.</li>
+<li>
+<a href="RichTextNavigator.html#findNextElement">findNextElement</a> moves the current position to the next element of a specified type in a rich text item after the current position.</li>
+<li>
+<a href="RichTextNavigator.html#findNthElement">findNthElement</a> moves the current position to the element at a specified position within elements of the same type.</li>
+<li>
+<a href="RichTextNavigator.html#findFirstString">findFirstString</a> moves the current position to the beginning of the first occurrence of a string in a rich text item.</li>
+<li>
+<a href="RichTextNavigator.html#findNextString">findNexString</a> moves the current position to the beginning of the next occurrence of a string in a rich text item after the current position.</li>
+<li>
+<a href="RichTextNavigator.html#getElement">getElement</a> returns the element at the current position.</li>
+<li>
+<a href="RichTextNavigator.html#getFirstElement">getFirstElement</a> returns the first element of a specified type in a rich text item.</li>
+<li>
+<a href="RichTextNavigator.html#getLastElement">getLastElement</a> returns the last element of a specified type in a rich text item.</li>
+<li>
+<a href="RichTextNavigator.html#getNextElement">getNextElement</a> returns the element of a specified type at a position in a rich text item after the current position.</li>
+<li>
+<a href="RichTextNavigator.html#getNthElement">getNthElement</a> returns the element of a specified type at a specified position in a rich text item.</li>
+<li>
+<a href="RichTextNavigator.html#setPosition">setPosition</a> sets the current position to a specified element in a rich text item.</li>
+<li>
+<a href="RichTextNavigator.html#setPositionAtEnd">setPositionAtEnd</a> sets the current position at the end of a specified element in a rich text item.</li>
+<li>
+<a href="RichTextNavigator.html#setCharOffset">setCharOffset</a> sets the current position to an offset from the current position.</li>
+<li>
+<a href="RichTextNavigator.html#Clone">Clone</a> creates another RichTextNavigator object with the same position as the current one.</li>
+</ul>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

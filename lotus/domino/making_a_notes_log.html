@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Making a Domino log</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Making a Domino log</h1></center>
+
+<p>The <a href="NotesLog.html">NotesLog class</a> provides these methods for opening a log:</p>
+
+<ul>
+<li>
+<a href="NotesLog.html#OpenFileLog">OpenFileLog</a> opens a file for logging.</li>
+<li>
+<a href="NotesLog.html#OpenMailLog">OpenMailLog</a> opens a mail memo for logging. The memo is mailed when the log is closed.</li>
+<li>
+<a href="NotesLog.html#OpenNotesLog">OpenNotesLog</a> opens a database for logging. Each log entry is a Domino document with the items A$PROGNAME, A$LOGTIME, A$USER, A$LOGTYPE, A$ACTION, A$ERRCODE, and A$ERRMSG. Use the system template ALOG.NTF to create databases suitable for logging.</li>
+<li>
+<a href="NotesLog.html#OpenAgentLog">OpenAgentLog</a> opens an agent log for logging. This method is valid only in an agent. Each agent has an associated log that is accessible through Agent - Log when the agent is selected.</li>
+</ul>
+
+<p>The <a href="#">Close method</a> closes a log.</p>
+
+<p>These methods make entries in the log:</p>
+
+<ul>
+<li>
+<a href="NotesLog.html#LogAction">LogAction</a> logs an action.</li>
+<li>
+<a href="NotesLog.html#LogError">LogError</a> logs an error.</li>
+</ul>
+
+<p>The <a href="#">LogEvent</a> method can be used on servers to generate Domino events on the network, including events that can be seen by the NotesView product.</p>
+
+<p>The following table lists the NotesLog properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesLog.html#LogActions">LogActions</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to enable action logging; true unless you set it to false</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesLog.html#LogErrors">LogErrors</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True to enable error logging; true unless you set it false</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesLog.html#NumActions">NumActions</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Number of actions logged so far</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesLog.html#NumErrors">NumErrors</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Number of errors logged so far</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesLog.html#OverwriteFile">OverwriteFile</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) True to write over an existing file rather than to append; false unless you set it true</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Parent</a>  </td>
+<td valign="top">NotesSession</td>
+<td valign="top">(Read-only) The session that contains a NotesLog object. For COM only.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ProgramName</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-write) Name of the script to which the entries apply; this string precedes each log entry</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing supporting Domino objects</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

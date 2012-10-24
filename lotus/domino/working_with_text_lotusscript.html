@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Working with text in LotusScript classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Working with text in LotusScript classes</h1></center>
+
+<p>Text includes text paragraphs and text runs, rich text styles, rich text paragraph styles, and tabs. A text run is text until the style changes or the paragraph ends.</p>
+
+<h3>Text paragraphs and text runs</h3>
+
+<p>To find text in a rich text item, use the <a href="NotesRichTextNavigator.html">NotesRichTextNavigator</a> methods in conjunction with the type RTELEM_TYPE_TEXTPARAGRAPH or RTELEM_TYPE_TEXTRUN. To get text, create a <a href="NotesRichTextRange.html">NotesRichTextRange</a> object and delineate the text with the following methods:</p>
+
+<ul>
+<li>
+<a href="NotesRichTextRange.html#SetBegin">SetBegin</a> defines the beginning of a range.</li>
+<li>
+<a href="NotesRichTextRange.html#SetBegin">SetEnd</a> defines the end of a range.</li>
+</ul>
+
+<p>For example, if you find an element of type RTELEM_TYPE_TEXTPARAGRAPH with <a href="NotesRichTextNavigator.html">NotesRichTextNavigator</a>, then call <a href="NotesRichTextRange.html#SetBegin">SetBegin</a> passing it the navigator, your range starts at that paragraph.</p>
+
+<p>The <a href="NotesRichTextRange.html">NotesRichTextRange</a> class has the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data Type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesRichTextRange.html#Navigator">Navigator</a></td>
+<td valign="top"><a href="NotesRichTextNavigator.html">NotesRichTextNavigator</a></td>
+<td valign="top">(Read-only) A navigator confined to the range. This allows you, for example, to get the text runs in a text paragraph.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Style</a></td>
+<td valign="top"><a href="NotesRichTextStyle.html">NotesRichTextStyle</a></td>
+<td valign="top">(Read-only) The style of the first text run in the range.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">TextParagraph</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The text of the first paragraph in the range.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesRichTextRange.html#TextRun">TextRun</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The text of the first run in the range.</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesRichTextRange.html#Type">Type</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The type of the first element in the range.</td>
+</tr>
+</table>
+
+<p>In addition to <a href="NotesRichTextRange.html#SetBegin">SetBegin</a> and <a href="NotesRichTextRange.html#SetEnd">SetEnd</a>, the <a href="NotesRichTextRange.html">NotesRichTextRange</a> class has the following methods:</p>
+
+<ul>
+<li>
+<a href="#">Clone</a> creates another <a href="NotesRichTextRange.html">NotesRichTextRange</a> object from the current range.</li>
+<li>
+<a href="#">FindAndReplace</a> replaces the occurrence of a string in the range.</li>
+<li>
+<a href="#">Remove</a> removes the elements of the range.</li>
+<li>
+<a href="#">Reset</a> resets the range to its default values.</li>
+<li>
+<a href="#">SetStyle</a> sets all text in the range to a specified style.</li>
+</ul>
+
+<h3>Text creation</h3>
+
+<p>To create text in a rich text item, use the following methods:</p>
+
+<ul>
+<li>
+<a href="#">AddNewLine</a> appends one or more new lines (carriage returns) to the end of a rich text item.</li>
+<li>
+<a href="#">AddPageBreak</a> places a hard page break at the end of a NotesRichTextItem.</li>
+<li>
+<a href="#">AddTab</a> appends one or more tabs to the end of a rich text item.</li>
+<li>
+<a href="#">AppendText</a> appends text to the end of a rich text item. The text is rendered with the current style of the item.</li>
+<li>
+<a href="NotesRichTextItem.html#AppendRTItem">AppendRTItem</a> appends the contents of one rich text item to the end of another rich text item.</li>
+</ul>
+
+<h3>Rich text styles</h3>
+
+<p> You can access rich text style properties through the <a href="NotesRichTextStyle.html">NotesRichTextStyle</a> class. The NotesRichTextStyle class contains the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data Type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Bold</a>  </td>
+<td valign="top">Boolean or Constant</td>
+<td valign="top">(Read-write) Bold rich text attribute.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Effects</a> </td>
+<td valign="top">Constant</td>
+<td valign="top">(Read-wite) Effects (emboss, extrude, etc.).</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">FontSize</a> </td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-write) Font size in points.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsDefault</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">Indicates whether all rich text style attributes are at the default state.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Italic</a> </td>
+<td valign="top">Boolean or Constant</td>
+<td valign="top">(Read-write) Italic rich text attribute.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NotesRichTextStyle.html#NotesColor">NotesColor</a> </td>
+<td valign="top">Constant</td>
+<td valign="top">(Read-write) Color rich text attribute.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">NotesFont</a> </td>
+<td valign="top">Constant</td>
+<td valign="top">(Read-write) Font rich text attribute.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Parent</a> </td>
+<td valign="top">NotesSession</td>
+<td valign="top">The session that contains a RichTextStyle object. For COM only.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">PassThruHTML</a> </td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) HTML attribute.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">StrikeThrough</a> </td>
+<td valign="top">Boolean or Constant</td>
+<td valign="top">(Read-write) Strikethrough rich text attribute.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Underline</a> </td>
+<td valign="top">Boolean or Constant</td>
+<td valign="top">(Read-write) Underline rich text attribute.</td>
+</tr>
+</table>
+
+<p><a href="NotesRichTextItem.html#AppendStyle">AppendStyle</a> appends a style to the end of a rich text item. Text following the style is rendered using that styles's attributes until another style is appended.</p>
+
+<p>Use a NotesRichTextStyle object with <a href="NotesRichTextItem.html#AppendStyle">AppendStyle</a> in <a href="NotesRichTextItem.html">NotesRichTextItem</a>. At creation, all the <a href="NotesRichTextStyle.html">NotesRichTextStyle</a> attributes are in the default state STYLE_NO_CHANGE (255).</p>
+
+<p>Use <a href="#">GetNotesFont</a> in <a href="NotesRichTextItem.html">NotesRichTextItem</a> to establish font identifiers for <a href="#">NotesFont</a>.</p>
+
+<h3>Rich text paragraph styles</h3>
+
+<p>The <a href="NotesRichTextParagraphStyle.html">NotesRichTextParagraphStyle</a> allows you to access the following attributes of a rich text paragraph object:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Alignment</a> </td>
+<td valign="top">Constant</td>
+<td valign="top">(Read-write) Alignment attribute of a rich text paragraph.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">FirstLineLeftMargin</a> </td>
+<td valign="top">Long</td>
+<td valign="top">(Read-write) First line left margin attribute of a rich text paragraph.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">InterLineSpacing</a> </td>
+<td valign="top">Constant</td>
+<td valign="top">(Read-write) Interline spacing attribute of a rich text paragraph.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">LeftMargin</a> </td>
+<td valign="top">Long</td>
+<td valign="top">(Read-write) Left margin attribute of a rich text paragraph.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">RightMargin</a> </td>
+<td valign="top">Long</td>
+<td valign="top">(Read-write) Right margin attribute of a rich text paragraph.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">SpacingAbove</a> </td>
+<td valign="top">Constant</td>
+<td valign="top">(Read-write) Spacing above attribute of a rich text paragraph.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">SpacingBelow</a> </td>
+<td valign="top">Constant</td>
+<td valign="top">(Read-write) Spacing below attribute of a rich text paragraph.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NotesRichTextParagraphStyle.html#Tabs">Tabs</a> </td>
+<td valign="top">Variant</td>
+<td valign="top">(Read-only) Tabs in a rich text paragraph style.</td>
+</tr>
+</table>
+
+<p>Use the <a href="NotesSession.html#CreateRichTextParagraphStyle">CreateRichTextParagraphStyle</a> method of <a href="NotesSession.html">NotesSession</a> to create a new rich text paragraph style object.</p>
+
+<h3>Tabs</h3>
+
+<p>You can manipulate the tabs in a rich text paragraph style object through the <a href="NotesRichTextParagraphStyle.html#ClearAllTabs">ClearAllTabs</a>, <a href="NotesRichTextParagraphStyle.html#SetTab">SetTab</a>, and <a href="NotesRichTextParagraphStyle.html#SetTabs">SetTabs</a> and <a href="#">Clear</a> methods in the NotesRichTextParagraphStyle and <a href="NotesRichTextTab.html">RichTextTab</a> classes.</p>
+
+<p>The following table lists the properties in the <a href="NotesRichTextTab.html">RichTextTab</a> class.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Position</a> </td>
+<td valign="top">(Read-write) Position of a tab in a rich text paragraph style</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Type</a> </td>
+<td valign="top">(Read-write) Type of tab</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="ways_to_access_rich_text_items.html">Accessing rich text items in LotusScript classes</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

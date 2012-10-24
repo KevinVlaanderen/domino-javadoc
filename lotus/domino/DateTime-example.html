@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: DateTime class</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: DateTime class</h1></center>
+
+<p>  1.	This agent creates a DateTime object that represents 4 March 2005 at 6:07:08 AM. The use of java.util.Calendar eliminates dependencies on regional settings.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+      // (Your code goes here) 
+      java.util.Calendar jdt = java.util.Calendar.getInstance();
+      jdt.set(2005, 2, 4, 6, 7, 8);
+      DateTime dt = session.createDateTime(jdt);
+      System.out.println("Local time = " + dt.getLocalTime());
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  2.	This agent creates a NotesDateTime object that represents 4 March 2005 at 6:07:08 if the regional setting is appropriate, for example, M/d/yy h:mm:ss. When you set the date from a String, you must be sure that the regional settings of the user's computer are appropriate to the String value.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+      // (Your code goes here) 
+      if ((session.getInternational().isDateMDY()) &amp;&amp;
+      (session.getInternational().getDateSep().equals("/")) &amp;&amp;
+      (session.getInternational().getTimeSep().equals(":"))) {
+        DateTime dt = session.createDateTime("3/4/05 6:07:08");
+        System.out.println("Local time = " + dt.getLocalTime());
+      }
+      else
+        System.out.println("Date format not MDY with / and :");
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  3.	This agent creates a new DateTime object that represents today's date. The time component of the DateTime object is not set.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = 
+      session.getAgentContext();
+      // (Your code goes here) 
+      DateTime dt = session.createDateTime("Today");
+      System.out.println(dt.getLocalTime());
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  4.	This agent creates a new DateTime object that represents the current date and time.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = 
+      session.getAgentContext();
+      // (Your code goes here) 
+      DateTime dt = session.createDateTime("Today");
+      dt.setNow();
+      System.out.println(dt.getLocalTime());
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  5.	This agent gets the value of the PurgeDate item in a document and places it into a DateTime object. The time zone setting of PurgeDate is preserved. For example, if PurgeDate has a value of 03/21/96 04:54:33 PM in Eastern Standard Time, the DateTime object represents 03/21/96 04:54:33 PM and its TimeZone property equals 5.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = session.getAgentContext();
+      // (Your code goes here) 
+      Document doc = agentContext.getDocumentContext();
+      Item item = doc.getFirstItem("PurgeDate");
+      DateTime dt = item.getDateTimeValue();
+      System.out.println("Local time = " + 
+        dt.getLocalTime() + " TZ" + dt.getTimeZone());
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="DateTime.html">DateTime class</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

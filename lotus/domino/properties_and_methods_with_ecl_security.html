@@ -1,0 +1,1849 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Properties and methods with ECL security</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Properties and methods with ECL security</h1></center>
+
+<p>The following tables list the properties and methods affected by an execute control list (ECL). These properties cannot be accessed or set, and these methods do not execute on the workstation unless the marked ECL priveleges are granted to the signer of the formula.</p>
+
+<p>The ECL flags listed in the table are:</p>
+
+<ul>
+<li>Access to current file system (file)</li>
+<li>Access to current database (cur)</li>
+<li>Access to environment variables (env)</li>
+<li>Access to external programs (prog)</li>
+<li>Ability to send mail (mail)</li>
+<li>Ability to read other databases (read)</li>
+<li>Ability to modify other databases (mod)</li>
+</ul>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">ACL</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">createACLEntry</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">deleteRole</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getEntry</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getFirstEntry</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getNextEntry</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">renameRole</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">save</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">ACLEntry</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">disableRole</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">enableRole</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">isRoleEnabled</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">remove</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Agent</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">remove</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">run</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">runOnServer</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">AgentContext</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">unprocessedFTSearch</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">updateProcessedDoc</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Database</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">setCategories</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">isDelayUpdates</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setSizeQuota</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setTitle</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">createCopy</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">createDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">createFromTemplate</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top"> createReplica</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">FTSearch</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getAgent</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getDocumentByID</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getDocumentByUNID</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getDocumentByURL</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getForm</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getProfileDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getURLHeader</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getView</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">grantAccess</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">queryAccess</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top"> remove</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">replicate</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">revokeAccess</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">search</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">unprocessedFTSearch</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">updateFTIndex</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Document</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">appendItemValue</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">computeWithForm</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">copyAllItems</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setEncryptionKeys</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setUniversalID</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">copyItem</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">copyToDatabase</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">createReplyMessage</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">createRichTextItem</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">encrypt</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">makeResponse</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">putInFolder</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">remove</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">removeFromFolder</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">removeItem</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">renderToRTItem</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">replaceItemValue</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">save</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">send</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">sign</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">DocumentCollection</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">FTSearch</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getFirstDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getLastDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getNextDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getNthDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getPrevDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">putAllInFolder</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">removeAll</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">removeAllFromFolder</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">stampAll</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">updateAll</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+</table>
+
+<p>* For these methods in DocumentationCollection, access to read a database implies access to elements within the database without explicitly checking for ECL privileges.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">EmbeddedObject</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">extractFile</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getInputSource</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getInputStream</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getReader</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">parseXML</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">remove</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">transformXML</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Form</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">setFormUsers</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">setProtectReaders</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">setProtectUsers</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">setReaders</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">remove</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Item</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">setDateTimeValue</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setAuthors</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">setEncrypted</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">setNames</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setProtected</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setReaders</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setSaveToDisk</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setSigned</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setSummary</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setValueDouble</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setValueInteger</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setValues</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">setValueString</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">abstractText</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">appendToTextList</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">containsValue</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">copyToDocument</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">remove</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<p>* For abstractText and containsValue, access to read a database implies access to elements within the database without explicitly checking for ECL privileges.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Log</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">close</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">logAction (to database)</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">logAction (to file)</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">logAction (to mail message)</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">logAction (to agent)</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">logError (to database)</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">logError (to file)</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">logError (to mail message)</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">logError (to agent)</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">openFileLog</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Newsletter</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">formatDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">formatMsgWithDoclinks</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">RichTextItem</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">addNewLine</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">addTab</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">appendDocLink</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">getEmbeddedObject (OLE)</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">appendRTItem</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">appendText</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">embedObject (file)</td>
+<td valign="top">x</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">embedObject (OLE)</td>
+<td valign="top">x</td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Session</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">freeTimeSearch</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getDatabase</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getEnvironmentString</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getEnvironmentValue</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">setEnvironmentVar</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">updateProcessedDoc</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">View</td>
+<td valign="top">file</td>
+<td valign="top">cur</td>
+<td valign="top">env</td>
+<td valign="top">prog</td>
+<td valign="top">mail</td>
+<td valign="top">read</td>
+<td valign="top">mod</td>
+</tr>
+<tr>
+<td valign="top">getAliases</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getColumns</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getCreated</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">isAutoUpdate</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">isCalendar</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">isDefaultView</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">isFolder</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">isProtectReaders</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">getLastModified</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getName</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getParent</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getReaders</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top">x</td>
+</tr>
+<tr>
+<td valign="top">getUniversalID</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">FTSearch</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getAllDocumentsByKey</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getChild</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getDocumentByKey</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getFirstDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getLastDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getNextDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getNextSibling</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getNthDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getParentDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getPrevDocument</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">getPrevSibling</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">refresh</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top">remove</td>
+<td valign="top"></td>
+<td valign="top">x</td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top"></td>
+<td valign="top">x*</td>
+<td valign="top">x</td>
+</tr>
+</table>
+
+<p>* For the View class, access to read a database implies access to elements within the database without explicitly checking for ECL privileges.</p>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="10_notes_classes_atoz.html">Java Classes A-Z </a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

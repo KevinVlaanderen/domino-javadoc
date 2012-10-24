@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Accessing document properties in LotusScript classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Accessing document properties in LotusScript classes</h1></center>
+
+<p>The following table lists the document properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#Authors">Authors</a></td>
+<td valign="top">String array</td>
+<td valign="top">(Read-only) Names of users who have saved the document</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#ColumnValues">ColumnValues</a></td>
+<td valign="top">Variant array</td>
+<td valign="top">(Read-only) Column values in parent view, or null; not applicable if document not accessed through a view</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#Created">Created</a></td>
+<td valign="top">DATE variant</td>
+<td valign="top">(Read-only) Date and time the document was created</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#EmbeddedObjects">EmbeddedObjects</a></td>
+<td valign="top">Variant array</td>
+<td valign="top">(Read-only) Embedded objects in the document</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#EncryptionKeys">EncryptionKeys</a></td>
+<td valign="top">String array</td>
+<td valign="top">(Read-write) Keys used to encrypt the document</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#EncryptOnSend">EncryptOnSend</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if the document is encrypted when mailed</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">FolderReferences</a> </td>
+<td valign="top">String array</td>
+<td valign="top">(Read-only) Shows what folders have references to a particular document</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#FTSearchScore">FTSearchScore</a></td>
+<td valign="top">Integer</td>
+<td valign="top">(Read-only) Relevance value if the document was retrieved from a full-text search</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#HasEmbedded">HasEmbedded</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document has embedded objects</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">HttpURL</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The HTTP URL of a document.</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NotesDocument.html#IsDeleted">IsDeleted</a> </td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is deleted</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsEncrypted</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is encrypted</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsNewNote</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is created but does not yet exist on disk</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">IsProfile</a> </td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is a profile document</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#IsResponse">IsResponse</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is a response document</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#IsSigned">IsSigned</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is signed</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">IsUIDocOpen</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document is accessed through a NotesUIDocument object</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="NotesDocument.html#IsValid">IsValid</a> </td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read only) True if the document exists</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#Items">Items</a></td>
+<td valign="top">NotesItem array</td>
+<td valign="top">(Read-only) All the items in the document</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">Key</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) If a profile document, the user name (key) of the profile</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#LastAccessed">LastAccessed</a></td>
+<td valign="top">DATE variant</td>
+<td valign="top">(Read-only) Date and time the document was last accessed</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#LastModified">LastModified</a></td>
+<td valign="top">DATE variant</td>
+<td valign="top">(Read-only) Date and time the document was last modified</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">LockHolders</a></td>
+<td valign="top">String array</td>
+<td valign="top">(Read-only) Names of the holders of a lock</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">NameOfProfile</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) If a profile document, the name of the profile</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#NoteID">NoteID</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Note ID of the document</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="#">NotesURL</a> </td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) The Notes URL of a document.</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ParentDatabase</a></td>
+<td valign="top">NotesDatabase</td>
+<td valign="top">(Read-only) Database that contains the object</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#ParentDocumentUNID">ParentDocumentUNID</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Universal ID of the parent if the document is a response</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">ParentView</a></td>
+<td valign="top">NotesView</td>
+<td valign="top">(Read-only) View from which the document was retrieved, if any</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#Responses">Responses</a></td>
+<td valign="top">NotesDocumentCollection</td>
+<td valign="top">(Read-only) 1st-level responses to this document, if any</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#SaveMessageOnSend">SaveMessageOnSend</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if message is saved when mailed</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">SentByAgent</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-only) True if the document was mailed by an agent using the Send method</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#Signer">Signer</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) Name of signer if the document is signed</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#SignOnSend">SignOnSend</a></td>
+<td valign="top">Boolean</td>
+<td valign="top">(Read-write) True if the document is signed when mailed</td>
+</tr>
+<tr>
+<td valign="top"><a href="#">Size</a></td>
+<td valign="top">Long</td>
+<td valign="top">(Read-only) Size of document in bytes, including any attachments</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#UniversalID">UniversalID</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-Write) Universal ID of the document</td>
+</tr>
+<tr>
+<td valign="top"><a href="NotesDocument.html#Verifier">Verifier</a></td>
+<td valign="top">String</td>
+<td valign="top">(Read-only) User ID verifying the signature if the document is signed</td>
+</tr>
+</table>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="#">Accessing documents in LotusScript classes</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>fulltextsettings element</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>fulltextsettings element</h1></center>
+
+<p>Defines the settings used to perform a full text search on a Domino database.</p>
+
+<h3>Containment Hierarchy</h3>
+
+<p>Contained by: <a href="database_root_element_xml.html">&lt;database&gt;</a></p>
+
+<p>Contains: <a href="#">&lt;lastindexed&gt;</a></p>
+
+<h3>Content</h3>
+
+<pre>lastindexed?</pre>
+
+<p>Contains an optional &lt;lastindexed&gt; element.</p>
+
+<h3>Attributes</h3>
+
+<pre>&lt;!ATTLIST fulltextsettings
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">  size</td>
+<td valign="top">%integer;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  update</td>
+<td valign="top"><a href="fulltextsettings_element_xml.html">(%fulltextsettings.updatetypes;)</a></td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  unindexeddocumentcount</td>
+<td valign="top">%integer;</td>
+<td valign="top">#IMPLIED</td>
+</tr>
+<tr>
+<td valign="top">  casesensitive</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  breakat</td>
+<td valign="top"><a href="fulltextsettings_element_xml.html">(%fulltextsettings.breaktypes;)</a></td>
+<td valign="top">"words"</td>
+</tr>
+<tr>
+<td valign="top">  includeattachments</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"false"</td>
+</tr>
+<tr>
+<td valign="top">  attachmenttype</td>
+<td valign="top"><a href="fulltextsettings_element_xml.html">(%fulltextsettings.attachment.type;)</a></td>
+<td valign="top">"rawtextonly"</td>
+</tr>
+<tr>
+<td valign="top">  includeencryptedfields</td>
+<td valign="top">%boolean;</td>
+<td valign="top">"true"</td>
+</tr>
+</table>
+
+
+
+&gt;</pre>
+
+<p>attachmenttype</p>
+
+<p>Types of attachments to include in a full-text index of a database. See the <a href="fulltextsettings_element_xml.html">%fulltextsettings.attachment.type;</a> entity for a list of options. This attribute is only evaluated if the includeattachments attribute equals true.</p>
+
+<p>breakat</p>
+
+<p>Level to break the search at, as defined in the <a href="fulltextsettings_element_xml.html">%fulltextsettings.breaktypes;</a> entity. Word breaks are always indexed, but you can also specify to index sentence and paragraph breaks as well.</p>
+
+<p>casesensitive</p>
+
+<p>If true, allows you to use the EXACTCASE keyword to narrow the search using case-sensitive words.</p>
+
+<p>includeattachments</p>
+
+<p>If true, indicates that the types of attachments specified in the attachmenttype attribute should be included in the full text index for the database. This means that a search on the database will return any occurrences of the query that are found in a document attachment, though the text is not highlighted in an attachment.</p>
+
+<p>includeencryptedfields</p>
+
+<p>If true, includes encrypted fields in the full-text index for the database. Encrypted fields hide content from unauthorized users. Setting this attribute to true compromises encrypted fields, by returning any matches despite the encryption settings.</p>
+
+<p>size</p>
+
+<p>Size of the database in kilobytes.</p>
+
+<p>unindexeddocumentcount</p>
+
+<p>Number of documents not indexed.</p>
+
+<p>update</p>
+
+<p>Frequency with which to update the full-text index on the server. See the <a href="fulltextsettings_element_xml.html">%fulltextsettings.updatetypes;</a> entity for a list of options.</p>
+
+<h3>Defined entities for &lt;fulltextsettings&gt; element</h3>
+
+<p>The  entity lists the types of text attachments that can be included in a full text index for searching. </p>
+
+<h3>%fulltextsettings.attachment.type;</h3>
+
+<p>Syntax:</p>
+
+<pre>&lt;!ENTITY % fulltextsettings.attachment.type "rawtextonly | includebinary "&gt;</pre>
+
+<p>includebinary</p>
+
+<p>Searches attachments in binary data format, which is more accurate than searching for raw text only.</p>
+
+<p>rawtextonly</p>
+
+<p>Searches attachment in raw text (ASCII) format, which occurs faster, but is less accurate.</p>
+
+<p>The  entity defines where to break the text when performing a full text search.</p>
+
+<h3>%fulltextsettings.breaktypes;</h3>
+
+<p>Syntax:</p>
+
+<pre>&lt;!ENTITY % fulltextsettings.breaktypes "words | wordssentencesparagraphs "&gt;</pre>
+
+<p>words</p>
+
+<p>Indexes each word and searches the text per word. This is the standard indexing break level.</p>
+
+<p>wordssentencesparagraphs</p>
+
+<p>Enables you to break the text at the sentence or paragraph level in addition to the word level. Using the SENTENCE and PARAGRAPH keywords between words, you can narrow the search to find only documents in which sentences or paragraphs contain both of the specified words.</p>
+
+<p>The  entity lists the types of server update schedules you can set for a full text search. </p>
+
+<h3>%fulltextsettings.updatetypes;</h3>
+
+<p>Syntax:</p>
+
+<pre>&lt;!ENTITY % fulltextsettings.updatetype "daily | hourly | immediate | scheduled "&gt;</pre>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="domino_dtd.html">The Domino DTD</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

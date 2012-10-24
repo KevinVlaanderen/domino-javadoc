@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Running a Java program</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Running a Java program</h1></center>
+
+<p>You can call the Domino Objects from a Java program by importing the lotus.domino package. The program can be coded as an application, a Domino agent, an applet, or a servlet. Local calls access run-time code on the local computer, which must have Domino installed. CORBA-based remote (IIOP) calls access run-time code from a remote Domino server; in this case, the local computer need not have Domino installed. Compilation must be on a computer with Domino Designer installed.</p>
+
+<p>Note:  Notes/Domino Release 7 supports the Sun Java(TM) 2 Platform, Technology Edition, v 1.4.2. To avoid incompatibilities: do not run Java agents compiled under Release 7 on earlier Domino servers or Notes clients; do not use Release 7 Java archives (Notes.jar, NCSO.jar, domtags.jar) on Java platforms earler than v. 1.4.2.</p>
+
+<p>Note:  The lotus.domino package has the same content as the Release 4.6 lotus.notes package plus new classes, methods, and other enhancements. The Release 4.6 lotus.notes package continues to be supported for backward compatibility only; it does not contain the new classes, methods, and other enhancements.</p>
+
+<h3>Requirements</h3>
+
+<h3>Server requirements</h3>
+
+<p>CORBA-based remote (IIOP) calls require access to a Domino server.</p>
+
+<p>The server tasks HTTP and DIIOP must be running. Ensure that the server notes.ini file contains the following line:</p>
+
+<pre>ServerTasks=&lt;any other tasks&gt;,http,diiop</pre>
+
+<p>Or you can start the tasks later with the load console command.</p>
+
+<p>Note:  The JavaMaxHeapsize should not be decreased below a value of 64M, or a runtime error will occur when attempting to execute nhttp.exe.  If a value for JavaMaxHeapsize is not set in the server notes.ini file, a value of 64M will be used.</p>
+
+<p>The server document in the Domino Directory (under Server\Servers) must permit and restrict remote calls as desired. Right-click on a field description to display an extended description.</p>
+
+<ul>
+<li>Under Security:</li>
+<li>Under Server Access, fill in "Access server," "Not access server," "Create new databases," and "Create replica databases" as desired.</li>
+<li>Under Programmability Restrictions, fill in "Run unrestricted methods and operations" and "Run restricted LotusScript Java agents" as desired. These fields apply to all programmable interfaces and must be filled in for remote access.</li>
+</ul>
+
+<h3>Note </h3>
+
+<p> These settings are new with Release 6.</p>
+
+<ul>
+<li>Under Internet Access - For "Internet authentication," specify a more inclusive or less inclusive view for validating user names.</li>
+</ul>
+
+<h3>Note </h3>
+
+<p> This verification is new for Release 5.0.1.</p>
+
+<ul>
+<li>Under Ports:</li>
+<li>Under Internet Ports - For "IIOP," indicate whether access is permitted by name and password, and whether anonymous access is allowed.</li>
+<li>Under Internet Protocols:</li>
+<li>Under HTTP R5 - For "Basics," indicate whether HTTP clients can browse databases. A "no" specification disallows DbDirectory.getFirstDatabase for the database.</li>
+</ul>
+
+<h3>Note </h3>
+
+<p> This verification is new for Release 5.0.1.</p>
+
+<ul>
+<li>Under IIOP, specify the number of threads to be allocated for handling remote calls.</li>
+</ul>
+
+<h3>Note </h3>
+
+<p> This restriction does not apply as of Release 6.</p>
+
+<p>A server refreshes its cache of security options approximately every half hour. The console command "tell diiop refresh" forces an immediate refresh.</p>
+
+<p>SSL security for CORBA-based Domino Object applications/applets builds on the Web Server SSL security. You must first set up the Web server security using the "Domino R5 Certificate Authority" application.</p>
+
+<h3>Designer requirements</h3>
+
+<p>Compilation of a Java program using the lotus.domino package requires installation of Domino Designer Release 5 or greater.</p>
+
+<p>For stand-alone applications, include Notes.jar from the Notes program directory and domino\java\NCSO.jar or domino\java\NCSO.cab from the Notes data directory in the classpath. For example:</p>
+
+<pre>set CLASSPATH=.;c:\notes\data\domino\java\NCSO.jar;c:\notes\Notes.jar</pre>
+
+<p>Notes.jar contains the high-level lotus.domino package, the lotus.domino.local package for local calls, and the old lotus.notes package. The NCSO archive contains the high-level lotus.domino package and the lotus.domino.cso package for remote calls. Strictly, you do not need the NCSO archive if you are not compiling remote calls and you do not need Notes.jar if you are not compiling local calls or old calls.</p>
+
+<p>The two NCSO archives have identical content but differ in the archiving technique:</p>
+
+<ul>
+<li>NCSO.jar uses the JDK JAR utility with compression.</li>
+<li>NCSO.cab uses the Microsoft CABARC utility.</li>
+</ul>
+
+<h3>Note </h3>
+
+<p> Earlier releases used NCSO.jar (uncompressed) and NCSOC.jar (compressed).</p>
+
+<p>Your class code must import the high-level lotus.domino package:</p>
+
+<pre>import lotus.domino.*;</pre>
+
+<h3>Run-time requirements</h3>
+
+<p>A computer running a Java application that makes local Domino calls must contain Domino Server, Domino Designer, or Notes Client, and must include Notes.jar in the classpath.</p>
+
+<p>A computer running a Java application that makes remote Domino calls need not contain Domino or Notes, but must contain one of the NCSO archives and must include it in the classpath.</p>
+
+<p>A computer running a Domino agent that makes Domino calls must include Notes.jar in the classpath.</p>
+
+<p>A computer running an applet that makes Domino calls needs no Domino software or classpath assignments. The applet must be loaded from a computer containing a Domino server.</p>
+
+<p>Note:  Do not use NCSOW.jar in the classpath for executing remote (IIOP) calls in a WebSphere® environment. NCSOW.jar is no longer kitted as it was starting with Release 5.0.4. You can continue to run programs that use NCSOW.jar on R5 servers, but not on Release 6 servers. The NCSO archives work with both R5 and Release 6 servers.</p>
+
+<h3>Calling the lotus.domino package</h3>
+
+<p>The following guidelines apply to Java programs calling into the lotus.domino package:</p>
+
+<ul>
+<li>An application or servlet that makes local calls uses the <a href="NotesThread.html">NotesThread class</a>, which extends java.lang.Thread. You can extend NotesThread, implement the Runnable interface, or use the static NotesThread methods sinitThread() and stermThread(). If you extend NotesThread, the entry point to the functional code must be public void runNotes(). If you implement Runnable, the entry point must be public void run(). If you use the static NotesThread methods, be sure to call stermThread exactly one time for each call to sinitThread. An application that makes remote calls does not use the NotesThread class. See the <a href="examples_compiling_and_running.html">examples</a> for clarification.</li>
+</ul>
+
+<p>Each thread of an application making local calls must initialize a NotesThread object. This includes AWT threads that access the Domino Objects. Listener threads must use the static methods because they cannot inherit from NotesThread.</p>
+
+<p>Memory management is a consideration for long running programs and programs that create a large number of objects. See the <a href="supporting_components.html#recycle">recycle method</a> and "Multithreading issues" under the <a href="NotesThread.html">NotesThread class</a>.</p>
+
+<ul>
+<li>An agent extends the <a href="AgentBase.html">AgentBase</a> class, which extends the <a href="NotesThread.html">NotesThread class</a>. The class that contains the agent code must be public. The entry point to the functional code must be public void NotesMain(). See the <a href="examples_compiling_and_running.html">examples</a> for clarification.</li>
+<li>An applet extends <a href="appletbase_class.html">AppletBase</a> and puts its functional code in the methods notesAppletInit(), notesAppletStart(), and notesAppletStop(). You do not have to distinguish between local and remote access in the main code. AppletBase makes local calls if the applet is running through the Notes client and remote calls if it is running through a browser. Remote calls go to the Domino server on the computer that loaded the applet.</li>
+</ul>
+
+<p>If an applet creates a thread containing Domino calls, the thread code must use NotesThread for local Domino calls but not remote (IIOP) calls. Use AppletBase.isLocal() to determine the environment. Use NotesThread.sinitThread for initialization and NotesThread.stermThread for termination. Thread creation includes handling AWT events.</p>
+
+<p>See the <a href="examples_compiling_and_running.html">examples</a> for clarification.</p>
+
+<p>For applets stored in a Domino database, "Applet uses Notes CORBA classes" under Java Applet - Java Applet Properties must be checked.</p>
+
+<ul>
+<li>The <a href="Session.html">Session</a> class is the root of the Domino back-end object containment hierarchy. For applications making local calls, use the method <a href="NotesFactory.html">NotesFactory</a> createSession(), createSessionWithFullAccess(),  createSession(null, null, String pwd),  createSessionWithFullAccess(String pwd), createSession(null, String user, String pwd), or createSession(null, "", "") to create a Session object. For applications making remote calls, use the method createSession(String host, "", "") or createSession(String host, String user, String pwd). For agents, use the method <a href="AgentBase.html">AgentBase</a>.getSession(). For applets, use the method <a href="appletbase_class.html">AppletBase</a>.openSession() or openSession(String user, String pwd) and closeSession(Session session). See the <a href="examples_compiling_and_running.html">examples</a> for clarification.</li>
+</ul>
+
+<p>The user and pwd parameters of NotesFactory.createSession and AppletBase.openSession must be a user name and Internet password in the Domino Directory on the server being accessed. If a name and password are not specified, anonymous access must be permitted by the server.</p>
+
+<p>For Single Sign-on to a Domino or WebSphere server, use createSession(String host, String token), createSession(String host, org.omg.SecurityLevel2.Credentials token), createSession(String host, null), or createSession(String host, HttpServletRequest request).</p>
+
+<h3>Note </h3>
+
+<p> Single Sign-on is new with Release 5.0.5.</p>
+
+<p>To enable SSL (Secure Sockets Layer), use NotesFactory.createSession(String host, String args[], String user, String pwd) and specify "-ORBEnableSSLSecurity" for args(0).</p>
+
+<ul>
+<li>For foreground agents, System.out and System.err output goes to the Java debug console. For locally scheduled agents, System.out and System.err output goes to the Domino log.</li>
+<li>For output to Web browsers from agents (but not applets), you must assign a java.io.PrintWriter object with the getAgentOutput() method of AgentBase, and write using the println method of the PrintWriter object. This method works for output to Notes clients as well. See the <a href="examples_compiling_and_running.html">examples</a> for clarification.</li>
+<li>System.exit must not be used to terminate a program using the NotesThread class (and by extension the AgentBase class). In an agent, System.exit throws SecurityException. In an application, System.exit may cause corruption problems.</li>
+</ul>
+
+<h3>Using the lotus.domino classes</h3>
+
+<p>The lotus.domino classes allow you to access named databases, views, documents, and other back-end objects. The following lotus.domino classes are for direct, public use:</p>
+
+<ul>
+<li>
+<a href="ACL.html">ACL</a> represents a collection of all the access control list entries for a database.</li>
+<li>
+<a href="ACLEntry.html">ACLEntry</a> represents a single entry in an access control list.</li>
+<li>
+<a href="AdministrationProcess.html">AdministrationProcess</a> represents the administration process.</li>
+<li>
+<a href="Agent.html">Agent</a> represents the attributes of an agent.</li>
+<li>
+<a href="AgentContext.html">AgentContext</a> represents the context of the current agent if the program is running as an agent.</li>
+<li>
+<a href="ColorObject.html">ColorObject</a> represents a color.</li>
+<li>
+<a href="Database.html">Database</a> represents a Domino database.</li>
+<li>
+<a href="DateRange.html">DateRange</a> represents a range of dates and times.</li>
+<li>
+<a href="DateTime.html">DateTime</a> represents a Domino date-time.</li>
+<li>
+<a href="DbDirectory.html">DbDirectory</a> represents the database files on a server or the local computer.</li>
+<li>
+<a href="Document.html">Document</a> represents a document in a database.</li>
+<li>
+<a href="DocumentCollection.html">DocumentCollection</a> represents a collection of documents.</li>
+<li>
+<a href="DxlExporter.html">DXLExporter</a> represents the conversion of Domino data to DXL (Domino XML).</li>
+<li>
+<a href="DxlImporter.html">DXLImporter</a> represents the conversion of DXL (Domino XML) to Domino data.</li>
+<li>
+<a href="EmbeddedObject.html">EmbeddedObject</a> represents embedded objects, links, and file attachments.</li>
+<li>
+<a href="Form.html">Form</a> represents a form in a database.</li>
+<li>
+<a href="International.html">International</a> represents the international settings in the operating system.</li>
+<li>
+<a href="Item.html">Item</a> represents an item of data in a document.</li>
+<li>
+<a href="Log.html">Log</a> represents actions and errors that occur during execution of a script.</li>
+<li>
+<a href="MIMEEntity.html">MIMEEntity</a> represents an item of type MIME (Multipurpose Internet Mail Extensions).</li>
+<li>
+<a href="MIMEHeader.html">MIMEHeader</a> represents a MIME header.</li>
+<li>
+<a href="Name.html">Name</a> represents a user or server name.</li>
+<li>
+<a href="Newsletter.html">Newsletter</a> represents a summary document that contains information from, or links to, several other documents.</li>
+<li>
+<a href="NoteCollection.html">NoteCollection</a> represents a collection of Domino design and data elements in a database.</li>
+<li>
+<a href="Outline.html">Outline</a> represents an outline.</li>
+<li>
+<a href="OutlineEntry.html">OutlineEntry</a> represents an entry in an outline.</li>
+<li>
+<a href="Registration.html">Registration</a> represents the creation or administration of an ID file.</li>
+<li>
+<a href="Replication.html">Replication</a> represents the replication attributes of a Domino database.</li>
+<li>
+<a href="ReplicationEntry.html">ReplicationEntry</a> represents the replication settings for a pair of servers in a database.</li>
+<li>
+<a href="RichTextDoclink.html">RichTextDoclink </a> represents a doclink in a rich text item.</li>
+<li>
+<a href="RichTextItem.html">RichTextItem</a> represents items that contain rich text.</li>
+<li>
+<a href="RichTextNavigator.html">RichTextNavigator</a> represents a means of navigation in a rich text item.</li>
+<li>
+<a href="RichTextParagraphStyle.html">RichTextParagraphStyle</a> represents rich text paragraph style attributes.</li>
+<li>
+<a href="RichTextRange.html">RichTextRange</a> represents a range of elements in a rich text item.</li>
+<li>
+<a href="RichTextSection.html">RichTextSection</a> represents a collapsible section in a rich text item.</li>
+<li>
+<a href="RichTextStyle.html">RichTextStyle</a> represents rich text style attributes.</li>
+<li>
+<a href="RichTextTab.html">RichTextTab</a> represents rich text tab attributes.</li>
+<li>
+<a href="RichTextTable.html">RichTextTable</a> represents a table in a rich text item.</li>
+<li>
+<a href="Session.html">Session</a> represents the context of the current program. This class is the root of the Domino database objects.</li>
+<li>
+<a href="Stream.html">Stream</a> represents a stream of binary or character data.</li>
+<li>
+<a href="View.html">View</a> represents a view or folder in a database.</li>
+<li>
+<a href="ViewColumn.html">ViewColumn</a> represents a column of a view.</li>
+<li>
+<a href="ViewEntry.html">ViewEntry</a> represents an entry in a view.</li>
+<li>
+<a href="ViewEntryCollection.html">ViewEntryCollection</a> represents a collection of view entries.</li>
+<li>
+<a href="ViewNavigator.html">ViewNavigator</a> represents a view navigator.</li>
+</ul>
+
+<h3>See Also</h3>
+
+<blockquote>
+<a href="9_coding_guidelines.html">Java Classes Coding Guidelines</a><br>
+</blockquote>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

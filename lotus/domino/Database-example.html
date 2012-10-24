@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Examples: Database class</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Examples: Database class</h1></center>
+
+<p>  1.	This agent creates a Database object called db and assigns a database to it. The database is names.nsf, located at the top level of the data directory on server doc. If the database exists, getDatabase automatically opens it.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = 
+         session.getAgentContext();
+      // (Your code goes here) 
+      Database db = 
+         session.getDatabase("doc", "names");
+      System.out.println(db.getTitle());
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  2.	This agent uses isOpen to test if the database quack.nsf exists locally. If not, the agent uses the create method to create a new database on disk.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext =
+         session.getAgentContext();
+      // (Your code goes here) 
+      Database db, template;
+      db = session.getDatabase(null, "quack");
+      if (db.isOpen())
+        System.out.println(db.getTitle());
+      else {
+        System.out.println("Database does not exist");
+        System.out.println("Creating new database ...");
+        template = session.getDatabase(null, 
+        "discsw50.ntf");
+        if (template.isOpen()) {
+          db = template.createFromTemplate
+          (null, "quack", true);
+          db.setTitle("Ducks of North America");
+          System.out.println(db.getTitle()); }
+        else
+          System.out.println
+          ("Template discsw50.ntf does not exist"); }
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  3.	This agent is the same as the last except that the database is in a subdirectory of the data directory. Notice that two backslashes must be used because the backslash is an escape character in Java.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = 
+          session.getAgentContext();
+      // (Your code goes here) 
+      Database db, template;
+      db = session.getDatabase(null, "quack");
+      if (db.isOpen())
+        System.out.println(db.getTitle());
+      else {
+        System.out.println(
+           "Database does not exist");
+        System.out.println(
+           "Creating new database ...");
+        template = session.getDatabase(null, 
+        "discsw50.ntf");
+        if (template.isOpen()) {
+          db = template.createFromTemplate
+          (null, "birds\\quack", true);
+          db.setTitle("Ducks of North America");
+          System.out.println(db.getTitle()); }
+        else
+          System.out.println
+          ("Template discsw50.ntf does not exist"); }
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  4.	This agent gives Brian Flokka Editor access to the current database. Using the CurrentDatabase property avoids having to use file names in agents and makes agents easily portable from one database to another.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = 
+          session.getAgentContext();
+      // (Your code goes here) 
+      Database db = agentContext.getCurrentDatabase();
+      db.grantAccess("Brian Flokka", ACL.LEVEL_EDITOR);
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+}</pre>
+
+<p>  5.	This agent shows how you can use the openIfModified method to open a database only if it's been modified after a certain date. The agent checks if quack.nsf on the current server was modified since yesterday; if so, the agent opens the database and compacts it.</p>
+
+<pre>import lotus.domino.*;
+public class JavaAgent extends AgentBase {
+  public void NotesMain() {
+    try {
+      Session session = getSession();
+      AgentContext agentContext = 
+          session.getAgentContext();
+      // (Your code goes here) 
+      DbDirectory dir = session.getDbDirectory(null);
+      DateTime dt = session.createDateTime("Today");
+      dt.setNow();
+      dt.adjustDay(-1);
+      Database db = dir.openDatabaseIfModified
+      ("quack", dt);
+      if (db != null) {
+        System.out.println("Compacting database");
+        db.compact(); }
+      else
+        System.out.println(
+          "Database not modified in past 
+           day");
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+</pre>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>

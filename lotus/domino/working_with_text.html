@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso8859-1">
+<title>Working with text in Java classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+</head>
+<body>
+
+<A NAME="navbar_top"></A><A HREF="#skip-navbar_top" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A><HR>
+
+<center><h1>Working with text in Java classes</h1></center>
+
+<p>Text includes text paragraphs and text runs, rich text styles, rich text paragraph styles, and tabs. A text run is text until the style changes or the paragraph ends.</p>
+
+<h3>Text paragraphs and text runs</h3>
+
+<p>To find text in a rich text item, use the <a href="RichTextNavigator.html">RichTextNavigator</a> methods in conjunction with the type RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH or RichTextItem.RTELEM_TYPE_TEXTRUN. To get text, create a <a href="RichTextRange.html">RichTextRange</a> object with <a href="RichTextItem.html#createRange">createRange</a> and delineate the text with the following methods:</p>
+
+<ul>
+<li>
+<a href="RichTextRange.html#setBegin">setBegin</a> defines the beginning of a range.</li>
+<li>
+<a href="RichTextRange.html#setBegin">setEnd</a> defines the end of a range.</li>
+</ul>
+
+<p>For example, if you find an element of type RichTextItem.RTELEM_TYPE_TEXTPARAGRAPH with <a href="RichTextNavigator.html">RichTextNavigator</a>, then call <a href="RichTextRange.html#setBegin">setBegin</a> passing it the navigator, your range starts at that paragraph.</p>
+
+<p>The <a href="RichTextRange.html">RichTextRange</a> class has the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data Type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextRange.html#Navigator">getNavigator</a></td>
+<td valign="top"><a href="RichTextNavigator.html">RichTextNavigator</a></td>
+<td valign="top">A navigator confined to the range. This allows you, for example, to get the text runs in a text paragraph.</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextRange.html#Style">getStyle</a></td>
+<td valign="top"><a href="RichTextStyle.html">RichTextStyle</a></td>
+<td valign="top">The style of the first text run in the range.</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextRange.html#TextParagraph">getTextParagraph</a></td>
+<td valign="top">String</td>
+<td valign="top">The text of the first paragraph in the range.</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextRange.html#TextRun">getTextRun</a></td>
+<td valign="top">String</td>
+<td valign="top">The text of the first run in the range.</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextRange.html#Type">getType</a></td>
+<td valign="top">String</td>
+<td valign="top">The type of the first element in the range.</td>
+</tr>
+</table>
+
+<p>In addition to <a href="RichTextRange.html#setBegin">setBegin</a> and <a href="RichTextRange.html#setEnd">setEnd</a>, the <a href="RichTextRange.html">RichTextRange</a> class has the following methods:</p>
+
+<ul>
+<li>
+<a href="RichTextRange.html#Clone">Clone</a> creates another <a href="RichTextRange.html">RichTextRange</a> object from the current range.</li>
+<li>
+<a href="RichTextRange.html#findandReplace">findAndReplace</a> replaces the occurrence of a string in the range.</li>
+<li>
+<a href="RichTextRange.html#remove">remove</a> removes the elements of the range.</li>
+<li>
+<a href="RichTextRange.html#reset">reset</a> resets the range to its default values.</li>
+<li>
+<a href="RichTextRange.html#setStyle">setStyle</a> sets all text in the range to a specified style.</li>
+</ul>
+
+<h3>Text creation</h3>
+
+<p>To create text in a rich text item, use the following methods:</p>
+
+<ul>
+<li>
+<a href="RichTextItem.html#addNewLine">addNewLine</a> appends one or more new lines (carriage returns) to the end of a rich text item.</li>
+<li>
+<a href="RichTextItem.html#addPageBreak">addPageBreak</a> places a hard page break at the end of a RichTextItem.</li>
+<li>
+<a href="RichTextItem.html#addTab">addTab</a> appends one or more tabs to the end of a rich text item.</li>
+<li>
+<a href="RichTextItem.html#appendText">appendText</a> appends text to the end of a rich text item. The text is rendered with the current style of the item.</li>
+<li>
+<a href="RichTextItem.html#appendRTItem">appendRTItem</a> appends the contents of one rich text item to the end of another rich text item.</li>
+</ul>
+
+<h3>Rich text styles</h3>
+
+<p>You can access rich text style properties through the <a href="RichTextStyle.html">RichTextStyle</a> class. The RichTextStyle class contains the following properties:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data Type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#Bold">getBold and setBold</a></td>
+<td valign="top">int</td>
+<td valign="top">Bold rich text attribute</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#Effects">getEffects and setEffects</a></td>
+<td valign="top">int</td>
+<td valign="top">Effects (emboss, extrude, and so on)</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#Font">getFont and setFont</a></td>
+<td valign="top">int</td>
+<td valign="top">Font rich text attribute</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#FontSize">getFontSize and setFontSize</a></td>
+<td valign="top">int</td>
+<td valign="top">Font size in points</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#IsDefault">isDefault</a></td>
+<td valign="top">boolean</td>
+<td valign="top">If all attributes are in a default state</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#Italic">getItalic and setItalic</a></td>
+<td valign="top">int</td>
+<td valign="top">Italic rich text attribute</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#Color">getColor and setColor</a></td>
+<td valign="top">int</td>
+<td valign="top">Color rich text attribute</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#Parent">getParent</a></td>
+<td valign="top">Session</td>
+<td valign="top">The session that contains a RichTextStyle object</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#PassThruHTML">getPassThruHTML and setPassThruHTML</a></td>
+<td valign="top">int</td>
+<td valign="top">HTML attribute</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#StrikeThrough">getStrikeThrough and setStrikeThrough</a></td>
+<td valign="top">int</td>
+<td valign="top">Strikethrough rich text attribute</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextStyle.html#Underline">getUnderline and setUnderline</a></td>
+<td valign="top">int</td>
+<td valign="top">Underline rich text attribute</td>
+</tr>
+</table>
+
+<p>The method <a href="RichTextItem.html#appendStyle">appendStyle</a> appends a style to the end of a rich text item. Text following the style is rendered using that styles's attributes until another style is appended.</p>
+
+<p>Use <a href="RichTextItem.html#getNotesFont">getNotesFont</a> in <a href="RichTextItem.html">RichTextItem</a> to establish font identifiers for <a href="RichTextStyle.html#Font">Font</a>.</p>
+
+<h3>Rich text paragraph styles</h3>
+
+<p>The <a href="RichTextParagraphStyle.html">RichTextParagraphStyle</a> allows you to access the following attributes of a rich text paragraph object:</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Data type</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top">
+<a href="RichTextParagraphStyle.html#Alignment">getAlignment and setAlignment</a> </td>
+<td valign="top">int</td>
+<td valign="top">Alignment attribute of a rich text paragraph</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextParagraphStyle.html#FirstLineLeftMargin">getFirstLineLeftMargin and setFirstLineLeftMargin</a></td>
+<td valign="top">int</td>
+<td valign="top">First line left margin attribute of a rich text paragraph</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextParagraphStyle.html#InterLineSpacing">getInterLineSpacing and setInterLineSpacing</a></td>
+<td valign="top">int</td>
+<td valign="top">Interline spacing attribute of a rich text paragraph</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextParagraphStyle.html#LeftMargin">getLeftMargin and setLeftMargin</a></td>
+<td valign="top">int</td>
+<td valign="top">Left margin attribute of a rich text paragraph</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextParagraphStyle.html#RightMargin">getRightMargin and setRightMargin</a></td>
+<td valign="top">int</td>
+<td valign="top">Right margin attribute of a rich text paragraph</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextParagraphStyle.html#SpacingAbove">getSpacingAbove and setSpacingAbove</a></td>
+<td valign="top">int</td>
+<td valign="top">Spacing above attribute of a rich text paragraph</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextParagraphStyle.html#SpacingBelow">getSpacingBelow and setSpacingBelow</a></td>
+<td valign="top">int</td>
+<td valign="top">Spacing below attribute of a rich text paragraph</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextParagraphStyle.html#Tabs">getTabs</a></td>
+<td valign="top">Vector of RichTextTab</td>
+<td valign="top">Tabs in a rich text paragraph style</td>
+</tr>
+</table>
+
+<p>Use the <a href="Session.html#createRichTextParagraphStyle">createRichTextParagraphStyle</a> method of <a href="Session.html">Session</a> to create a new rich text paragraph style object.</p>
+
+<h3>Tabs</h3>
+
+<p>You can manipulate the tabs in a rich text paragraph style object through the <a href="RichTextParagraphStyle.html#clearAllTabs">clearAllTabs</a>, <a href="RichTextParagraphStyle.html#setTab">setTab</a>, and <a href="RichTextParagraphStyle.html#setTabs">setTabs</a> methods in <a href="RichTextParagraphStyle.html">RichTextParagraphStyle</a>, and the <a href="RichTextTab.html#clear">clear</a> method in <a href="RichTextTab.html">RichTextTab</a>.</p>
+
+<p>The following table lists the properties in the <a href="RichTextTab.html">RichTextTab</a> class.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<td valign="top">Property</td>
+<td valign="top">Description</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextTab.html#Position">getPosition</a></td>
+<td valign="top">Position of the tab in a rich text paragraph style</td>
+</tr>
+<tr>
+<td valign="top"><a href="RichTextTab.html#Type">getType</a></td>
+<td valign="top">Type of tab</td>
+</tr>
+</table>
+
+<P></P>
+<HR>
+<A NAME="navbar_bottom"></A><A HREF="#skip-navbar_bottom" title="Skip navigation links"></A><TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"></A><TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY=""><TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<FONT CLASS="NavBarFont1">Class</FONT> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A> </TD>
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A> </TD>
+</TR></TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+ PREV 
+ NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A HREF="../../index.html?overview-summary.html" target="_top"><B>FRAMES</B></A>   
+ <A HREF="../../overview-summary.html" target="_top"><B>NO FRAMES</B></A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A><HR>
+
+</body>
+</html>
